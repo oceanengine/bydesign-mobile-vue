@@ -1,0 +1,27 @@
+
+@keyframes bui-loading-opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.delay-time-animation(@time;@totalTime:0.8s;) {
+  animation: bui-loading-opacity @totalTime linear @time infinite;
+}
+.set-loading-icon-color(@count; @total:@count;) when(@count >= 0) {
+  .bui-loading-group {
+    .bui-loading-group-default {
+      stroke: @cascader-loading-icon-color;
+    }
+  }
+  .bui-loading-path-item:nth-child(@{count}) {
+    .delay-time-animation(-0.8s + 0.11428s * (@count - 1), 0.8s);
+  }
+  .set-loading-icon-color(@count - 1, @total);
+}
+
+.bui-loading-opacity-animation {
+  .set-loading-icon-color(8)
+}

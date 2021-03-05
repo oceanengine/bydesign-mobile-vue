@@ -1,0 +1,50 @@
+.@{css-prefix}collapse {
+  .collapse-header {
+    display: flex;
+    align-items:center;
+    margin-bottom: 5px;
+    cursor: pointer;
+    .arrow-icon{
+      width: 8px;
+      height: 8px;
+    }
+    .title{
+      font-size: @font-size-base;
+      padding-left: 8px;
+      padding-right: 10px;
+      color: @text-color-1;
+    }
+    .line{
+      height: 1px;
+      margin-left: 10px;
+      flex: 1;
+      background-color: @border-color-split;
+    }
+    &:hover{
+      .arrow-icon{
+        fill: @primary-color;
+      }
+      .title{
+        color: @primary-color;
+      }
+    }
+  }
+  
+  &.is-expand{
+    .arrow-icon{
+      transform: rotate(0deg);
+      transition:transform .2s linear;
+    }
+  }
+  &.is-collapse{
+    .arrow-icon{
+      transform: rotate(180deg);
+      transition:transform .2s linear;
+    }
+  }
+  &.is-custom{
+    .custom-header-inner{
+      display: inline-block;
+    }
+  }
+}

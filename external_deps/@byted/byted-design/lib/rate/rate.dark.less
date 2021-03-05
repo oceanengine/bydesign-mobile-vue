@@ -1,0 +1,80 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .bui-rate {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  &.bui-rate-disabled {
+    .bui-rate-item {
+      cursor: not-allowed;
+    }
+  }
+  &-wrapper {
+    display: inline-flex;
+    align-items: center;
+    height: @line-height-base;
+    line-height: @line-height-base;
+    .bui-rate-item {
+      display: inline-block;
+      padding-right: 6px;
+      position: relative;
+      font-size: @rate-md-size;
+      cursor: pointer;
+      &:last-child {
+        padding-right: 0;
+      }
+      .byted-icon {
+        display: block;
+      }
+      &-half {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @rate-md-size / 2;
+        overflow: hidden;
+      }
+      .bui-rate-icon-default {
+        fill: @rate-icon-default;
+      }
+      .bui-rate-icon-fill {
+        fill: @rate-icon-fill;
+      }
+    }
+  }
+  //.bui-rate-value {
+  //  font-size: @rate-md-size;
+  //  line-height: @line-height-base;
+  //}
+  &.bui-rate-sm {
+    height: @line-height-sm;
+    line-height: @line-height-sm;
+    .rate-resize(@rate-sm-size, @line-height-sm)
+  }
+  &.bui-rate-md {
+    .rate-resize(@rate-md-size, @line-height-base)
+  }
+  &.bui-rate-lg {
+    height: @line-height-lg;
+    line-height: @line-height-lg;
+    .rate-resize(@rate-lg-size, @line-height-lg)
+  }
+  &.bui-rate-xl {
+    height: @line-height-xl;
+    line-height: @line-height-xl;
+    .rate-resize(@rate-xl-size, @line-height-xl)
+  }
+
+  .rate-resize(@size, @line-height) {
+    .bui-rate-item {
+      font-size: @size;
+      &-half {
+        width: @size / 2;
+      }
+    }
+    //.bui-rate-value {
+    //  font-size: @size;
+    //  line-height: @line-height;
+    //}
+  }
+}

@@ -1,0 +1,30 @@
+@import '../style/var.less';
+@import './markdown.less';
+
+@min-margin: 56px;
+
+.by-docs {
+  background-color: @docs-background-color;
+
+  &-body {
+    padding: @header-height 0px 0px @navs-width;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    &-content {
+      max-width: 960px + @min-margin * 2;
+      min-width: 400px + @min-margin * 2;
+      padding: 0 @min-margin;
+      margin: 0 auto;
+      box-sizing: border-box;
+      &.has-right {
+        display: flex;
+      }
+    }
+
+    &-center {
+      flex: 1;
+      min-width: auto;
+    }
+  }
+}

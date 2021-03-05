@@ -1,0 +1,18 @@
+.fade-enter-active, .fade-leave-active{
+  transition:opacity 0.15s linear;
+  opacity:1 !important;
+  &.fade-enter, &.fade-leave-active{
+    opacity:0 !important;
+  }
+}
+
+.collapse-transition {
+  transition: height .2s ease-in-out,padding-top .2s ease-in-out,padding-bottom .2s ease-in-out
+}
+
+.@{css-prefix}loading-fade-enter-active, .@{css-prefix}loading-fade-leave-active {
+  transition: opacity .5s;
+}
+.@{css-prefix}loading-fade-enter, .@{css-prefix}loading-fade-leave-to {
+  opacity: 0;
+}

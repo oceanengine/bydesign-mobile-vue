@@ -1,0 +1,105 @@
+.@{css-prefix}select {
+  user-select: none;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  .bui-input-wrapper{
+    overflow: hidden; // bfc
+    .byted-icon.bui-icon-angle-up{
+        fill: @gray-color-3;
+    }
+  }
+  .byted-input{
+    overflow: hidden; // bfc
+    .form-control{
+      &:focus{
+        border-color: @secondary-color-1;
+      }
+      &[disabled], &[readonly]{
+        color: @text-color-1;
+      }
+    }
+  }
+  .byted-input > input.form-control{
+    width: 100%;
+    padding-right: 30px;
+    &[readonly]{
+      background-color: #fff;
+      cursor: pointer;
+    }
+    &[disabled]{
+      background-color: #eeeeee;
+      opacity: 0.8;
+      cursor: not-allowed;
+    }
+  }
+  .bui-select-icon{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -6px;
+    height: 12px;
+    width: 12px;
+    transform:rotate(0deg);
+    transition: transform .2s ease;
+    z-index: 3;
+    &.open{
+      z-index: 3;
+      transform:rotate(-180deg);
+    }
+  }
+}
+.bui-popper{
+  z-index: @popper-z-index;
+  .bui-option-list-wrapper{
+    border-radius: 2px;
+    margin-top: -1px;
+    margin-bottom: 2px;
+    max-height: 184px;
+    overflow: hidden;
+    border: 1px solid @secondary-color-1;
+    // box-shadow: 0 1px 4px rgba(0,0,0,.2);
+    background-color: #fff;
+    // padding: 6px 0;
+    &:hover{
+      overflow-y: auto;
+      overflow-x: hidden;
+      // 美化滚动条
+      &::-webkit-scrollbar-track-piece {
+        background-color:transparent;
+      }
+      &::-webkit-scrollbar {
+        width:9px;
+        height:9px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color:#e8e8e8;
+        border-radius: 4px;
+        background-clip:padding-box;
+        min-height:28px;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background-color:#ddd;
+      }
+    }
+  }
+  .bui-option-item{
+    min-height: 30px;
+    padding: 8px 12px;
+    font-size: @font-size-2;
+    cursor: pointer;
+    &:hover{
+      background-color: @gray-color-6;
+    }
+    &.bui-selected{
+      color: @primary-color-1;
+    }
+    &.bui-disabled{
+      color: #bbbec4;
+      cursor: not-allowed;
+      &:hover{
+        background-color: #fff;
+      }
+    }
+  }
+}

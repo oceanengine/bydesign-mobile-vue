@@ -1,0 +1,141 @@
+# 开关
+
+### 安装
+
+:::card
+
+```javascript
+import { Switch } from '@byted/by-design-m';
+
+Vue.use(Switch);
+```
+
+:::
+
+## 代码演示
+
+:::card
+
+```topic
+基础用法
+```
+
+```desc
+通过`v-model`绑定valueBase
+```
+
+```html
+<byted-switch v-model="valueBase" @change="change" />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      valueBase: false,
+    };
+  },
+  methods: {
+    change(value) {
+      alert(`new value ${value}`);
+    },
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+禁用状态
+```
+
+```html
+<byted-switch v-model="valueBase" disabled /> <byted-switch v-model="valueDiasbledTrue" disabled />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      valueBase: false,
+      valueDiasbledTrue: true,
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+尺寸大小
+```
+
+```html
+<byted-switch v-model="valueDiasbledTrue" size="large" />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      valueDiasbledTrue: true,
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+控制事件
+```
+
+```html
+<byted-switch :value="valueControlled" :loading="isLoading" @input="changeValue" />
+<byted-switch :value="valueControlled" size="large" :loading="isLoading" @input="changeValue" />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      valueControlled: true,
+      isLoading: false,
+    };
+  },
+  methods: {
+    changeValue(value) {
+      this.isLoading = true;
+      setTimeout(() => {
+        alert(`new value ${value}`);
+        this.isLoading = false;
+        this.valueControlled = !this.valueControlled;
+      }, 1000);
+    },
+  },
+};
+```
+
+:::
+
+## API
+
+### Props
+
+| 参数     | 说明                                       | 类型      | 默认值   |
+| -------- | ------------------------------------------ | --------- | -------- |
+| v-model  | 开关当前状态                               | `any`     | `false`  |
+| disabled | 是否为禁用状态                             | `boolean` | `false`  |
+| size     | 设置型号大小，可选值为： `large`、`normal` | `string`  | `normal` |
+
+## Events
+
+| 事件名 | 说明                     | 回调参数          |
+| ------ | ------------------------ | ----------------- |
+| change | 当绑定值变化时触发的事件 | checked: 开关状态 |

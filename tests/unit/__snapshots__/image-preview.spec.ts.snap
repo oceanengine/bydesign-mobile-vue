@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImagePreview components 1`] = `
+<transition-stub name="byted-fade" style="z-index: 2003;">
+  <div class="byted-image-preview">
+    <div class="byted-image-preview__swipe">
+      <div class="byted-image-preview__item"><img src="https://s3.pstatp.com/ies/bytedance_official/_next/static/images/zh-1-de7f5f4876bc1fda19028283676573b1.jpg" class="byted-image-preview__image"></div>
+      <div class="byted-image-preview__item" style="top: 0px; left: 0px;"><img src="https://s3.pstatp.com/ies/bytedance_official/_next/static/images/zh-2-912fee913a62b12222a4604b5da5010a.jpg" class="byted-image-preview__image"></div>
+      <div class="byted-image-preview__item"><img src="https://s3.pstatp.com/ies/bytedance_official/_next/static/images/zh-3-5dbfa39699d9bbf71d42a40186595419.jpg" class="byted-image-preview__image"></div>
+    </div>
+    <div class="byted-image-preview__indicators"><i class="byted-image-preview__indicator-item"></i><i class="byted-image-preview__indicator-item byted-image-preview__indicator-item--active"></i><i class="byted-image-preview__indicator-item"></i></div>
+  </div>
+</transition-stub>
+`;

@@ -1,0 +1,147 @@
+# 国际化
+
+BUI 默认语言采用中文，同时支持 <strong>16</strong> 种语言切换，下面为详细国际化设置。
+
+---
+
+### 多语言切换
+
+:::card
+
+```javascript
+import { Locale } from '@byted/by-design-m';
+import zhCN from '@byted/by-design-m/lib/locale/lang/zh-CN';
+
+Locale.use('zh-CN', zhCN);
+```
+
+:::
+
+### 修改默认文案
+
+:::card
+```desc
+修改特定组件的国际化语言配置，例如：Picker组件的确认按钮文案修改成 '选择'
+```
+```javascript
+import { Locale } from '@byted/by-design-m';
+
+const messages = {
+  'zh-CN': {
+    bytedPicker: {
+      confirm: '选择',
+    },
+  },
+};
+
+Locale.add(messages);
+```
+
+:::
+
+### 兼容 `vue-i18n@6.x` 及更高版本
+
+:::card
+```desc
+默认不支持 ≥ 6.x 的 `vue-i18n`。你需要手动处理, 请参考如下代码：
+```
+```javascript
+import Vue from 'vue';
+import VueI18n from 'vue-i18n';
+import BUI from '@byted/by-design-m';
+import enMessages from '@byted/by-design-m/lib/locale/lang/en-US';
+import zhMessages from '@byted/by-design-m/lib/locale/lang/zh-CN';
+
+Vue.use(VueI18n);
+
+const messages = {
+  en: {
+    message: 'hello',
+    ...enMessages,
+  },
+  zh: {
+    message: '你好',
+    ...zhMessages,
+  },
+};
+
+const i18n = new VueI18n({
+  locale: 'en',
+  messages,
+});
+
+Vue.use(BUI, {
+  i18n: (key, value) => i18n.t(key, value),
+});
+
+new Vue({ i18n }).$mount('#app');
+```
+
+:::
+
+### 按需加载里定制 i18n
+
+:::card
+
+```javascript
+import Vue from 'vue';
+import { Button } from '@byted/by-design-m';
+import VueI18n from 'vue-i18n';
+
+import enMessages from '@byted/by-design-m/lib/locale/lang/en-US';
+import zhMessages from '@byted/by-design-m/lib/locale/lang/zh-CN';
+import Locale from '@byted/by-design-m/lib/locale';
+
+Vue.use(VueI18n);
+Vue.use(Button);
+
+const messages = {
+  en: {
+    message: 'hello',
+    ...enMessages,
+  },
+  zh: {
+    message: '你好',
+    ...zhMessages,
+  },
+};
+// Create VueI18n instance with options
+const i18n = new VueI18n({
+  locale: 'en', // set locale
+  messages, // set locale messages
+});
+
+Locale.i18n((key, value) => i18n.t(key, value));
+```
+
+:::
+
+### 当前语言包介绍
+
+:::card
+```desc
+语言包的引用方式如下：
+```
+```javascript
+import ja from '@byted/by-design-m/lib/locale/lang/ja';
+
+// 语言包详细介绍
+- 汉语(zh-CN)
+- 繁体(zh-TW)
+- 英语(en-US)
+- 德语(de)
+- 西班牙语(es)
+- 法语(fr)
+- 印地语-印度(hi-IN)
+- 印地语(id)
+- 意大利语(it)
+- 日语(ja)
+- 韩语(ko)
+- 马来语(ms)
+- 俄语(ru)
+- 泰语(th)
+- 土耳其语(tr)
+- 越南语(vi)
+```
+:::
+

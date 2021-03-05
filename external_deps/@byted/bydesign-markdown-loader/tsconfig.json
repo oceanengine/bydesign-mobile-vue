@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "files": [
+    "src/const.ts",
+    "src/highlight.ts",
+    "src/index.ts",
+    "src/markdown.ts",
+    "src/transform.ts"
+  ]
+}

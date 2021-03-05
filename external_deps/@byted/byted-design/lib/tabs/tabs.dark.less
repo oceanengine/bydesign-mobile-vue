@@ -1,0 +1,258 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}tabs {
+  position: relative;
+  .bui-tabs-header {
+    .bui-tabs-wrapper {
+      display: flex;
+      align-items: center;
+      .tabs-angle-left {
+        fill: @text-color-3;
+        min-width: 16px;
+        margin-right: 16px;
+        cursor: pointer;
+        &:hover {
+          fill: @text-color-1;
+        }
+      }
+      .tabs-angle-right {
+        fill: @text-color-3;
+        min-width: 16px;
+        margin-left: 16px;
+        cursor: pointer;
+        &:hover {
+          fill: @text-color-1;
+        }
+      }
+      .is-disabled{
+        display: none;
+      }
+      .add-tab {
+        display: inline-block;
+        cursor: pointer;
+        margin-left: 16px;
+        .byted-icon {
+          fill: @text-color-3;
+        }
+        &:hover {
+          border-color: @text-color-1;
+          .byted-icon {
+            fill: @text-color-1;
+          }
+        }
+      }
+    }
+  }
+  .bui-tabs-scroll {
+    flex: 1;
+    overflow: hidden;
+  }
+  .bui-tabs-nav {
+    display: inline-block;
+    list-style: none;
+    min-width: 100%;
+    white-space: nowrap;
+    transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);;
+    padding: 0;
+    margin: 0;
+    &-item {
+      display: inline-block;
+      position: relative;
+      font-size: @font-size-base;
+      line-height: @line-height-base;
+      color: @text-color-2;
+      margin-right: 32px;
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .bui-nav-close-icon {
+          fill: @text-color-2;
+          margin-left: 4px;
+        }
+        &:hover {
+          color: @text-color-1;
+          .bui-nav-close-icon {
+            fill: @text-color-1;
+          }
+        }
+      }
+      &.active {
+        color: @text-color-1;
+        font-weight: @font-weight-xl;
+        a:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          display: inline-block;
+          height: 2px;
+          background-color: @primary-color;
+        }
+      }
+      &.disabled a {
+        cursor: not-allowed;
+        color: @disabled-color;
+        &:hover {
+          color: @disabled-color;
+        }
+      }
+    }
+  }
+  &-lg .bui-tabs-nav-item {
+    margin-right: 40px;
+  }
+  &-md .bui-tabs-nav-item {
+    margin-right: 32px;
+  }
+  &-sm .bui-tabs-nav-item {
+    margin-right: 24px;
+  }
+  &-lg {
+    .bui-tabs-nav-item {
+      font-size: @font-size-xl;
+      line-height: @line-height-xl;
+    }
+  }
+  &-md {
+    .bui-tabs-nav-item {
+      font-size: @font-size-lg;
+      line-height: @line-height-lg;
+    }
+  }
+  &-line {
+    .bui-tabs-nav-item a{
+      padding: 4px 0;
+    }
+  }
+  &-line-high {
+    &.@{css-prefix}tabs {
+      &-lg .bui-tabs-nav-item a{
+        padding: 18px 0;
+      }
+      &-md .bui-tabs-nav-item a{
+        padding: 15px 0;
+      }
+      &-sm .bui-tabs-nav-item a{
+        padding: 18px 0;
+      }
+    }
+  }
+  &-border-card {
+    &.@{css-prefix}tabs {
+      &-lg .bui-tabs-nav-item a{
+        padding: 10px 32px;
+      }
+      &-md .bui-tabs-nav-item a{
+        padding: 9px 24px;
+      }
+      &-sm .bui-tabs-nav-item a{
+        padding: 8px 16px;
+      }
+    } 
+  }
+  &-border-card {
+    > .bui-tabs-header {
+      position: relative;
+      border-top-left-radius: @border-radius-base;
+      border-top-right-radius: @border-radius-base;
+      background: @tabs-bg-color;
+      border-bottom: 1px solid @tabs-border-color;
+      .bui-tabs-wrapper {
+        margin-bottom: -1px;
+      }
+      .bui-tabs-nav {
+        .bui-tabs-nav-item {
+          background: transparent;
+          margin-right: 0;
+          border: 1px solid transparent;
+          color: @text-color-2; 
+          fill: @text-color-2;
+          a {
+            &:hover {
+              color: @tabs-active-color;
+              fill: @tabs-active-color;
+              .bui-nav-close-icon {
+                fill: @text-color-1;
+              }
+            }
+            &:active {
+              color: @primary-color-1;
+              fill: @primary-color-1
+            }
+          }
+          &.active {
+            color: @tabs-active-color;
+            fill: @tabs-active-color;
+            background: @tabs-nav-bg-color;
+            font-weight: @font-weight-xl;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border-top-color: @tabs-border-color;
+            border-left-color: @tabs-border-color;
+            border-right-color: @tabs-border-color;
+            &, & + li{
+              &:before {
+                display: none;
+              }
+            }
+            a {
+              &:active {
+                color: @tabs-active-color;
+                fill: @tabs-active-color;
+              }
+            }
+            a:after {
+              background-color: transparent;
+            }
+          }
+          &.disabled a {
+            cursor: not-allowed;
+            color: @text-color-5;
+            .bui-nav-close-icon {
+              fill: @text-color-5;
+            }
+            &:hover {
+              color: @text-color-5;
+              .bui-nav-close-icon {
+                fill: @text-color-5;
+              }
+            }
+          }
+          &:before{
+            position: absolute;
+            content: '';
+            top: 50%;
+            left: 0px;
+            transform: translateY(-50%); 
+            width: 1px;
+            height: 14px;
+            background: @tabs-border-color;
+          }
+          &:nth-child(1):before {
+            display: none;
+          }
+        } 
+      }
+    }
+  }
+  .bui-tab-pane {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+  &-disabled .bui-tabs-nav > li > a{
+    cursor: not-allowed;
+    color: @disabled-color;
+    &:hover {
+      color: @disabled-color;
+    }
+  }
+  
+}

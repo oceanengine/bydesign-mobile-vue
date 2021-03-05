@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
+    />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>BUI-轻量、可靠的Vue 组件库</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="<%=htmlWebpackPlugin.files.chunks['index'].css%>"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://p1-bui.byteimg.com/tos-cn-i-43qsastzqa/04fc23ae44a44755b6865467df462be9~tplv-43qsastzqa-image.image">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      (function (win, export_obj) {
+        win['TeaAnalyticsObject'] = export_obj;
+        if (!win[export_obj]) {
+          function _collect() {
+            _collect.q.push(arguments);
+          }
+          _collect.q = _collect.q || [];
+          win[export_obj] = _collect;
+        }
+        win[export_obj].l = +new Date();
+      })(window, 'collectEvent');
+    </script>
+    <script>
+      window.collectEvent('init', { app_id: 176861, channel: 'cn' });
+      window.collectEvent('start');
+    </script>
+    <script src="<%=htmlWebpackPlugin.files.chunks['index'].entry%>"></script>
+    <script async src="https://s3.pstatp.com/pgc/tech/collect/collect-rangers.js"></script>
+  </body>
+</html>

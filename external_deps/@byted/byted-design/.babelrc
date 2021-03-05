@@ -1,0 +1,38 @@
+{
+  "presets": [
+    "env",
+    "stage-3"
+  ],
+  "plugins": [
+    "transform-vue-jsx",
+    "transform-object-assign"
+  ],
+  "env": {
+    "utils": {
+      "presets": [
+        [
+          "env",
+          {
+            "loose": true,
+            "modules": "commonjs"
+          }
+        ],
+        "stage-3"
+      ],
+      "plugins": [
+        ["module-resolver", {
+          "root": ["@byted/byted-design"],
+          "alias": {
+            "utils": "@byted/byted-design/lib/utils",
+            "directives": "@byted/byted-design/lib/directives",
+            "mixins": "@byted/byted-design/lib/mixins",
+            "components": "@byted/byted-design/lib/components"
+          },
+          "extensions": [".js", ".vue", ".json"]
+        }],
+        "transform-vue-jsx",
+        "transform-object-assign"
+      ]
+    }
+  }
+}

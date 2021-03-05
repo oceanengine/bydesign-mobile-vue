@@ -1,0 +1,170 @@
+@import '../style/common.less';
+.@{css-prefix}input {
+  position: relative;
+  // display: inline-block;
+  width: 100%;
+  .bui-input {
+    .reset-component();
+    .input();
+    &-hoving {
+      .input-hover();
+    }
+  }
+  &-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    width: 100%;
+    .bui-input,
+    .bui-input-group-addon,
+    .bui-input-group-btn {
+      display: table-cell;
+    }
+    .bui-input-group-addon {
+      position: relative;
+      padding: @input-padding-base-vertical @input-padding-base-horizontal;
+      border: 1px solid;
+      border-color: @input-border;
+      border-radius: @border-radius-base;
+      font-size: @font-size-base;
+      line-height: @line-height-base;
+      font-weight: @font-weight-base;
+      color: @text-color-1;
+      background-color: @input-append-bg;
+      white-space: nowrap;
+      width: 1px;
+      &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 0;
+      }
+      &:last-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: 0;
+      }
+    }
+    .bui-input-group-btn {
+      width: 1px;
+      white-space: nowrap;
+      font-size: 0;
+      vertical-align: middle;
+      &:first-child {
+        .@{css-prefix}button{
+          margin-right: -1px;
+          border-top-right-radius:0;
+          border-bottom-right-radius:0;
+        }
+        .@{css-prefix}select{
+          margin-right: -1px;
+            .bui-input, .bui-select-wrapper-multiple {
+              border-top-right-radius:0;
+              border-bottom-right-radius:0;
+            }
+        }
+      }
+      &:last-child {
+        .@{css-prefix}button {
+          margin-left: -1px;
+          border-top-left-radius:0;
+          border-bottom-left-radius:0;
+        }
+        .@{css-prefix}select{
+          margin-left: -1px;
+            .bui-input, .bui-select-wrapper-multiple {
+              border-top-left-radius:0;
+              border-bottom-left-radius:0;
+            }
+        }
+      }
+    }
+  }
+  &-xs {
+    line-height: @line-height-sm;
+    font-size: @font-size-sm;
+    .bui-input,
+    .bui-input-group-addon {
+      .input-xs();
+    }
+  }
+  &-sm, &-small {
+    .bui-input,
+    .bui-input-group-addon {
+      .input-sm();
+    }
+  }
+  &-lg, &-large {
+    .bui-input,
+    .bui-input-group-addon {
+      .input-lg();
+    }
+  }
+  &-xl {
+    .bui-input,
+    .bui-input-group-addon {
+      .input-xl();
+    }
+  }
+  &-suffix {
+    .bui-input {
+      padding-right: @input-padding-right-hasclear;
+    }
+  }
+  &-prepend {
+    .bui-input {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &-append {
+    .bui-input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  .bui-input-fix-icon {
+    position: absolute;
+    font-size: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 0;
+    z-index: @input-icon-clear-zindex;  // input的hover、active、focus状态的z-index为2
+  }
+  &-error {
+    .bui-input {
+      .input-danger();
+      &:hover {
+        .input-danger-hover();
+      }
+      &:focus,
+      &:active,
+      &.active {
+        .input-danger-active();
+      }
+    }
+  }
+
+  .bui-input-with-prefix {
+    padding-left: 32px;
+  }
+  .bui-input-with-suffix {
+    padding-right: 32px;
+  }
+  .bui-input-prefix {
+    left: 12px;
+    .@{css-prefix}icon {
+      fill: @text-color-4;
+    }
+  }
+  .bui-input-suffix {
+    right: 12px;
+    .@{css-prefix}icon {
+      fill: @text-color-4;
+    }
+    .bui-input-clear-icon {
+      fill: @text-color-3;
+    }
+  }
+}
+
+

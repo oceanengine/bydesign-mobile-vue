@@ -1,0 +1,50 @@
+{
+  "name": "@byted/bydesign-markdown-loader",
+  "version": "0.0.3",
+  "author": "Totoo",
+  "license": "ISC",
+  "description": "markdown loader for ByDesign",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@code.byted.org:ad/ByDesign-markdown-loader.git"
+  },
+  "keywords": [
+    "ByDesign",
+    "markdown",
+    "loader"
+  ],
+  "scripts": {
+    "start": "npm run build && NODE_ENV=development webpack-dev-server --config build/webpack.development.js",
+    "lint": "eslint ./src --fix --ext .ts",
+    "build": "npm run lint && gulp && gulp less"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "css-loader": "^3.5.3",
+    "eslint": "^6.8.0",
+    "gulp": "^4.0.2",
+    "gulp-less": "^4.0.1",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.9.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@types/highlight.js": "^9.12.3",
+    "@types/markdown-it": "^10.0.1",
+    "@types/markdown-it-anchor": "^4.0.4",
+    "@types/markdown-it-container": "^2.0.3",
+    "highlight.js": "^10.0.2",
+    "markdown-it": "^10.0.0",
+    "markdown-it-anchor": "^5.3.0",
+    "markdown-it-container": "^2.0.0",
+    "transliteration": "^2.1.11"
+  }
+}

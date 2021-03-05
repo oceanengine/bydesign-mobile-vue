@@ -1,0 +1,306 @@
+# 选择项
+
+### 安装
+
+:::card
+
+```javascript
+import { Checker, CheckerItem } from '@byted/by-design-m';
+
+Vue.use(Checker).use(CheckerItem);
+```
+
+:::
+
+## 代码演示
+
+:::card
+
+```topic
+基础用法
+```
+
+```desc
+通过`v-model`绑定值当前选中项的value, 默认为多选。value值必须为Array类型
+```
+
+```html
+<byted-checker v-model="checker">
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item value="2">2</byted-checker-item>
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+```javascript
+data() {
+  return {
+    checker: [0, '2']
+  }
+}
+```
+
+:::
+
+:::card
+
+```topic
+单选类型
+```
+
+```desc
+inputType为radio时为单选，value值必须为String或者Number类型
+```
+
+```html
+<byted-checker v-model="checkerRadio" inputType="radio">
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+```javascript
+data() {
+  return {
+    checkerRadio: 0,
+  }
+}
+```
+
+:::
+
+:::card
+
+```topic
+单选异步
+```
+
+```desc
+inputType为radio，@input + value
+```
+
+```html
+<byted-checker inputType="radio" :value="checkerAsync" @input="onInput">
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+```javascript
+data() {
+  return {
+    checkerAsync: 0,
+  }
+},
+methods: {
+  onInput(value) {
+    this.$confirm(`是否确定选择${value}选项？`).then(() => {
+      this.checkerAsync = value;
+    }).catch(() => {
+      //
+    });
+  }
+}
+```
+
+:::
+
+:::card
+
+```topic
+形状类型
+```
+
+```html
+<byted-checker v-model="checkerRadio" round>
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+:::
+
+:::card
+
+```topic
+样式类型
+```
+
+```html
+<byted-checker v-model="checkerStyle" input-type="radio" type="primary">
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+```javascript
+data() {
+  return {
+    checkerStyle: 0
+  }
+}
+```
+
+:::
+
+:::card
+
+```topic
+显示信息
+```
+
+```html
+<byted-checker v-model="checkerInfo" input-type="radio" round>
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="大图" :value="0" info="ok" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="小图" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="组图" value="2" :info="3" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+:::
+
+:::card
+
+```topic
+设置禁用
+```
+
+```html
+<byted-checker v-model="checkerInfo" input-type="radio" round>
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" disabled />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+:::
+
+:::card
+
+```topic
+尺寸大小
+```
+
+```html
+<byted-checker v-model="checkerSize" input-type="radio">
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+
+<byted-checker v-model="checkerSizeSmall" input-type="radio" type="primary" round size="small">
+  <byted-row gutter="10">
+    <byted-col span="6">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="6">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="6">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+    <byted-col span="6">
+      <byted-checker-item label="3" value="3" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+:::
+
+## API
+
+### Checker Props
+
+| 参数      | 说明                          | 类型                      | 默认值     |
+| --------- | ----------------------------- | ------------------------- | ---------- |
+| inputType | 可选值为：`radio` `checkbox`  | `string`                  | `checkbox` |
+| value     | 类型 Array String 或者 Number | `array` `string` `number` | `[]`       |
+| type      | 可选值为：`primary`           | `string`                  | `default`  |
+| size      | 可选值为：`small` `normal`    | `string`                  | `normal`   |
+
+### CheckerItem Props
+
+| 参数  | 说明                          | 类型                      | 默认值 |
+| ----- | ----------------------------- | ------------------------- | ------ |
+| value | 类型 Array String 或者 Number | `array` `string` `number` | `[]`   |
+| label | 内容                          | `string`                  | `''`   |
+| name  | 标示                          | `string`                  | `''`   |
+| info  | 显示信息                      | `string`                  | `''`   |
+
+### Events
+
+| 事件名     | 说明                     | 回调参数           |
+| ---------- | ------------------------ | ------------------ |
+| change     | 当绑定值变化时触发的事件 | 当前选中项的 value |
+| input      | 单选异步事件             | 要选中项的 value   |
+| click      | 点击时触发               | event              |
+| touchstart | 点击时触发               | event              |

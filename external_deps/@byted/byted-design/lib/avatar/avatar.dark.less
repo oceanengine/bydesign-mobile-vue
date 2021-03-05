@@ -1,0 +1,97 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}avatar {
+  position: relative;
+  text-align: center;
+  background-color: @avatar-bg;
+  color: @text-color-white;
+  overflow: hidden;
+
+  // size
+  &-xl {
+    width: @avatar-size-xl;
+    height: @avatar-size-xl;
+    line-height: @avatar-size-xl;
+    font-size: @avatar-size-xl / 2;
+  }
+  &-lg {
+    width: @avatar-size-lg;
+    height: @avatar-size-lg;
+    line-height: @avatar-size-lg;
+    font-size: @avatar-size-lg / 2;
+  }
+  &-md {
+    width: @avatar-size-md;
+    height: @avatar-size-md;
+    line-height: @avatar-size-md;
+    font-size: @avatar-size-md / 2;
+  }
+  &-sm {
+    width: @avatar-size-sm;
+    height: @avatar-size-sm;
+    line-height: @avatar-size-sm;
+    font-size: @avatar-size-sm / 2;
+  }
+
+  // shape
+  &-circle {
+    border-radius: 50%;
+  }
+  &-square {
+    border-radius: 6px;
+  }
+
+  &-icon {
+    line-height: 1.5;
+  }
+
+  &-img {
+    background: transparent;
+  }
+
+  .byted-avatar-text {
+    position: absolute;
+    left: 50%;
+    transform-origin: 0px center;
+    word-break: normal;
+    white-space: nowrap;
+  }
+
+  > img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  + .byted-badge-count {
+    top: -4px;
+    right: 4px;
+  }
+
+  .byted-avatar-editable {
+    position: absolute;
+    bottom: 0;
+    height: 25%;
+    width: 100%;
+    font-size: 12px;
+    line-height: 1;
+    background: #000;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-lg .byted-avatar-editable {
+    font-size: 10px;
+  }
+
+  &-md .byted-avatar-editable {
+    font-size: 8px;
+  }
+
+  &-sm .byted-avatar-editable {
+    font-size: 0;
+  }
+}

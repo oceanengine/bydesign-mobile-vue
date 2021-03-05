@@ -1,0 +1,81 @@
+# Badge
+
+### Install
+
+:::card
+
+```javascript
+import { Badge } from '@byted/by-design-m';
+
+Vue.use(Badge);
+```
+
+:::
+
+## Usage
+
+:::card
+
+```topic
+Basic
+```
+
+```html
+<byted-badge :value="8">
+  <byted-button type="danger" text="message" />
+</byted-badge>
+
+<byted-badge value="new">
+  <byted-button type="primary" text="message" />
+</byted-badge>
+```
+
+:::
+
+:::card
+
+```topic
+Set max
+```
+
+```desc
+when `value` is typeof `number`
+```
+
+```html
+<byted-badge :value="100" :max="99">
+  <byted-button type="danger" text="message" />
+</byted-badge>
+```
+
+:::
+
+:::card
+
+```topic
+Dot
+```
+
+```html
+<byted-badge is-dot>
+  <byted-button type="primary" text="message" />
+</byted-badge>
+```
+
+:::
+
+## API
+
+### Props
+
+| Attribute | Description                      | Type      | Default |
+| --------- | -------------------------------- | --------- | ------- |
+| value     | `string` or `number`             | `string`  | `''`    |
+| max       | when `value` be type of `number` | `string`  | `0`     |
+| is-dot    |                                  | `boolean` | `false` |
+
+### Events
+
+| Event | Description                | Arguments    |
+| ----- | -------------------------- | ------------ |
+| click | Triggered when click Badge | event: Event |

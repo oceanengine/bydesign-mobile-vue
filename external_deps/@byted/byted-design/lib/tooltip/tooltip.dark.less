@@ -1,0 +1,34 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  @import './../style/components/popper.less';
+@import './../style/components/popover.less';
+
+.@{css-prefix}tooltip {
+  .bui-popover-panel {
+    padding: @padding-xs @padding-md;
+  }
+}
+
+.bui-popper{
+  .tooltip{
+    opacity: 1;
+    position: relative;
+    display: inline-block;
+    .tooltip-inner{
+      border-radius: 4px;
+    }
+    &.top{
+      margin-bottom: 2px;
+    }
+    &.left{
+      margin-right: 2px;
+    }
+    &.bottom{
+      margin-top: 2px;
+    }
+    &.right{
+      margin-right: 2px;
+    }
+  }
+}

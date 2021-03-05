@@ -1,0 +1,29 @@
+@import '../style/var.less';
+
+.by-docs-navs {
+  position: fixed;
+  top: @header-height;
+  width: @navs-width;
+  &-box {
+    position: relative;
+  }
+}
+
+.by-docs-tree-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - @header-height);
+  padding: 12px 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #FAFAFA;;
+  &-block {
+    padding-bottom: 60px;
+  }
+}
+
+.by-docs-ad {
+  padding: 0 24px;
+}

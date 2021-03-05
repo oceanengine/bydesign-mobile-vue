@@ -1,0 +1,50 @@
+@import './dropdown-menu.less';
+.byted-dropdown {
+  display: inline-block;
+
+  .byted-icon {
+    vertical-align: -3px;
+    width: @font-size-lg;
+    height: @font-size-lg;
+  }
+
+  &.byted-dropdown-split-button {
+    .btn-group .byted-button {
+      min-width: auto;
+    }
+    .dropdown-arrow-btn {
+      padding: @dropdown-arrow-btn-md-padding / 2 @dropdown-arrow-btn-md-padding;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+
+    &.byted-dropdown-sm {
+      .dropdown-arrow-btn {
+        padding: @padding-xs / 2 @padding-xs;
+      }
+    }
+
+  }
+}
+
+.byted-dropdown-menu-wrapper {
+  max-height: @auto-complete-content-height;
+  overflow-x: hidden;
+  // 美化滚动条
+  .scrollbar();
+  background-color: @popper-body-bg;
+  box-shadow: @shadow-md;
+  border-radius: @border-radius-base;
+  li.byted-dropdown-item{
+    margin: 0;
+  }
+  &.byted-dropdown-menu-wrapper {
+    .byted-dropdown-item {
+      font-size: @font-size-base;
+    }
+  }
+  &.byted-dropdown-menu-wrapper-sm {
+    .byted-dropdown-item {
+      font-size: @font-size-sm;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+# 快速上手
+
+通过本章节你可知晓使用 <strong>BUI</strong> 的基本姿势。
+
+---
+
+### 安装
+
+```html
+npm install @byted/by-design-m
+```
+
+### 全局引用
+
+:::card
+```desc
+入口文件一次性导入所有组件，引入所有组件会增加代码包体积，可选择按需引入。
+```
+```javascript
+import Vue from 'vue';
+import '@byted/by-design-m/lib/index.css';
+import bui from '@byted/by-design-m';
+
+Vue.use(bui);
+```
+
+:::
+
+### 按需引入 - 方式 1
+
+:::card
+```desc
+可以手动引入需要的组件，如果项目只依赖几个组件，推荐此用法，可大大减少代码体积。
+```
+```javascript
+import '@byted/by-design-m/es/components/button/style';
+import Button from '@byted/by-design-m/es/components/button';
+```
+
+:::
+
+### 按需引入 - 方式 2
+
+:::card
+```javascript
+import { Button } from '@byted/by-design-m';
+```
+:::
+
+`babel-plugin-import`是一款 babel 插件，它会在编译过程中将 import 的写法自动转换为按需引入的方式。
+安装方式：
+
+```javascript
+npm install babel-plugin-import --save-dev
+
+// babel.config 配置
+plugins: [
+  [
+  'import',
+    {
+      libraryName: '@byted/by-design-m',
+      libraryDirectory: 'es/components',
+      style: true,
+    }
+  ]
+]
+```

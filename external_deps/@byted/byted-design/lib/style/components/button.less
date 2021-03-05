@@ -1,0 +1,103 @@
+// @import './../mixins/buttons.less';
+.bui-btn {
+  .btn();
+  &-default {
+    // &.bui-btn-plain {
+    //   &:focus,
+    //   &.focus {
+    //     .button-color(@primary-color-1; @btn-default-bg; @btn-default-border);
+    //   }
+    //   &:hover {
+    //     .button-color(@primary-color; @btn-default-bg; @btn-default-border);
+    //   }
+    //   &:active,
+    //   &.active,
+    //   .open > .dropdown-toggle& {
+    //     .button-color(@primary-color; @primary-color-5; @primary-color);
+    //     &:hover,
+    //     &:focus,
+    //     &.focus {
+    //       .button-color(@primary-color-1; @btn-default-bg; @btn-default-border);
+    //     }
+    //   }
+    // }
+    // &.bui-btn-plain{
+    //   &.disabled,
+    //   &[disabled]{
+    //     cursor: not-allowed;
+    //     .button-color(@btn-default-disabled-color; @btn-default-disabled-bg; @btn-default-disabled-border);
+    //     &:hover,
+    //     &:focus,
+    //     &.focus {
+    //       .button-color(@btn-default-disabled-color; @btn-default-disabled-bg; @btn-default-disabled-border);
+    //     }
+    //   }
+    // }
+  }
+  &.bui-btn-primary {
+    .button-variant(@text-color-white; @primary-color);
+    &.bui-btn-plain{
+      .btn-plain-variant();
+    }
+  }
+  &.bui-btn-info{
+    .button-variant(@text-color-white; @info-color);
+    &.bui-btn-plain{
+      .btn-plain-variant(@info-color);
+    }
+  }
+  &.bui-btn-success{
+    .button-variant(@text-color-white; @success-color);
+    &.bui-btn-plain{
+      .btn-plain-variant(@success-color);
+    }
+  }
+  &.bui-btn-warning{
+    .button-variant(@text-color-white; @warning-color);
+    &.bui-btn-plain{
+      .btn-plain-variant(@warning-color);
+    }
+  }
+  &.bui-btn-danger{
+    .button-variant(@text-color-white; @danger-color);
+    &.bui-btn-plain{
+      .btn-plain-variant(@danger-color);
+    }
+  }
+  &.bui-btn-text {
+    .button-color(@primary-color; transparent; transparent);
+    &:focus,
+    &.focus {
+      .button-color(@primary-color-1; transparent; transparent);
+    }
+    &:hover {
+      .button-color(@primary-color-3; transparent; transparent);
+    }
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+      .button-color(@primary-color-1; transparent; transparent);
+      &:hover,
+      &:focus,
+      &.focus {
+        .button-color(@primary-color-1; transparent; transparent);
+      }
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+      .btn-text-disabled();
+    }
+    &.bui-btn-loading {
+      .btn-text-disabled();
+    }
+  }
+}
+.btn-text-disabled () {
+  .button-color(@primary-color-4; transparent; transparent);
+  &:hover,
+  &:focus,
+  &.focus {
+    .button-color(@primary-color-4; transparent; transparent);
+  }
+}

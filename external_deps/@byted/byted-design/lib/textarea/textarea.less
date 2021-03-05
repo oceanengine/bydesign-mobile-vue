@@ -1,0 +1,17 @@
+@import '../style/common.less';
+// textarea
+.@{css-prefix}textarea {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  .bui-textarea {
+    .reset-component();
+    .input();
+    vertical-align: bottom;
+  }
+  &-error {
+    .bui-textarea {
+      .input-danger();
+    }
+  }
+}

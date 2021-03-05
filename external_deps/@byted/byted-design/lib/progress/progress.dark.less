@@ -1,0 +1,79 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}progress {
+  height: @progress-base-height;
+  overflow: hidden;
+  position: relative;
+  border-radius: @progress-base-height / 2;
+  
+  .bui-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: @progress-base-height / 2;
+  }
+  .bui-progress-innertext {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0 12px;
+    font-size: @font-size-sm;
+    line-height: @line-height-sm;
+    color: @progress-innerText-color;
+    text-align: right;
+  }
+  &:before {
+    content: "";
+    display: block;
+    background: @progress-bg;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: @progress-base-height / 2;
+  }
+  &-default, &-primary {
+    .bui-progress-bar {
+      background-color: @primary-color;
+    }
+  }
+  &-info {
+    .bui-progress-bar {
+      background-color: @info-color;
+    }
+  }
+  &-danger {
+    .bui-progress-bar {
+      background-color: @danger-color;
+    }
+    
+  }
+   &-warning {
+    .bui-progress-bar {
+      background-color: @warning-color;
+    }
+    
+  }
+  &-success {
+    .bui-progress-bar {
+      background-color: @success-color;
+    }
+  }
+  &-xs {
+    height: @progress-xs-height;
+  }
+  &-sm {
+    height: @progress-sm-height;
+  }
+  &-inner {
+    height: @line-height-sm;
+    &, &:before, .bui-progress-bar {
+      border-radius: @line-height-sm / 2;
+    }
+  }
+
+}

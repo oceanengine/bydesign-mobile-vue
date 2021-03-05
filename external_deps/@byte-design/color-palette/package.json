@@ -1,0 +1,41 @@
+{
+  "name": "@byte-design/color-palette",
+  "version": "0.1.11",
+  "description": "A set of color palette.",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "npm run compile && webpack --config ./dev/webpack.config.js",
+    "dev": "npm run build && ./node_modules/.bin/webpack-dev-server --config ./dev/webpack.config.js",
+    "compile": "gulp && npm run build:less",
+    "build:less": "babel-node writeLess.js"
+  },
+  "keywords": [
+    "colors"
+  ],
+  "author": "Zhang Manlu",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.0",
+    "fs-js": "^1.0.6",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "js-to-less-var-loader": "^1.0.4",
+    "less": "3",
+    "less-loader": "^4.0.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "peerDependencies": {
+    "less": "3"
+  }
+}

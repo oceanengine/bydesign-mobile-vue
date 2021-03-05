@@ -1,0 +1,137 @@
+# switch
+
+### Install
+
+:::card
+
+```javascript
+import { Switch } from '@byted/by-design-m';
+
+Vue.use(Switch);
+```
+
+:::
+
+## Usage
+
+:::card
+
+```topic
+Basic Usage
+```
+
+```html
+<byted-switch v-model="valueBase" @change="change" />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      valueBase: false,
+    };
+  },
+  methods: {
+    change(value) {
+      alert(`new value ${value}`);
+    },
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+disabled
+```
+
+```html
+<byted-switch v-model="valueBase" disabled /> <byted-switch v-model="valueDiasbledTrue" disabled />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      valueBase: false,
+      valueDiasbledTrue: true,
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+Size Usage
+```
+
+```html
+<byted-switch v-model="valueDiasbledTrue" size="large" />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      valueDiasbledTrue: true,
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+controlled
+```
+
+```html
+<byted-switch :value="valueControlled" :loading="isLoading" @input="changeValue" />
+<byted-switch :value="valueControlled" size="large" :loading="isLoading" @input="changeValue" />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      valueControlled: true,
+      isLoading: false,
+    };
+  },
+  methods: {
+    changeValue(value) {
+      this.isLoading = true;
+      setTimeout(() => {
+        alert(`new value ${value}`);
+        this.isLoading = false;
+        this.valueControlled = !this.valueControlled;
+      }, 1000);
+    },
+  },
+};
+```
+
+:::
+
+## API
+
+### Props
+
+| Attribute | Description               | Type      | Default  |
+| --------- | ------------------------- | --------- | -------- |
+| v-model   | Check status of Switch    | `any`     | `false`  |
+| disabled  | Whether to disable switch | `boolean` | `false`  |
+| size      | Can be set to `large`     | `string`  | `normal` |
+
+## Events
+
+| Event  | Description                         | Parameters                 |
+| ------ | ----------------------------------- | -------------------------- |
+| change | Triggered when check status changed | checked: is switch checked |

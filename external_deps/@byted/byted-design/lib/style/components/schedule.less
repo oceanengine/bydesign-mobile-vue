@@ -1,0 +1,244 @@
+.@{css-prefix}schedule {
+  min-width: 700px;
+
+  &-link {
+    display: block;
+    margin-right: 24px;
+    color: @text-color-1;
+  }
+  .bui-schedule-tooltip {
+    display: inline;
+  }
+  .bui-schedule-tooltip .bui-popover-panel {
+    padding: 8px 16px;
+  }
+
+  table {
+    border-left: none;
+    border-style: hidden;
+  }
+
+  .tableWrap{
+    margin: 0 auto;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: @schedule-table-border-color;
+   }
+
+  td, th {
+    padding: 0;
+  }
+
+  &-header {
+    border: 1px solid;
+    border-color: @schedule-table-border-color;
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 38px;
+    padding: 0 12px;
+    font-size: @font-size-sm;
+    background-color: @schedule-bg;
+  }
+
+  &-option {
+    display: flex;
+
+    & &-selected {
+      color: @schedule-selected-bg-color;
+    }
+  }
+
+  &-explain {
+    display: flex;
+  }
+
+  &-header-selected,&-header-selectable {
+    display: flex;
+    color: @schedule-tip-color;
+    align-items: center;
+    margin-right: 11px;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 4px;
+      background-color: @schedule-selected-bg-color;
+      border-radius:2px;
+      margin-right: 8px;
+    }
+  }
+
+  &-header-selectable {
+    margin-right: 0;
+
+    &::before {
+      border:1px solid rgba(218,223,227,1);
+      background-color: transparent;
+    }
+  }
+
+  &-no-selected-time {
+    margin: 0;
+  }
+
+  &-rang {
+    background: @schedule-selected-bg-color;
+    width: 0;
+    height: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all 1ms ease;
+  }
+
+
+  &-week-td {
+    width: 75px;
+    padding: 20px 0;
+  }
+
+  &-calendar {
+    -webkit-user-select: none;
+    position: relative;
+    display: inline-block;
+
+    &-time {
+      font-weight: normal;
+
+      &-all {
+        height: 39px;
+      }
+
+      &-item {
+        height: 31px;
+      }
+    }
+
+    &-atom-time:hover {
+      background: @schedule-hover-bg-color;
+    }
+
+    // &-atom-time:active {
+    //   background: @schedule-active-bg-color;
+    // }
+
+    & &-disabled {
+      background: @schedule-disabled-bg-color;
+      cursor: not-allowed;
+    }
+
+    & &-selected {
+      background: @schedule-selected-bg-color;
+
+      &:hover {
+        background: @schedule-selected-bg-color;
+      }
+    }
+
+    &-table {
+      border-collapse: separate;
+      border-radius: @border-radius-base;
+      tr td, tr th {
+        border-left: none;
+        border-top: none;
+        border-bottom: 1px solid;
+        border-bottom-color: @schedule-table-border-color;
+        border-right: 1px solid;
+        border-right-color: @schedule-table-border-color;
+        font-size: @font-size-base;
+        text-align: center;
+        min-width: 11px;
+        line-height: 1.8em;
+        transition: background 200ms ease;
+        color: @text-color-1;
+        background: @schedule-bg;
+        &:last-child {
+          border-right: none;
+        }
+      }
+      tbody tr {
+        height: 30px;
+        // td:first-child {
+        //   background: @schedule-table-header-bg-color;
+        // }
+        &:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+      }
+      // thead {
+      //   th, td {
+      //     background: @schedule-table-header-bg-color;
+      //   }
+      // }
+
+      .byted-schedule-table-tip {
+        line-height: 2.4em;
+        padding: 0 12px 0 19px;
+        // background: @schedule-popver-bg-color!important;
+        .clearfix {
+          height: @line-height-base;
+          line-height: @line-height-base;
+          margin: 8px 0;
+          .@{css-prefix}schedule-no-selected-time {
+            color: @text-color-2;;
+          }
+        }
+        .pull-left {
+          font-size: @font-size-base;
+          color: @schedule-selected-text-color;
+        }
+      }
+    }
+  }
+
+  &-tip-text {
+    color: @schedule-tip-color;
+    margin-right: 8px;
+  }
+
+  &-selected-time {
+    text-align: left;
+    line-height: 2.4em;
+
+    .byted-schedule-tip-text {
+      min-width: 60px;
+    }
+
+    div:last-child {
+      margin-bottom: 6px;
+    }
+    p {
+      word-break: break-all;
+      margin: 0 0 8px 0;
+      font-size: @font-size-base;
+      line-height: @line-height-base;
+      display: flex;
+      color: @text-color-2;
+    }
+  }
+
+  a {
+    cursor: pointer;
+    color: @schedule-selected-bg-color;
+    font-size: @font-size-base;
+  }
+
+  &-senior {
+    .tableWrap {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    .byted-schedule-header {
+      border-top-left-radius: @border-radius-base;
+      border-top-right-radius: @border-radius-base;
+    }
+  }
+}

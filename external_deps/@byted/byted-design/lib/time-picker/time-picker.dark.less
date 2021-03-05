@@ -1,0 +1,55 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}time-picker {
+
+}
+.bui-timepicker-popper {
+  background-color: @popper-body-bg;
+  box-shadow: @shadow-md;
+  border-radius: @border-radius-base;
+  margin-top: 4px;
+  .bui-timepicker-select {
+    display: flex;
+    height: 200px;
+    .bui-timepicker-h,
+    .bui-timepicker-m,
+    .bui-timepicker-s {
+      width: 66px;
+      color: @text-color-1;
+      font-size: @font-size-base;
+      line-height: @line-height-base;
+      text-align: left;
+      overflow: hidden;
+      border-right: 1px solid @border-color-base;
+      .scrollbar();
+      &:last-child{
+        border-right: none;
+      }
+      &:hover{
+        overflow: auto;
+      }
+      .bui-timepicker-cell{
+        cursor: pointer;
+        padding: @padding-xs - 2 @padding-md;
+        
+        &.selected{
+          color: @primary-color;
+        }
+        &:hover{
+          background-color: @list-hover-bg;
+        }
+      }
+    }
+  }
+  .bui-timepicker-operation{
+    border-top: 1px solid @border-color-base;
+    padding: @padding-xs @padding-md;
+    overflow: hidden;
+    text-align: right;
+    // .btn{
+    //   float: right;
+    //   min-width: auto;
+    // }
+  }
+}

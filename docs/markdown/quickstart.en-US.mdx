@@ -1,0 +1,67 @@
+# Quickstart
+
+You can understand how to use <strong>BUI</strong> by reading this chapter.
+
+---
+
+### Install
+
+```html
+npm install @byted/by-design-m
+```
+
+### Import Globally
+
+:::card
+```desc
+Import all components once in the entry file. By this way, package size will be increased. You can also import on-demand.
+```
+```javascript
+import Vue from 'vue';
+import '@byted/by-design-m/lib/index.css';
+import bui from '@byted/by-design-m';
+
+Vue.use(bui);
+```
+
+:::
+
+### Import On-demand - Method One
+
+:::card
+```desc
+Import needed components manually, recommend this way to decrease package size if the project only rely several components.
+```
+```javascript
+import '@byted/by-design-m/es/components/button/style';
+import Button from '@byted/by-design-m/es/components/button';
+```
+
+:::
+
+### Import On-demand - Method Two
+
+:::card
+```javascript
+import { Button } from '@byted/by-design-m';
+```
+:::
+
+`babel-plugin-import` is a plugin of babel, it can manually change other import ways into `import on-demand` when compiling.
+Install:
+
+```javascript
+npm install babel-plugin-import --save-dev
+
+// babel.config configuration
+plugins: [
+  [
+  'import',
+    {
+      libraryName: '@byted/by-design-m',
+      libraryDirectory: 'es/components',
+      style: true,
+    }
+  ]
+]
+```

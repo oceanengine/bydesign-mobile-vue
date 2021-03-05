@@ -1,0 +1,254 @@
+# 输入框
+
+### 安装
+
+:::card
+
+```javascript
+import { Field } from '@byted/by-design-m';
+
+Vue.use(Field);
+```
+
+:::
+
+## 代码演示
+
+:::card
+
+```topic
+基础用法
+```
+
+```desc
+通过 `v-model` 绑定输入框的值
+```
+
+```html
+<byted-field v-model="value" />
+```
+
+```javascript
+data() {
+  return {
+    value: ''
+  }
+}
+```
+
+:::
+
+:::card
+
+```topic
+无边框样式
+```
+
+```html
+<byted-field v-model="value" :border="false" />
+```
+
+:::
+
+:::card
+
+```topic
+输入域
+```
+
+```html
+<byted-field type="textarea" v-model="value" />
+```
+
+:::
+
+:::card
+
+```topic
+标题/单位用法
+```
+
+```html
+<byted-field v-model="value6" label="标题" unit="单位" />
+<byted-field v-model="value6" type="textarea" label="标题" unit="单位" />
+```
+
+:::
+
+:::card
+
+```topic
+关闭用法
+```
+
+```html
+<byted-field v-model="value" clearable />
+```
+
+:::
+
+:::card
+
+```topic
+显示字数
+```
+
+```desc
+默认和原生 `input` 的 `maxlength` 效果一致
+```
+
+```html
+<byted-field v-model="value" :maxlength="10" />
+```
+
+:::
+
+:::card
+
+```topic
+显示字数配合 byte
+```
+
+```desc
+使用 `byte` 需要同 `maxlength` 一起使用。设定 `byte=1` 时表示一个字符占一个长度，设定 `byte=2` 时表示两个个字符即一个汉字占一个长度
+```
+
+```html
+<byted-field v-model="value" :maxlength="10" :byte="2" />
+```
+
+:::
+
+:::card
+
+```topic
+字数计算
+```
+
+```desc
+传入函数以自定义输入字数计算。
+```
+
+```html
+<byted-field v-model="value" :get-length="(val) => val.length * 2" />
+```
+
+:::
+
+:::card
+
+```topic
+禁用用法
+```
+
+```html
+<byted-field :value="'disabled'" disabled />
+```
+
+:::
+
+:::card
+
+```topic
+只读用法
+```
+
+```html
+<byted-field :value="'readonly'" readonly />
+```
+
+:::
+
+:::card
+
+```topic
+尺寸大小
+```
+
+```html
+<byted-field v-model="value" /> <byted-field v-model="value" size="large" />
+```
+
+:::
+
+:::card
+
+```topic
+错误提示
+```
+
+```html
+<byted-field v-model="value" :error-text="错误" />
+```
+
+:::
+
+:::card
+
+```topic
+插槽
+```
+
+```desc
+支持两个插槽 `label` 和 `length`。
+```
+
+```html
+<byted-field v-model="value14">
+  <template v-slot:label> SlotLabel </template>
+</byted-field>
+
+<byted-field v-model="value15" :maxlength="12" type="textarea">
+  <template v-slot:length="lengthSlotProps">
+    len:{{ lengthSlotProps.length }} max:{{ lengthSlotProps.maxlength }}
+  </template>
+</byted-field>
+```
+
+:::
+
+## API
+
+### Props
+
+| 参数        | 说明                                                                                                        | 类型      | 默认值       |
+| ----------- | ----------------------------------------------------------------------------------------------------------- | --------- | ------------ | --- |
+| value       | 当前输入的值                                                                                                | `string` &#124; `number` | -   |
+| type        | 可设置为原生类型, `text` `number` `textarea`                                                                | `string`  | `text`       |
+| label       | 输入框左侧文本, 在`type=textarea`下展示为单行标题                                                           | `string`  | ``           |
+| unit        | 输入框右侧侧文本, 在`type=text` `type=number`时有效                                                         | `string`  | ``           |
+| border      | 边框样式, , 为`false`时展示底部线样式                                                                       | `boolean` | `true`       |
+| clearable   | 是否启用清除控件                                                                                            | `boolean` | `false`      |
+| disabled    | 是否禁用输入框                                                                                              | `boolean` | `false`      |
+| readonly    | 是否只读                                                                                                    | `boolean` | `false`      |
+| rows        | 配合`type=textarea`使用，规定文本区内的可见行数                                                             | `Number`  | `2`          |
+| maxlength   | 规定输入字段中的字符的最大长度                                                                              | `Number`  | `0`          |
+| byte        | 配合`maxlength`使用，设定`byte=1`时表示一个字符占一个长度，设定`byte=2`时表示两个个字符即一个汉字占一个长度 | `Number`  | `0`          |
+| placeholder | 填写输入字段的提示                                                                                          | `String`  | `请输入内容` |
+| autofocus   | 在页面加载时是否获得焦点                                                                                    | `boolean` | `false`      |
+
+### Events
+
+| 事件  | 说明                 | 回调参数            |
+| ----- | -------------------- | ------------------- |
+| input | 输入框内容变化时触发 | value: 输入框当前值 |
+| focus | 输入框获得焦点时触发 | event: Event        |
+| blur  | 输入框失去焦点时触发 | event: Event        |
+| clear | 点击清除按钮时触发   | event: Event        |
+| click | 点击时触发           | event: Event        |
+
+### 方法
+
+通过 ref 可以获取到 field 实例并调用实例方法
+
+| 方法名 | 参数 | 返回值 | 介绍           |
+| ------ | ---- | ------ | -------------- |
+| focus  | -    | -      | 获取输入框焦点 |
+| blur   | -    | -      | 取消输入框焦点 |
+
+### 作用域插槽
+
+| 名称   | 说明     | 插槽属性类型                                                 |
+| ------ | -------- | ------------------------------------------------------------ |
+| label  | 标题     |                                                              |
+| length | 输入字数 | `{ length: number; minlength?: number; maxlength?: number }` |

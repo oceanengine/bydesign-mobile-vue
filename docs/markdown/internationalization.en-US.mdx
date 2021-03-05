@@ -1,0 +1,146 @@
+# Internationalization
+
+BUI takes Chinese as default language, and supports <strong>16</strong> kinds of languages switching. The following is detailed internationalization configuration. 
+
+---
+
+### Switch languages
+
+:::card
+
+```javascript
+import { Locale } from '@byted/by-design-m';
+import enUS from '@byted/by-design-m/lib/locale/lang/en-US';
+
+Locale.use('en-US', enUS);
+```
+
+:::
+
+### Modify Default configuration
+
+:::card
+```desc
+Change internationalization configuration of the specific component. For example: change the confirm button text of `Picker` into 'Yes'. 
+```
+```javascript
+import { Locale } from '@byted/by-design-m';
+
+const messages = {
+  'en-US': {
+    bytedPicker: {
+      confirm: 'Yes',
+    },
+  },
+};
+
+Locale.add(messages);
+```
+
+:::
+
+### Compat `vue-i18n@6.x` and Higher Versions
+
+:::card
+```desc
+Don't support `vue-i18n` ≥ 6.x by default, you need to config it manually. Please refer the following code:
+```
+```javascript
+import Vue from 'vue';
+import VueI18n from 'vue-i18n';
+import BUI from '@byted/by-design-m';
+import enMessages from '@byted/by-design-m/lib/locale/lang/en-US';
+import zhMessages from '@byted/by-design-m/lib/locale/lang/zh-CN';
+
+Vue.use(VueI18n);
+
+const messages = {
+  en: {
+    message: 'hello',
+    ...enMessages,
+  },
+  zh: {
+    message: '你好',
+    ...zhMessages,
+  },
+};
+
+const i18n = new VueI18n({
+  locale: 'en',
+  messages,
+});
+
+Vue.use(BUI, {
+  i18n: (key, value) => i18n.t(key, value),
+});
+
+new Vue({ i18n }).$mount('#app');
+```
+
+:::
+
+## Config i18n in Import On-demand
+
+:::card
+
+```javascript
+import Vue from 'vue';
+import { Button } from '@byted/by-design-m';
+import VueI18n from 'vue-i18n';
+
+import enMessages from '@byted/by-design-m/lib/locale/lang/en-US';
+import zhMessages from '@byted/by-design-m/lib/locale/lang/zh-CN';
+import Locale from '@byted/by-design-m/lib/locale';
+
+Vue.use(VueI18n);
+Vue.use(Button);
+
+const messages = {
+  en: {
+    message: 'hello',
+    ...enMessages,
+  },
+  zh: {
+    message: '你好',
+    ...zhMessages,
+  },
+};
+// Create VueI18n instance with options
+const i18n = new VueI18n({
+  locale: 'en', // set locale
+  messages, // set locale messages
+});
+
+Locale.i18n((key, value) => i18n.t(key, value));
+```
+
+:::
+
+### Current Language Package Introduction
+
+:::card
+```desc
+Import method of language packages are as follows:
+```
+```javascript
+import ja from '@byted/by-design-m/lib/locale/lang/ja';
+
+// Language package detailed introduction
+- Simplified Chinese(zh-CN)
+- Traditional Chinese(zh-TW)
+- English(en-US)
+- German(de)
+- Spanish(es)
+- French(fr)
+- Hindi-India(hi-IN)
+- Hindi(id)
+- Italian(it)
+- Japanese(ja)
+- Korean(ko)
+- Malay(ms)
+- Russian(ru)
+- Thai(th)
+- Turkish(tr)
+- Vietnamese(vi)
+```
+:::

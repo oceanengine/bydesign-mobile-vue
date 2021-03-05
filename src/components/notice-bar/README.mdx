@@ -1,0 +1,119 @@
+# 通知栏
+
+### 安装
+
+:::card
+
+```javascript
+import { NoticeBar } from '@byted/by-design-m';
+
+Vue.use(NoticeBar);
+```
+
+:::
+
+## 代码演示
+
+:::card
+
+```topic
+基础用法
+```
+
+```html
+<byted-notice-bar text="标题是神马亚子" />
+<byted-notice-bar text="标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子" />
+```
+
+:::
+
+:::card
+
+```topic
+关闭用法
+```
+
+```desc
+设置`showClose`来开启展示关闭按钮
+```
+
+```html
+<byted-notice-bar show-close text="标题是神马亚子" />
+<byted-notice-bar show-close text="标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子" />
+```
+
+:::
+
+:::card
+
+```topic
+溢出省略
+```
+
+```desc
+设置`ellipsis`来开启几行展示打点
+```
+
+```html
+<byted-notice-bar
+  :ellipsis="1"
+  show-close
+  text="标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子"
+/>
+<byted-notice-bar
+  :ellipsis="2"
+  text="标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子"
+/>
+```
+
+:::
+
+:::card
+
+```topic
+风格样式
+```
+
+```desc
+设置`type`来展示不同的风格样式
+```
+
+```html
+<byted-notice-bar show-close type="primary">
+  标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子
+</byted-notice-bar>
+<byted-notice-bar show-close type="success">
+  标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子
+</byted-notice-bar>
+<byted-notice-bar show-close type="danger">
+  标题是神马亚子标题是神马亚子标题是神马亚子标题是神马亚子
+</byted-notice-bar>
+```
+
+:::
+
+## API
+
+### Props
+
+| 参数       | 说明                                                     | 类型      | 默认值    |
+| ---------- | -------------------------------------------------------- | --------- | --------- |
+| text       | 通知文本内容                                             | `string`  | `''`      |
+| type       | 样式类型,可设置为 `primary` `success` `warning` `danger` | `string`  | `warning` |
+| show-close | 展现关闭 icon                                            | `boolean` | `false`   |
+| ellipsis   | 开启文本几行打点                                         | `number`  | `0`       |
+
+### Events
+
+| 事件名 | 说明             | 回调参数     |
+| ------ | ---------------- | ------------ |
+| click  | 点击通知栏时触发 | event: Event |
+| close  | 关闭通知栏时触发 | event: Event |
+
+### Slots
+
+| 名称    | 内容             |
+| ------- | ---------------- |
+| default | 通知文本内容     |
+| left    | 文本区域左边内容 |
+| right   | 文本区域右边内容 |

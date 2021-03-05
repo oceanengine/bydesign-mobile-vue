@@ -1,0 +1,202 @@
+@import '../style/common.less';
+.@{css-prefix}multiple-input {
+  display: inline-block;
+  position: relative;
+  border-radius: @border-radius-base;
+  width: 100%;
+  vertical-align: bottom;
+  outline: none;
+
+  .bui-multiple-input-wrapper {
+    display: flex;
+    align-self: stretch;
+    flex-wrap: wrap;
+    padding: 0 12px;
+    border-radius: @border-radius-base;
+    border: 1px solid @border-color-base;
+    outline: none;
+    background-color: @component-bg;
+    align-self: stretch;
+    align-items: center;
+
+    &:hover {
+      border-color: @primary-color;
+    }
+  }
+
+  .@{css-prefix}tag {
+    margin: 3px 4px 3px 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // search input
+  .bui-multiple-input-content {
+    max-width: 100%;
+    width: 100%;
+    min-width: 14px;
+    flex: 1;
+    border: none;
+    outline: none;
+    appearance: none;
+    padding: 0;
+    margin: 3px 0 3px 0;
+    background-color: transparent;
+    .placeholder();
+  }
+
+  .bui-multiple-input-clear {
+    display: none;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    top: 50%;
+    right: 8px;
+    margin-top: -8px;
+    color: @text-color-3;
+    fill: @text-color-3;
+    z-index: @input-icon-clear-zindex;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &-show-clear:not(.@{css-prefix}multiple-input-disabled) {
+    .bui-multiple-input-wrapper {
+      padding-right: @multiple-input-suffix-padding-right;
+    }
+
+    &:hover {
+      .bui-multiple-input-clear {
+        display: block;
+        opacity: 1;
+        z-index: @input-icon-clear-zindex;
+      }
+    }
+  }
+
+  &-focused {
+    .bui-multiple-input-wrapper {
+      border-color: @primary-color;
+      box-shadow: @input-active-box-shadow;
+    }
+  }
+
+
+
+  &-disabled {
+
+    .bui-multiple-input-wrapper {
+
+      &,
+      &:hover,
+      &:active,
+      &:focus,
+      &:active:focus,
+      &:active:hover {
+        box-shadow: none;
+        cursor: not-allowed;
+        background-color: @disabled-bg;
+        border-color: @border-color-disabled;
+      }
+    }
+
+    .bui-multiple-input-content {
+      cursor: not-allowed;
+    }
+  }
+
+
+
+  &-xs {
+    font-size: @font-size-sm;
+    line-height: @line-height-sm;
+
+    &,
+    .bui-multiple-input-wrapper {
+      min-height: @multiple-input-xs;
+    }
+
+    .bui-multiple-input-content {
+      height: 20px;
+    }
+
+    .@{css-prefix}tag {
+      margin: 2px 4px 2px 0;
+    }
+
+
+  }
+
+  &-sm {
+    font-size: @font-size-sm;
+    line-height: @line-height-sm;
+
+    &,
+    .bui-multiple-input-wrapper {
+      min-height: @multiple-input-sm;
+    }
+
+    .bui-multiple-input-content {
+      height: 22px;
+    }
+  }
+
+  &-md {
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+
+    &,
+    .bui-multiple-input-wrapper {
+      min-height: @multiple-input-md;
+    }
+
+    .bui-multiple-input-content {
+      height: 26px;
+    }
+  }
+
+  &-lg {
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+
+    &,
+    .bui-multiple-input-wrapper {
+      min-height: @multiple-input-lg;
+    }
+
+    .bui-multiple-input-content {
+      height: 30px;
+    }
+
+  }
+
+  &-xl {
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+
+    &,
+    .bui-multiple-input-wrapper {
+      min-height: @multiple-input-xl;
+    }
+
+    .bui-multiple-input-content {
+      height: 34px;
+    }
+
+  }
+
+  &--error:not(&--disabled) {
+    .bui-multiple-input-wrapper {
+      border-color: @danger-color;
+    }
+
+    &.@{css-prefix}custom-input-focused {
+      .bui-multiple-input-wrapper {
+        box-shadow: @input-danger-box-shadow;
+      }
+    }
+  }
+}

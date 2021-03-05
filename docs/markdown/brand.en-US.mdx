@@ -1,0 +1,99 @@
+# Custom Brand
+
+BUI provides a default brand name: <strong>byted-</strong>, for CSS classnames and components register names. In order to custom demand (such as preventing style's prefix conflict), BUI provides the ability to customize brand name.
+
+---
+
+## Customize Method
+
+### Step One - Define Brand Name
+
+Take **vue-cli** as an example:
+
+:::card
+
+```topic
+main.js
+```
+
+```desc
+Note: ES module is not parsing dynamically, but relying modlues run first. So we package the code of setting Vue's property as dependence here.
+```
+
+```js
+import Vue from 'vue';
+import './brand';
+import bui from '@byted/by-design-m';
+import '@byted/by-design-m/es/index.less';
+
+Vue.use(bui);
+```
+
+:::
+
+:::card
+
+```topic
+brand.js
+```
+
+```js
+import brand from '@byted/by-design-m/es/brand';
+
+brand.setBrandName('brand-');
+```
+
+:::
+
+### Step Two - Change Style Variables
+
+:::card
+
+```topic
+vue-cli configuration, or webpack configuration
+```
+
+```desc
+Same as Custom Brand, modify variables prefix in [modifyVars] configuration which Less provides.
+```
+
+```javascript
+module.exports = {
+  async chainWebpack(config) {
+    config.module
+      .rule('less')
+      .oneOf('normal')
+      .use('less-loader')
+      .loader('less-loader')
+      .options({
+        lessOptions: {
+          modifyVars: {
+            prefix: 'brand-',
+          },
+          javascriptEnabled: true,
+        },
+      });
+  },
+};
+```
+
+:::
+
+### Step Three - Add postcss-loader
+
+:::card
+
+```topic
+Add postcss-loader, and import postcss.config.js
+```
+
+```desc
+Import components style by less will step over style pretreatment by components library. So you need to import the corresponding pretreatment configuration file.
+Also take **vue-cli** as an example: vue-cli self webpack configuration will add postcss-loading, so you can finish configuration only by providing postcss.config.js.
+```
+
+```javascript
+module.exports = require('@byted/by-design-m/postcss.config');
+```
+
+:::

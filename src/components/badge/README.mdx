@@ -1,0 +1,81 @@
+# 徽标
+
+### 安装
+
+:::card
+
+```javascript
+import { Badge } from '@byted/by-design-m';
+
+Vue.use(Badge);
+```
+
+:::
+
+## 代码演示
+
+:::card
+
+```topic
+基础用法
+```
+
+```html
+<byted-badge :value="8">
+  <byted-button type="danger" text="消息" />
+</byted-badge>
+
+<byted-badge value="new">
+  <byted-button type="primary" text="消息" />
+</byted-badge>
+```
+
+:::
+
+:::card
+
+```topic
+设置最大值
+```
+
+```desc
+设置`max`，`value`必须是`number`类型才能生效。
+```
+
+```html
+<byted-badge :value="100" :max="99">
+  <byted-button type="danger" text="消息" />
+</byted-badge>
+```
+
+:::
+
+:::card
+
+```topic
+小红点显示
+```
+
+```html
+<byted-badge is-dot>
+  <byted-button type="primary" text="消息" />
+</byted-badge>
+```
+
+:::
+
+## API
+
+### Props
+
+| 参数   | 说明                             | 类型      | 默认值  |
+| ------ | -------------------------------- | --------- | ------- |
+| value  | `string` or `number`             | `string`  | `''`    |
+| max    | when `value` be type of `number` | `string`  | `0`     |
+| is-dot |                                  | `boolean` | `false` |
+
+### Events
+
+| Event | Description                | Arguments    |
+| ----- | -------------------------- | ------------ |
+| click | Triggered when click Badge | event: Event |

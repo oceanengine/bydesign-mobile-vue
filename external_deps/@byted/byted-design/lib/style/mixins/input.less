@@ -1,0 +1,97 @@
+.input() {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  padding: @input-padding-base-vertical @input-padding-base-horizontal;
+  border-radius: @border-radius-base;
+  color: @text-color-1;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  font-weight: @font-weight-base;
+  background-color: @input-bg;
+  border-width: 1px;
+  border-style: solid;
+  border-color: @input-border;
+  outline: none;
+  box-sizing: border-box;
+  .placeholder();
+
+  &:hover {
+    .input-hover();
+  }
+  &:active,
+  &.active {
+    .input-active();
+  }
+
+  &:focus {
+    .input-focus();
+  }
+  &[readonly] {
+    cursor: pointer;
+  }
+  &[disabled],
+  &-disabled {
+    .input-disabled();
+    .placeholder(@disabled-color);
+  }
+
+}
+.input-hover(@border: @input-hover-border) {
+  border-color: @border;
+  z-index: @input-active-zindex;
+}
+.input-active() {
+  border-color: @input-active-border;
+  box-shadow: @input-active-box-shadow;
+  z-index: @input-active-zindex;
+}
+.input-focus(){
+  border-color: @input-focus-border;
+  box-shadow: @input-active-box-shadow;
+  z-index: @input-active-zindex;
+}
+.input-disabled() {
+  border-color: @input-disabled-border;
+  color: @input-disabled-color;
+  cursor: not-allowed;
+  opacity: 1;
+  background-color: @input-disabled-bg;
+  &:hover,
+  &:focus {
+    border-color: @input-disabled-border;
+    box-shadow: none;
+  }
+
+}
+.input-danger() {
+  border-color: @input-danger-border;
+  z-index: @input-active-zindex;
+}
+.input-danger-hover() {
+  border-color: @input-danger-border;
+}
+.input-danger-active() {
+  border-color: @input-danger-border;
+  box-shadow: @input-danger-box-shadow;
+}
+.input-xs() {
+  font-size: @font-size-sm;
+  line-height: @line-height-sm;
+  padding: @input-padding-xs-vertical @input-padding-xs-horizontal;
+}
+.input-sm() {
+  font-size: @font-size-sm;
+  line-height: @line-height-sm;
+  padding: @input-padding-sm-vertical @input-padding-sm-horizontal;
+}
+.input-lg() {
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  padding: @input-padding-lg-vertical @input-padding-lg-horizontal;
+}
+.input-xl() {
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  padding: @input-padding-xl-vertical @input-padding-xl-horizontal;
+}

@@ -1,0 +1,176 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  height: 100%;
+  z-index: 1050;
+}
+
+.@{css-prefix}modal-open {
+  overflow: hidden;
+}
+
+.@{css-prefix}modal-open.@{css-prefix}modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.@{css-prefix}modal {
+  display: flex;
+  //position: absolute;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  align-items: center;
+  &-topfix {
+    align-items: start;
+  }
+
+  .bui-modal-dialog {
+    position: relative;
+    width: 600px;
+    background-color: @modal-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @shadow-md;
+    margin: auto;
+
+    &.bui-modal-sm {
+      width: 480px;
+    }
+
+    &.bui-modal-lg {
+      width: 840px;
+    }
+
+    &-info-title {
+      .bui-modal-dialog-type(@primary-color);
+    }
+
+    &-success-title {
+      .bui-modal-dialog-type(@success-color);
+    }
+
+    &-warning-title {
+      .bui-modal-dialog-type(@warning-color);
+    }
+
+    &-error-title {
+      .bui-modal-dialog-type(@danger-color);
+    }
+
+    &-type-content {
+      padding-left: @padding-lg + 2px;
+    }
+  }
+
+  .bui-modal-header {
+    padding: @padding-lg;
+    color: @text-color-1;
+    &.bui-modal-dividing-line {
+      padding: 21px 24px;
+    }
+  }
+
+  .bui-modal-title {
+    line-height: @line-height-lg;
+    font-size: @font-size-lg;
+    font-weight: @font-weight-xl;
+    color: @text-color-1;
+  }
+
+  .modal-close-icon {
+    fill: @text-color-4;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+
+    &:hover {
+      fill: @text-color-2;
+    }
+  }
+
+  .bui-modal-body {
+    padding: 0 24px;
+    color: @text-color-2;
+    font-size: @font-size-base;
+
+    &.bui-modal-dividing-line {
+      padding: 0;
+      border-top: 1px solid @border-color-split;
+      border-bottom: 1px solid @border-color-split;
+    }
+    &.bui-no-slot-head {
+      padding-top: 24px;
+      border-top: none;
+    }
+
+    &.bui-no-slot-footer {
+      padding-bottom: 24px;
+      border-bottom: none
+    }
+  }
+
+  .bui-modal-footer {
+    padding: 32px 24px 24px 24px;
+    text-align: right;
+
+    &.bui-modal-dividing-line {
+      padding: 16px 24px;
+    }
+
+    .bui-btn {
+      margin-left: @padding-xs;
+    }
+  }
+  // 全局的 close icon
+  .bui-modal-close-icon {
+    fill: @text-color-4;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+
+    &:hover {
+      fill: @text-color-2;
+    }
+  }
+}
+
+.byted-modal-backdrop {
+  transition: opacity 0.18s linear;
+  opacity: 0;
+
+  &.in {
+    opacity: 1;
+  }
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.18s linear;
+  opacity: 1 !important;
+
+  &.modal-fade-enter,
+  &.modal-fade-leave-active {
+    opacity: 0 !important;
+  }
+}
+
+.bui-modal-dialog-type(@icon-fill) {
+  .bui-modal-dialog-type-title-icon {
+    vertical-align: -3px;
+    margin-right: @padding-xs;
+    fill: @icon-fill;
+  }
+}

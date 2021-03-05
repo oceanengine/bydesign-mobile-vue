@@ -1,0 +1,56 @@
+.@{css-prefix}loading {
+  display: inline-block;
+  .bui-loading-icon{
+    display: flex;
+    width: 28px;
+    height: 28px;
+    .bui-icon-loading{
+      width: 100%;
+      height: 100%;
+      .bui-loading-opacity-animation();
+      .bui-loading-group {
+        stroke: @loading-icon-color;
+      }
+    }
+    &-small {
+      .set-loading-size(@loading-icon-sm)
+    }
+    &-sm {
+      .set-loading-size(@loading-icon-sm)
+    }
+    &-normal {
+      .set-loading-size(@loading-icon-md)
+    }
+    &-md {
+      .set-loading-size(@loading-icon-md)
+    }
+    &-xs {
+      .set-loading-size(@loading-icon-xs)
+    }
+    &-lg {
+      .set-loading-size(@loading-icon-lg)
+    }
+    &-xl {
+      .set-loading-size(@loading-icon-xl)
+    }
+  }
+  .set-loading-size(@size) {
+    height: @size;
+    width: @size;
+  }
+}
+.@{css-prefix}loading-v {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 996;
+  background-color: rgba(244, 244, 244, 0.9);
+  .bui-loading-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+}

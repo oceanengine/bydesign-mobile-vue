@@ -1,0 +1,95 @@
+.@{css-prefix}creative-image {
+  .image-num {
+    position: absolute;
+    right: 2px;
+    bottom: 0;
+    font-size: 10px;
+    transform: scale(0.8);
+  }
+
+  .image-con {
+    height: 225px;
+    overflow: auto;
+    padding-top: 10px;
+  }
+
+  .basic-upload-cont {
+    margin: 0;
+    padding: 0;
+
+    .li-field {
+      list-style: none;
+      float: left;
+      margin-right: 15px;
+      margin-bottom: 15px;
+    }
+    .basic-image-upload {
+      border: 1px solid #e8e8e8;
+      .title {
+        height: 50px;
+        position: relative;
+        .word-count {
+          position: absolute;
+          right: 5px;
+          bottom: 5px;
+          color: #e8e8e8;
+          font-size: 12px;
+        }
+      }
+      textarea {
+        border: 0;
+        margin: 0;
+        outline: none;
+        font-size: 12px;
+        width: 100%;
+        height: 50px;
+        padding: 5px;
+        border-top: 0;
+        resize: none;
+      }
+      .inner {
+        background-color: #e8e8e8;
+        position: relative;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin-right: 5px;
+      }
+      input[type="file"] {
+        display: none;
+      }
+      position: relative;
+      text-align: center;
+      .btn-primary {
+        margin-top: 40px;
+      }
+
+      .cross {
+        position: absolute;
+        cursor: pointer;
+        color: #fff;
+        width: 16px;
+        line-height: 14px;
+        height: 16px;
+        border-radius: 8px;
+        background-color: #ff635c;
+        text-align: center;
+        display: none;
+        top: -8px;
+        right: -8px;
+        transition: opacity 0.2s ease-in-out;
+        z-index: 20;
+        user-select: none;
+      }
+      &:hover {
+        .cross {
+          display: block;
+        }
+      }
+      .shapetips {
+        margin-top: 7px;
+        font-size: 12px;
+      }
+    }
+  }
+}

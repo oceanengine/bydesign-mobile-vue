@@ -1,0 +1,15 @@
+@import '../style/common.less';
+// 兼容旧版本select option popper样式
+.bui-popper{
+  z-index: @popper-z-index;
+  .bui-option-list-wrapper{
+    border-radius: 2px;
+    margin-top: -1px;
+    margin-bottom: 2px;
+    max-height: 184px;
+    overflow: hidden;
+    // border: 1px solid @secondary-color-1;
+    background-color: @popper-body-bg;
+    .scrollbar()
+  }
+}

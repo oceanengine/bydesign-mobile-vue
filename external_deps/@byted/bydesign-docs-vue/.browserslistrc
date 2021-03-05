@@ -1,0 +1,10 @@
+# Browsers that we support
+> 0.5% in CN
+last 2 versions
+Chrome >= 57
+Firefox >= 54
+Safari >= 10
+IE >= 11
+Edge >= 17
+Android >= 4.0
+iOS >= 7

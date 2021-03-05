@@ -1,0 +1,167 @@
+.byted-input-number {
+  display: inline-block;
+  position: relative;
+  .bui-input {
+    .input();
+    padding-right: @input-number-padding-right;
+    &[type="number"] {
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+    &[type=number]::-webkit-inner-spin-button,
+    &[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+  }
+  .bui-input-dispersion{
+    padding-left: @input-number-padding-left;
+    text-align: center;
+  }
+  .bui-input-suffix-default {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    width: 20px;
+    border-left: 1px solid @border-color-base;
+    z-index: @input-number-suffix-z-index;
+    .bui-control-area {
+      user-select: none;
+      height: 50%;
+      text-align: center;
+      line-height: 0;
+      cursor: pointer;
+      &-icon {
+        width: 12px;
+        height: 12px;
+        fill: @text-color-2;
+        margin-top: 1px;
+        &:hover {
+          fill: @primary-color;
+        }
+        &.disabled {
+          fill: @btn-default-disabled-color;
+          cursor: not-allowed;
+        }
+        &.up {
+          transform: rotate(180deg);
+        }
+      }
+      &:first-child{
+        border-bottom: 1px solid @border-color-base;
+      }
+    }
+  }
+  .bui-input-suffix-dispersion {
+    .bui-control-area {
+      position: absolute;
+      top: 1px;
+      width: 32px;
+      height: 32px;
+      text-align: center;
+      line-height: 0;
+      cursor: pointer;
+      background: @input-append-bg;
+      z-index: @input-number-suffix-z-index;
+      &-icon {
+        width: 12px;
+        height: 12px;
+        fill: @text-color-2;
+        vertical-align: -16px;
+        &:hover {
+          fill: @primary-color;
+        }
+        &.disabled {
+          fill: @btn-default-disabled-color;
+          cursor: not-allowed;
+        }
+        &.sub {
+          font-weight: 300;
+        }
+      }
+    }
+    .bui-control-area-left {
+      left: 1px;
+      border-right: 1px solid @border-color-base;
+      border-top-left-radius: @border-radius-base - 1px;
+      border-bottom-left-radius: @border-radius-base - 1px;
+    }
+    .bui-control-area-right {
+      right: 1px;
+      border-left: 1px solid @border-color-base;
+      border-top-right-radius: @border-radius-base - 1px;
+      border-bottom-right-radius: @border-radius-base - 1px;
+    }
+  }
+  &-sm, &-small{
+    .bui-input {
+      .input-sm();
+      padding-right: @input-number-padding-right;
+    }
+    .bui-input-dispersion {
+      padding-left: @input-number-padding-left;
+      text-align: center;
+    }
+  }
+  &-xs {
+    line-height: @line-height-sm;
+    font-size: @font-size-sm;
+    .bui-input {
+      .input-xs();
+      padding-right: 12px;
+    }
+    .bui-input-dispersion {
+      padding-left: @input-number-padding-left;
+      text-align: center;
+    }
+    .bui-input-suffix-default {
+      width: 12px;
+      .bui-control-area-icon {
+        width: 8px;
+        height: 8px;
+      }
+    }
+    .bui-input-suffix-default, .bui-input-suffix-dispersion {
+      .bui-control-area-icon {
+        vertical-align: -4px;
+      }
+    }
+  }
+  &.bui-input-number-dispersion{
+    .bui-input-suffix-default{
+      display: none;
+    }
+  }
+  &-xs.bui-input-number-dispersion{
+    .bui-input {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
+    .bui-input-suffix-default, .bui-input-suffix-dispersion {
+      .bui-control-area-icon {
+        vertical-align: -14px;
+      }
+    }
+    .bui-control-area-left, .bui-control-area-right{
+      height: 24px;
+      width: 24px;
+    }
+  }
+  &-sm.bui-input-number-dispersion, &-small.bui-input-number-dispersion{
+    .bui-input {
+      padding-right: 28px;
+      padding-left: 28px;
+    }
+    .bui-input-suffix-default, .bui-input-suffix-dispersion {
+      .bui-control-area-icon {
+        vertical-align: -14px;
+      }
+    }
+    .bui-control-area-left, .bui-control-area-right{
+      height: 28px;
+      width: 28px;
+    }
+  }
+}

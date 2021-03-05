@@ -1,0 +1,27 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}card {
+  background: @component-bg;
+  border-radius: @border-radius-base;
+  &-header {
+    font-size: @font-size-lg;
+    padding: @card-padding;
+    color: @text-color-1;
+  }
+  &-body {
+    padding: @card-padding;
+    color: @text-color-2;
+  }
+}
+.@{css-prefix}card.@{css-prefix}card-shadow {
+  box-shadow: @shadow-sm;
+}
+.@{css-prefix}card.@{css-prefix}card-none-shadow {
+  border: 1px solid @border-color-base;
+}
+.@{css-prefix}card.@{css-prefix}card-hover-shadow {
+  &:hover {
+    box-shadow: @shadow-sm;
+  }
+}

@@ -1,0 +1,93 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}slider {
+  width: 100%;
+  position: relative;
+  padding: 10px 0;
+  .bui-slider-container {
+    border-radius: 3px;
+    height: 4px;
+    background-color: @slider-container-bg-color;
+    position: relative;
+    .byted-popover {
+      .bui-popover-panel {
+        text-align: center;
+      }
+    }
+  }
+  .bui-slider-button {
+    width: 16px;
+    height: 16px;
+    background-color: @slider-button-bg-color;
+    border: 2px solid @slider-button-border-color;
+    position: absolute;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    cursor: pointer;
+    z-index: 100;
+    &:hover {
+      border-color: @slider-button-hover-border-color;
+    }
+    &:focus, &:active {
+      border-color: @slider-button-press-border-color;
+    }
+  }
+  .bui-slider-button.byted-slider-button-active {
+    border-color: @slider-button-hover-border-color;
+  }
+  .bui-slider-active {
+    height: 100%;
+    border-radius: 3px;
+    background-color: @primary-color;
+    position: absolute;
+    top: 0;
+  }
+  .bui-slider-stop {
+    width: 8px;
+    height: 8px;
+    background-color: @slider-button-bg-color;
+    border: 2px solid @slider-container-bg-color;
+    position: absolute;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    cursor: pointer;
+    &.bui-slider-stop-active {
+      border: 2px solid @slider-button-border-color;
+    }
+  }
+  .bui-slider-mark {
+    position: absolute;
+    top: 14px;
+    left: 0;
+    width: 100%;
+    &-text {
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      color: @text-color-1;
+      font-family:PingFangSC-Regular;
+      font-weight:400;
+      font-size: 14px;
+    }
+  }
+}
+
+.@{css-prefix}slider-disabled {
+  .bui-slider-container {
+    cursor: not-allowed;
+    background-color: @slider-disable-bg-color;
+  }
+  .bui-slider-button {
+    cursor: not-allowed;
+    border-color: @slider-disable-button-color;
+    &:hover, &:active, &:focus {
+      border-color: @slider-disable-button-color;
+    }
+  }
+  .bui-slider-active {
+    background-color: @slider-disable-button-color;
+  }
+}

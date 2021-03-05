@@ -1,0 +1,158 @@
+# 按钮
+
+### 安装
+
+:::card
+
+```javascript
+import { Button } from '@byted/by-design-m';
+
+Vue.use(Button);
+```
+
+:::
+
+## 代码演示
+
+:::card
+
+```topic
+类型
+```
+
+```html
+<byted-button type="default">默认</byted-button>
+<byted-button type="primary">主要</byted-button>
+<byted-button type="info">信息</byted-button>
+<byted-button type="danger">危险</byted-button>
+<byted-button type="warning">警告</byted-button>
+```
+
+:::
+
+:::card
+
+```topic
+描边
+```
+
+```html
+<byted-button plain text="描边" type="primary" />
+<byted-button plain text="描边" type="success" />
+<byted-button plain text="描边" type="warning" />
+<byted-button plain text="描边" type="danger" />
+```
+
+:::
+
+:::card
+
+```topic
+半透明
+```
+
+```html
+<byted-button fade text="透明" type="primary" />
+<byted-button fade text="透明" type="success" />
+<byted-button fade text="透明" type="warning" />
+<byted-button fade text="透明" type="danger" />
+```
+
+:::
+
+:::card
+
+```topic
+细边框
+```
+
+```html
+<byted-button text="细边" type="primary" hairline />
+<byted-button text="成功" type="success" hairline />
+<byted-button text="警告" type="warning" hairline fade />
+<byted-button text="危险" type="danger" hairline fade />
+```
+
+:::
+
+:::card
+
+```topic
+禁用态
+```
+
+```html
+<byted-button disabled type="primary">Diabled</byted-button>
+<byted-button disabled type="danger">Diabled</byted-button>
+```
+
+:::
+
+:::card
+
+```topic
+形状
+```
+
+```html
+<byted-button square type="primary">Square</byted-button>
+<byted-button round type="danger">Round</byted-button>
+```
+
+:::
+
+:::card
+
+```topic
+尺寸
+```
+
+```html
+<byted-button type="primary" size="large">Large</byted-button>
+<byted-button type="primary" size="normal">Normal</byted-button>
+<byted-button type="primary" size="small">Small</byted-button>
+<byted-button type="primary" size="mini">Mini</byted-button>
+<byted-button type="primary" size="tiny">Tiny</byted-button>
+```
+
+:::
+
+:::card
+
+```topic
+文字按钮
+```
+
+```html
+<byted-button text="large" size="large" type="text" />
+<byted-button text="normal" type="text" />
+<byted-button text="small" size="small" type="text" />
+<byted-button text="mini" size="mini" type="text" />
+<byted-button text="tiny" size="tiny" type="text" />
+<byted-button text="large" size="large" type="text" disabled />
+```
+
+:::
+
+## API
+
+### Props
+
+| 参数     | 说明                                                     | 类型      | 默认值    |
+| -------- | -------------------------------------------------------- | --------- | --------- |
+| type     | Can be set to `primary` `info` `warning` `danger` `text` | `string`  | `default` |
+| size     | Can be set to `large` `small` `mini`                     | `string`  | `normal`  |
+| text     | Text                                                     | `string`  | -         |
+| icon     | Left Icon                                                | `string`  | -         |
+| plain    | Whether to be plain button                               | `boolean` | `false`   |
+| round    | Whether to be round button                               | `boolean` | `false`   |
+| square   | Whether to be square button                              | `boolean` | `false`   |
+| disabled | Whether to disable button                                | `boolean` | `false`   |
+| loading  | Whether to loading button                                | `boolean` | `false`   |
+
+### Events
+
+| Event      | Description                                             | Arguments         |
+| ---------- | ------------------------------------------------------- | ----------------- |
+| click      | Triggered when click button and not disabled or loading | event: Event      |
+| touchstart | Triggered when touch start                              | event: TouchEvent |

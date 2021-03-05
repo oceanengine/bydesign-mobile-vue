@@ -1,0 +1,25 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}radio-button {
+  min-width: @radio-button-min-width;
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+  &:not(:first-child) {
+    margin-right: -1px;
+  }
+  &:first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &:last-child:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+.@{css-prefix}radio-group {
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+}

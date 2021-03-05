@@ -1,0 +1,114 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}switch {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+  .bui-switch{
+    .switch(@switch-loading-width-base; @switch-width-base; @switch-height-base; @switch-icon-width-base;);
+  }
+  &-sm {
+    .bui-switch {
+      .switch(@switch-loading-width-sm; @switch-width-sm; @switch-height-sm; @switch-icon-width-sm;);
+    }
+  }
+  &-lg {
+    .bui-switch {
+      .switch(@switch-loading-width-lg; @switch-width-lg; @switch-height-lg; @switch-icon-width-lg;@switch-border-radius-lg;);
+    }
+  }
+}
+.switch(@switch-loading-width; @switch-width; @switch-height; @switch-icon-width;@switch-border-radius:@switch-border-radius-base){
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: @switch-width;
+  height: @switch-height;
+  background-color: @switch-bg;
+  border-radius: @switch-border-radius;
+  transition: all .36s;
+  &:before{
+    content: "";
+    .setPosition(@switch-icon-width; @switch-height;);
+    width: @switch-icon-width;
+    height: @switch-icon-width;
+    background-color: @switch-icon-bg;
+    border-radius: 50%;
+    box-shadow: @switch-shadow-base;
+    // border-image: linear-gradient(180deg, rgba(241,243,251,1), rgba(222,228,245,1)) 1 1;
+    transition: all .36s cubic-bezier(.78,.14,.15,.86);
+  }
+  &.bui-switch-disabled, &.bui-switch-loading{
+    background-color: @switch-disabled-bg;
+    cursor: not-allowed;
+    & when (@theme = dark) {
+      opacity: 0.4;
+      background-color: @switch-bg;
+      .set-bui-switch-loading-icon(@switch-loading-icon-color; @switch-checked-bg; @switch-height; @switch-loading-width;);
+      &.bui-switch-checked {
+        background-color: @switch-checked-bg;
+        .set-bui-switch-loading-icon(@switch-bg; @switch-checked-bg; @switch-height; @switch-loading-width;);
+      }
+    }
+    & when not (@theme = dark) {
+      background-color: @switch-disabled-bg;
+      .set-bui-switch-loading-icon(@switch-loading-icon-color; @switch-checked-disabled-bg; @switch-height; @switch-loading-width;);
+      &.bui-switch-checked {
+        background-color: @switch-checked-disabled-bg;
+        .set-bui-switch-loading-icon(@switch-disabled-bg; @switch-checked-disabled-bg; @switch-height; @switch-loading-width;);
+      }
+    }
+  }
+  &.bui-switch-checked{
+    background-color: @switch-checked-bg;
+    &:before{
+      left: 100%;
+      margin-left: -(@switch-height +  @switch-icon-width)/2;
+    }
+    &.bui-switch-loading {
+      .bui-switch-loading-icon {
+        left: 100%;
+        margin-left: -@switch-loading-width - (@switch-icon-width - @switch-loading-width) + 1;
+      }
+    }
+  }
+}
+.set-bui-switch-loading-icon(@default-color; @checked-color; @switch-height; @switch-loading-width;) {
+  .bui-switch-loading-icon {
+    position: absolute;
+    left: (@switch-height - @switch-loading-width)/2;
+    top: (@switch-height - @switch-loading-width)/2;
+    width: @switch-loading-width;
+    height: @switch-loading-width;
+    .bui-icon-loading {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .bui-loading-group-default {
+      .bui-loading-group {
+        stroke: @default-color;
+      }
+    }
+    .bui-loading-group-active {
+      .bui-loading-group {
+        stroke: @checked-color;
+      }
+    }
+  }
+}
+.setPosition(@switch-icon-width; @switch-height;) {
+  position: absolute;
+  left: (@switch-height - @switch-icon-width)/2;
+  top: (@switch-height - @switch-icon-width)/2;
+}
+
+// form.form-horizontal .@{css-prefix}switch{
+//   padding-top: 8px;
+//   vertical-align: middle;
+// }

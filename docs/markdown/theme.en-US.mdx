@@ -1,0 +1,132 @@
+# Custom Theme
+
+BUI provides one theme by default, CSS naming obeys BEM, which is convenient for users to cover styles. Click bottom-right of the screen to customize theme and preview it.
+
+---
+
+## Custom Method
+
+- Detailed <strong>less</strong> variables please refer this file: `'@byted/by-design-m/es/style/var.less'`.
+- Custom theme need users to import component library <strong>less</strong> source file, and install `less-loader`.
+
+### Step One - Import Style Source File
+
+##### Import Style Manually
+
+:::card
+
+```javascript
+// Import all styles
+import '@byted/by-design-m/lib/index.less';
+
+// Import single component style
+import '@byted/by-design-m/lib/components/button/style/less';
+```
+
+:::
+
+#### Import Style On-demand (Recommended)
+
+:::card
+```desc
+`babel.config.js` configs plugin `babel-plugin-import`. Note: `Babel6` does not support importing styles on-demand, please import them manually.
+```
+```html
+plugins: [
+  [
+    'import',
+    {
+      libraryName: '@byted/by-design-m',
+      libraryDirectory: 'es/components',
+    }
+  ]
+]
+```
+:::
+
+### Step Two - Modify Style Variables
+
+:::card
+```desc
+Use [modifyVars] provided by `Less` will modify variables, webpack configuration:
+```
+```javascript
+module.exports = {
+  rules: [
+    {
+      test: /\.less$/,
+      use: [
+        {
+          loader: 'less-loader',
+          options: {
+            javascriptEnabled: true,
+            modifyVars: {
+              '@primary-color': '#000000',
+            },
+          },
+        },
+      ],
+    },
+  ],
+};
+```
+:::
+
+## Output var.json to Config Theme
+
+:::card
+
+```desc
+Click `Theme Setting` button on bottom-right of the screen to config and preview theme online, then pass `var.json` into `modifyVars`.
+```
+
+```javascript
+const vars = require('./config/theme/var.json');
+
+module.exports = {
+  rules: [
+    {
+      test: /\.less$/,
+      use: [
+        {
+          loader: 'less-loader',
+          options: {
+            javascriptEnabled: true,
+            modifyVars: vars,
+          },
+        },
+      ],
+    },
+  ],
+};
+```
+:::
+
+## Install Aweme Theme
+
+```javascript
+npm install @byted/byted-ui-m-theme
+```
+:::card
+
+```javascript
+const { aweme } = require('@byted/byted-ui-m-theme');
+
+module.exports = {
+  rules: [
+    {
+      test: /\.less$/,
+      use: [
+        {
+          loader: 'less-loader',
+          options: {
+            javascriptEnabled: true,
+            modifyVars: aweme,
+          },
+        },
+      ],
+    },
+  ],
+};
+```
+:::

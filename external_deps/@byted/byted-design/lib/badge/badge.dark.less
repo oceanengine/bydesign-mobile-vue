@@ -1,0 +1,77 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}badge {
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+  font-size: @font-size-base;
+
+  &-count {
+    position: absolute;
+    right: 0;
+    top: -10px;
+    z-index: @badge-z-index;
+    transform-origin: 100%;
+    transform: translateX(50%);
+    font-size: @font-size-sm;
+    line-height: @line-height-sm;
+    border-radius: @line-height-sm / 2;
+    color: @text-color-white;
+    background: @danger-color;
+    padding: 0 6px;
+    min-width: 20px;
+    text-align: center;
+    // makes all character the same width
+    font-family: @font-family-number;
+  }
+
+  &&-standalone {
+    .byted-badge-count,
+    .byted-badge-status-dot {
+      position: relative;
+      transform: none;
+      top: auto;
+    }
+
+    .byted-badge-count:not(:last-child) {
+      min-width: 0;
+      padding: 0;
+    }
+  }
+
+  &-dot {
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: @danger-color;
+  }
+
+  &-status-dot {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  &-status-info {
+    background: @info-color;
+  }
+  &-status-success {
+    background: @success-color;
+  }
+  &-status-warning {
+    background: @warning-color;
+  }
+  &-status-danger {
+    background: @danger-color;
+  }
+  &-status-default {
+    background: @badge-default-bg;
+  }
+}

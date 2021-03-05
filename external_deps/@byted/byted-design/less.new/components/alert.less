@@ -1,0 +1,171 @@
+.@{css-prefix}alert {
+  position: relative;
+  border-width: @alert-border-width;
+  border-style: solid;
+  line-height: @line-height-base;
+  color: @text-color-1;
+  font-size: @font-size-base;
+  border-radius: @border-radius-base;
+  padding: @alert-padding-base-vertical @alert-padding-base-horizontal;
+  display: flex;
+  align-items: center;
+  .bui-alert-icon {
+    width: @alert-prefix-icon-size;
+    height: @alert-prefix-icon-size;
+    position: absolute;
+    top: @alert-icon-top-md;
+    left: @alert-prefix-icon-size;
+  }
+  
+  .bui-alert-right-close {
+    cursor: pointer;
+    font-size: @font-size-sm;
+    color: @primary-color;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    .bui-alert-close {
+      fill: @alert-close-icon-fill;
+      width: @alert-close-icon-size;
+      height: @alert-close-icon-size;
+    }
+  }
+  &-info {
+    .alert-color(@info-color-5; @info-color-4; @info-color);
+  }
+  &-success {
+    .alert-color(@success-color-5; @success-color-4; @success-color);
+  }
+  &-warning {
+    .alert-color(@warning-color-5; @warning-color-4; @warning-color);
+  }
+  &-danger {
+    .alert-color(@danger-color-5; @danger-color-4; @danger-color);
+  }
+  &-sm {
+    padding: @alert-padding-sm-vertical @alert-padding-sm-horizontal;
+    font-size: @font-size-sm;
+    line-height: @line-height-sm;
+    .bui-alert-icon {
+      top: @alert-icon-top-sm;
+    }
+  }
+  &-lg {
+    padding: @alert-padding-lg-vertical @alert-padding-lg-horizontal;
+    .bui-alert-icon {
+      top: @alert-icon-top-lg;
+    }
+  }
+  &-closable {
+    .content-wrapper {
+      margin-right: @alert-closable-padding-right;
+    }
+  }
+  &-show-icon {
+    padding-left: @alert-show-icon-padding-left;
+  }
+  &-plain {
+    padding: 0;
+    background-color: transparent;
+    border-color: transparent;
+    .content-wrapper {
+      margin-right: 0;
+    }
+    &.byted-alert-show-icon {
+      padding-left: @alert-show-icon-padding-left-plain;
+    }
+    .bui-alert-icon {
+      left: 0;
+      top: @alert-icon-top-md - @alert-padding-base-vertical;
+    }
+    &.@{css-prefix}alert {
+      &-sm {
+        .bui-alert-icon {
+          top: @alert-icon-top-sm - @alert-padding-sm-vertical;
+        }
+      }
+      &-lg {
+        .bui-alert-icon {
+          top: @alert-icon-top-lg - @alert-padding-lg-vertical;
+        }
+      }
+    }
+  }
+  &.byted-alert-banner {
+    background-color: @alert-banner-bg;
+    border: @alert-border-width solid @alert-border-color;
+    border-radius: @border-radius-base;
+    .bui-alert-icon {
+      width: @alert-icon-prefix-md;
+      height: 100%;
+      position: absolute;
+      top: -@alert-border-width;
+      left: 0;
+      transform: none;
+      background: @primary-color-2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      fill: @gray-1;
+      box-sizing: content-box;
+      padding: @alert-border-width 0;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+      svg {
+        width: @alert-prefix-icon-size;
+        height: @alert-prefix-icon-size;
+        position: static;
+      }
+    }
+     &.byted-alert-info {
+      .bui-alert-icon {
+        background: @info-color-2;
+      }
+    }
+    &.byted-alert-danger {
+      .bui-alert-icon {
+        background: @danger-color-2;
+      }
+    }
+    &.byted-alert-success {
+      .bui-alert-icon {
+        background: @success-color-2;
+      }
+    }
+    &.byted-alert-warning {
+      .bui-alert-icon {
+        background: @warning-color-2;
+      }
+    }
+    &.byted-alert-sm {
+      .bui-alert-icon {
+        width: @alert-icon-prefix-sm;
+      }
+      &.byted-alert-show-icon {
+        padding-left: @banner-alert-show-icon-padding-left-sm;
+      }
+    }
+    &.byted-alert-lg {
+      .bui-alert-icon {
+        width: @alert-icon-prefix-lg;
+      }
+      &.byted-alert-show-icon {
+        padding-left: @banner-alert-show-icon-padding-left-lg;
+      }
+    }
+    &.byted-alert-show-icon {
+      padding-left: @banner-alert-show-icon-padding-left;
+    }
+    .bui-alert-right-close-slot {
+      margin-right: 4px;
+    }
+  }
+}
+
+.alert-color(@background; @border; @icon-fill) {
+  background-color: @background;
+  border-color: @border;
+  .bui-alert-icon {
+    fill: @icon-fill;
+  }
+}

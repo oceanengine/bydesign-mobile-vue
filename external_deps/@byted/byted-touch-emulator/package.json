@@ -1,0 +1,19 @@
+{
+  "name": "@byted/byted-touch-emulator",
+  "version": "0.0.1",
+  "description": "bui touch emulator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@code.byted.org:ad/byted-touch-emulator.git"
+  },
+  "keywords": [
+    "touch",
+    "emulator"
+  ],
+  "author": "Totoo",
+  "license": "ISC"
+}

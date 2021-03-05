@@ -1,0 +1,44 @@
+.@{css-prefix}infinite-scroll {
+  overflow: auto;
+  &--flex {
+    display: flex;
+    min-width: min-content;
+  }
+  &--disabled {
+    overflow: visible;
+    &--flex {
+      display: block;
+      min-width: unset;
+    }
+  }
+  & .bui-icon-loading {
+    font-size: @font-size-base;
+    .bui-loading-opacity-animation();
+  }
+  .bui-list-loadmore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: @infinite-scroll-loading-height;
+    font-size: 0;
+    color: @primary-color;
+    & .bui-icon-loading {
+      display: block;
+    }
+    span {
+      font-size: @font-size-sm;
+      margin-left: 4px;
+    }
+
+    &.bui-list-loadmore-vertical-rl {
+      text-align: center;
+      writing-mode: vertical-rl;
+      width: @infinite-scroll-loading-width;
+      height: auto;
+      span {
+        margin-left: unset;
+        margin-top: 4px;
+      }
+    }
+  }
+}

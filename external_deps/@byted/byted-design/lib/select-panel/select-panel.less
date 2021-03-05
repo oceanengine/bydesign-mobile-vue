@@ -1,0 +1,231 @@
+@import '../style/common.less';
+
+.@{css-prefix}select-panel {
+  font-size: 0;
+  .bui-select-panel-left{
+    position: relative; // 水平滚动时，作为offsetParent
+    display: inline-flex;
+    overflow-x: auto;
+    vertical-align: top;
+    &-moduler {
+      display: inline-block;
+      flex: none;
+      &:not(:first-child) {
+        margin-left: -1px;
+      }
+      &:not(:first-child):not(:last-child){
+        .@{css-prefix}select-panel-moduler {
+          border-radius: 0
+        }
+      }
+      &:first-child:not(:last-child) {
+        .@{css-prefix}select-panel-moduler {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+      }
+      &:last-child:not(:first-child) {
+        .@{css-prefix}select-panel-moduler {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+    &-none .@{css-prefix}select-panel-moduler-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &.bui-select-panel-scrolling-left {
+      border-left: 1px solid @border-color-base;
+      border-top-left-radius: @border-radius-base;
+      border-bottom-left-radius: @border-radius-base;
+    }
+    &.bui-select-panel-scrolling-right {
+      border-right: 1px solid @border-color-base;
+      border-top-right-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
+    }
+  }
+  .bui-select-panel-right {
+    display: inline-block;
+    &-none .@{css-prefix}select-panel-moduler-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.@{css-prefix}select-panel-moduler {
+  width: 100%;
+  background-color: @component-bg;
+  border: 1px solid @border-color-base;
+  border-radius: @border-radius-base;
+  overflow: hidden;
+  &-header {
+    border-bottom: 1px solid @border-color-base;
+    background-color: @component-header-bg;
+    color: @text-color-1;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    &-title {
+      font-weight: @font-weight-xl;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex-grow: 1;
+    }
+    &-clear {
+      flex-shrink: 0;
+      color: @primary-color;
+      cursor: pointer;
+      margin-left: 12px;
+    }
+  }
+  &-container {
+    height: 192px;
+    padding: 6px 0;
+    overflow-y: auto;
+    position: relative; // 垂直滚动时，作为offsetParent
+  }
+  &-none {
+    color: @text-color-4;
+    text-align: center;
+    font-size: @font-size-base;
+    line-height: @line-height-sm;
+    .bui-icon-empty {
+      fill: @text-color-5;
+      width: 37px;
+      height: 37px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+  }
+  &-disabled {
+    .@{css-prefix}select-panel-moduler-header-clear {
+      color: @primary-color-4;
+      cursor: not-allowed;
+    }
+  }
+}
+.@{css-prefix}select-panel-item {
+  padding: 6px 12px;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    background-color: @list-hover-bg;
+    .byted-select-panel-toright {
+      cursor: pointer;
+    }
+  }
+  .@{css-prefix}select-panel-item-checkbox {
+    position: absolute;
+    top: 6px;
+    left: 12px;
+    padding: 0;
+    margin: 0;
+  }
+  .@{css-prefix}select-panel-item-name {
+    display: block;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: @line-height-base;
+    font-size: @font-size-base;
+    color: @text-color-1;
+    font-weight: normal;
+  }
+  .@{css-prefix}select-panel-item-toright {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    .bui-icon-angle-right {
+      width: 16px;
+      height: 16px;
+      fill: @text-color-3;
+    }
+    line-height: 0;
+    cursor: pointer;
+  }
+
+}
+.@{css-prefix}select-panel-item.@{css-prefix}select-panel-item-active {
+    .@{css-prefix}select-panel-item-name {
+      color: @primary-color !important;
+    }
+    .@{css-prefix}select-panel-item-toright .bui-icon-angle-right {
+      fill: @primary-color !important;
+    }
+}
+.@{css-prefix}select-panel-item.@{css-prefix}select-panel-item-remove {
+  margin: 8px 12px;
+  padding: 2px 8px;
+  background-color: @select-panel-selected-bg;
+  border-radius: @border-radius-base;
+  position: relative;
+  &:first-child {
+    margin-top: 6px;
+  }
+  &:last-child {
+    margin-bottom: 12px;
+  }
+  .@{css-prefix}select-panel-item-name {
+    margin-right: 14px;
+  }
+  .@{css-prefix}select-panel-item-closeicon {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    line-height: 0;
+    cursor: pointer;
+    .bui-icon-close {
+      width: 14px;
+      height: 14px;
+      fill: @text-color-3;
+    }
+  }
+}
+.@{css-prefix}select-panel-item.@{css-prefix}select-panel-item-check {
+    .@{css-prefix}select-panel-item-name {
+      margin-left: 24px;
+    }
+}
+.@{css-prefix}select-panel-item.@{css-prefix}select-panel-item-has-child {
+    .@{css-prefix}select-panel-item-name {
+        margin-right: 14px;
+    }
+}
+.@{css-prefix}select-panel-item.@{css-prefix}select-panel-item-disabled {
+  .@{css-prefix}select-panel-item-name {
+    color: @disabled-color;
+    cursor: not-allowed;
+  }
+  .@{css-prefix}select-panel-item-toright {
+    cursor: not-allowed;
+    .bui-icon-angle-right {
+      fill: @disabled-color;
+    }
+  }
+  &.@{css-prefix}select-panel-item-active.@{css-prefix}select-panel-item-selected {
+    .@{css-prefix}select-panel-item-name {
+      color: @primary-color-4;
+    }
+    .@{css-prefix}select-panel-item-toright .bui-icon-angle-right {
+      fill: @primary-color-4;
+    }
+  }
+  &.@{css-prefix}select-panel-item-remove {
+    // background-color: @gray-9;
+    // border: 1px solid @gray-7;
+    // .bui-icon-close {
+    //   fill: @gray-4;
+    // }
+    .@{css-prefix}select-panel-item-name {
+      color: @text-color-1;
+    }
+  }
+}

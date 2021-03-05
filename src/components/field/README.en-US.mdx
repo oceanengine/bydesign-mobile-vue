@@ -1,0 +1,230 @@
+# Field
+
+### Install
+
+:::card
+
+```javascript
+import { Field } from '@byted/by-design-m';
+
+Vue.use(Field);
+```
+
+:::
+
+## Usage
+
+:::card
+
+```topic
+Basic Usage
+```
+
+```html
+<byted-field v-model="value" />
+```
+
+```javascript
+data() {
+  return {
+    value: ''
+  }
+}
+```
+
+:::
+
+:::card
+
+```topic
+No Border Style
+```
+
+```html
+<byted-field v-model="value" :border="false" />
+```
+
+:::
+
+:::card
+
+```topic
+label/unit Usage
+```
+
+```html
+<byted-field v-model="value6" label="标题" unit="单位" />
+<byted-field v-model="value6" type="textarea" label="标题" unit="单位" />
+```
+
+:::
+
+:::card
+
+```topic
+Close Usage
+```
+
+```html
+<byted-field v-model="value" clearable />
+```
+
+````
+:::
+
+:::card
+```topic
+Word Limit
+````
+
+```html
+<byted-field v-model="value" :maxlength="10" />
+```
+
+:::
+
+:::card
+
+```topic
+Word Limit Width Byte
+```
+
+```html
+<byted-field v-model="value" :maxlength="10" :byte="2" />
+```
+
+:::
+
+:::card
+
+```topic
+Length Calculation
+```
+
+```desc
+Provide a function to customize length calculation of input.
+```
+
+```html
+<byted-field v-model="value" :get-length="(val) => val.length * 2" />
+```
+
+:::
+
+:::card
+
+```topic
+Disabled Usage
+```
+
+```html
+<byted-field :value="'disabled'" disabled />
+```
+
+:::
+
+:::card
+
+```topic
+Readonly Usage
+```
+
+```html
+<byted-field :value="'readonly'" readonly />
+```
+
+:::
+
+:::card
+
+```topic
+Size
+```
+
+```html
+<byted-field v-model="value" /> <byted-field v-model="value" size="large" />
+```
+
+:::
+
+:::card
+
+```topic
+ErrorText
+```
+
+```html
+<byted-field v-model="value" :error-text="错误" />
+```
+
+:::
+
+:::card
+
+```topic
+Slots
+```
+
+```desc
+Supports 2 slots: `label` and `length`.
+```
+
+```html
+<byted-field v-model="value14">
+  <template v-slot:label> SlotLabel </template>
+</byted-field>
+
+<byted-field v-model="value15" :maxlength="12" type="textarea">
+  <template v-slot:length="lengthSlotProps">
+    len:{{ lengthSlotProps.length }} max:{{ lengthSlotProps.maxlength }}
+  </template>
+</byted-field>
+```
+
+:::
+
+## API
+
+### Props
+
+| Attribute   | Description                                                                                                                                                                     | Type      | Default      |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------ | --- |
+| value       | Can be set to `String` `Number`                                                                                                                                                 | `string` &#124; `number` | -   |
+| type        | Can be set to `text` `number` `textarea`                                                                                                                                        | `string`  | `text`       |
+| label       | Field label, `type=textarea` show as single line header                                                                                                                         | `string`  | ``           |
+| unit        | Field unit, Used with `type=text` `type=number`                                                                                                                                 | `string`  | ``           |
+| border      | Border Style                                                                                                                                                                    | `boolean` | `true`       |
+| clearable   | Whether to enable clear control                                                                                                                                                 | `boolean` | `false`      |
+| disabled    | Whether to disable the Field                                                                                                                                                    | `boolean` | `false`      |
+| readonly    | Whether to readonly the Field                                                                                                                                                   | `boolean` | `false`      |
+| rows        | Used with `type=textarea`, specifies the number of visible lines in the text area                                                                                               | `Number`  | `2`          |
+| maxlength   | Specifies the maximum length of characters in an input field                                                                                                                    | `Number`  | `0`          |
+| byte        | Used with `maxlength`，When `byte = 1` is set, one character occupies one length, and when`byte = 2` is set, two characters, that is, one Chinese character occupies one length | `Number`  | `0`          |
+| placeholder | Tips for filling out input fields                                                                                                                                               | `String`  | `请输入内容` |
+| autofocus   | autofocus                                                                                                                                                                       | `boolean` | `false`      |
+
+### Events
+
+| Event | Description                        | Arguments            |
+| ----- | ---------------------------------- | -------------------- |
+| input | Triggered when input value changed | value: current value |
+| focus | Triggered when input gets focus    | event: Event         |
+| blur  | Triggered when input loses focus   | event: Event         |
+| clear | Triggered when click clear icon    | event: Event         |
+| click | Triggered when click Field         | event: Event         |
+
+### Methods
+
+Use ref to get Field instance and call instance methods
+
+| Name  | Attribute | Return value | Description         |
+| ----- | --------- | ------------ | ------------------- |
+| focus | -         | -            | Trigger input focus |
+| blur  | -         | -            | Trigger input blur  |
+
+### Scoped slots
+
+| Name   | Description     | Slot props type                                              |
+| ------ | --------------- | ------------------------------------------------------------ |
+| label  | title           |                                                              |
+| length | length of input | `{ length: number; minlength?: number; maxlength?: number }` |

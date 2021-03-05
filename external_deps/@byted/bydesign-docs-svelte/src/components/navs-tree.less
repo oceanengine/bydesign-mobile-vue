@@ -1,0 +1,126 @@
+@default-color: #333333;
+@active-color: #2F88FF;
+
+@level-padding-left: 52px;
+@level-padding: 8px;
+@label-background-hover: #F0F0F0;
+@label-collapse-icon-color: #999;
+
+.by-docs-tree {
+  &-label {
+    position: relative;
+    padding: 0 @level-padding;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+    color: @default-color;
+    cursor: pointer;
+    font-weight: 500;
+    user-select: none;
+    
+    &__content {
+      flex: 1;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding-left: @level-padding-left - @level-padding;
+
+      &:hover {
+        border-radius: 4px;
+        background-color: @label-background-hover;
+      }
+    }
+
+    img {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &-anchor {
+    position: relative;
+    padding: 8px 0px 8px @level-padding-left + 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: @default-color;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      color: @active-color;
+    }
+    &.active {
+      color: @active-color;
+      &::before {
+        background: #338AFF;
+      }
+    }
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: @level-padding-left + 4px;
+      width: 1px;
+      height: 100%;
+      background: #E4E9ED;
+    }
+
+    &-box {
+      transition: height 0.2s;
+      overflow: hidden;
+    }
+  }
+
+  &.level-0 {
+    .by-docs-tree-label {
+      &.by-docs-tree-label--collapse {
+        &::after {
+          position: absolute;
+          content: '';
+          border: 6px solid;
+          right: 24px;
+          border-color: transparent transparent @label-collapse-icon-color;
+          transform: translate(0, -75%) scaleX(0.8);
+          top: 50%;
+        }
+      }
+      &.by-docs-tree-label--down {
+        &::after {
+          transform: translate(0, -25%) scaleX(0.8) rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &.level-1 {
+    padding-bottom: 16px;
+    .by-docs-tree-label {
+      color: #999999;
+      cursor: default;
+      font-weight: 400;
+    }
+  }
+
+  &.level-2 {
+    .by-docs-tree-label {
+      position: relative;
+      color: @default-color;
+      cursor: pointer;
+      &:hover {
+        color: @active-color;
+      }
+    }
+  }
+
+  &.active {
+    > .by-docs-tree-label {
+      color: @active-color;
+    }
+  }
+}

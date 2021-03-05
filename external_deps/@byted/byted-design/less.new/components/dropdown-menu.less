@@ -1,0 +1,33 @@
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+
+@dropdown-space: 12px;
+.byted-dropdown-menu {
+  padding: @dropdown-space/2 0;
+}
+.byted-dropdown-item {
+  white-space: nowrap;
+  cursor: pointer;
+  color: @text-color-1;
+  line-height: @line-height-base;
+  padding: @dropdown-space/2 @dropdown-space;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:hover {
+    background-color: @list-hover-bg;
+  }
+  &.disabled {
+    color: @disabled-color;
+    cursor: not-allowed;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}

@@ -1,0 +1,297 @@
+/**
+ * 模块
+ */
+.by-markdown-card {
+  border: 1px solid #E4E9ED;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+.by-markdown-card .by-markdown-desc:nth-child(1) {
+  padding-top: 24px;
+}
+.by-markdown-card .by-markdown-html {
+  border-top: 1px dashed #E8E8E8;
+}
+.by-markdown-card .by-markdown-html + .by-markdown-javascript,
+.by-markdown-card .by-markdown-html + .by-markdown-js,
+.by-markdown-card .by-markdown-html + .by-markdown-jsx,
+.by-markdown-card .by-markdown-html + .by-markdown-tsx,
+.by-markdown-card .by-markdown-html + .by-markdown-typescript {
+  border: none;
+}
+.by-markdown-card .by-markdown-javascript,
+.by-markdown-card .by-markdown-js,
+.by-markdown-card .by-markdown-jsx,
+.by-markdown-card .by-markdown-tsx,
+.by-markdown-card .by-markdown-typescript {
+  border-top: 1px dashed #E8E8E8;
+}
+.by-markdown-card .by-markdown-javascript:nth-child(1),
+.by-markdown-card .by-markdown-js:nth-child(1),
+.by-markdown-card .by-markdown-jsx:nth-child(1),
+.by-markdown-card .by-markdown-tsx:nth-child(1),
+.by-markdown-card .by-markdown-typescript:nth-child(1) {
+  border: none;
+}
+/**
+ * 语言
+ */
+pre.by-markdown-topic,
+pre.by-markdown-desc,
+pre.by-markdown-html,
+pre.by-markdown-javascript,
+pre.by-markdown-js,
+pre.by-markdown-jsx,
+pre.by-markdown-tsx,
+pre.by-markdown-typescript {
+  margin: 0;
+}
+.by-markdown-topic {
+  padding: 16px 24px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #333333;
+}
+.by-markdown-desc {
+  padding: 0 24px 24px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #666666;
+  white-space: pre-wrap;
+}
+.by-markdown-html {
+  padding: 16px;
+  color: #455a64;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.by-markdown-javascript,
+.by-markdown-js,
+.by-markdown-jsx,
+.by-markdown-tsx,
+.by-markdown-typescript {
+  padding: 16px;
+  color: #455a64;
+  border-radius: 4px;
+}
+/**
+ * 转换
+ */
+.by-markdown-mark {
+  padding: 2px 4px;
+  margin: 0 2px;
+  border-radius: 4px;
+  background-color: #EAEAEA;
+}
+/**
+ * 代码高亮
+ */
+.by-markdown-html .hljs,
+.by-markdown-javascript .hljs,
+.by-markdown-js .hljs,
+.by-markdown-jsx .hljs,
+.by-markdown-tsx .hljs,
+.by-markdown-typescript .hljs {
+  display: block;
+  padding: 0.5em;
+  overflow-x: auto;
+  background: #fff;
+}
+.by-markdown-html .hljs-subst,
+.by-markdown-javascript .hljs-subst,
+.by-markdown-js .hljs-subst,
+.by-markdown-jsx .hljs-subst,
+.by-markdown-tsx .hljs-subst,
+.by-markdown-typescript .hljs-subst {
+  color: #333333;
+}
+.by-markdown-html .hljs-string,
+.by-markdown-javascript .hljs-string,
+.by-markdown-js .hljs-string,
+.by-markdown-jsx .hljs-string,
+.by-markdown-tsx .hljs-string,
+.by-markdown-typescript .hljs-string,
+.by-markdown-html .hljs-meta,
+.by-markdown-javascript .hljs-meta,
+.by-markdown-js .hljs-meta,
+.by-markdown-jsx .hljs-meta,
+.by-markdown-tsx .hljs-meta,
+.by-markdown-typescript .hljs-meta,
+.by-markdown-html .hljs-symbol,
+.by-markdown-javascript .hljs-symbol,
+.by-markdown-js .hljs-symbol,
+.by-markdown-jsx .hljs-symbol,
+.by-markdown-tsx .hljs-symbol,
+.by-markdown-typescript .hljs-symbol,
+.by-markdown-html .hljs-template-tag,
+.by-markdown-javascript .hljs-template-tag,
+.by-markdown-js .hljs-template-tag,
+.by-markdown-jsx .hljs-template-tag,
+.by-markdown-tsx .hljs-template-tag,
+.by-markdown-typescript .hljs-template-tag,
+.by-markdown-html .hljs-template-variable,
+.by-markdown-javascript .hljs-template-variable,
+.by-markdown-js .hljs-template-variable,
+.by-markdown-jsx .hljs-template-variable,
+.by-markdown-tsx .hljs-template-variable,
+.by-markdown-typescript .hljs-template-variable,
+.by-markdown-html .hljs-addition,
+.by-markdown-javascript .hljs-addition,
+.by-markdown-js .hljs-addition,
+.by-markdown-jsx .hljs-addition,
+.by-markdown-tsx .hljs-addition,
+.by-markdown-typescript .hljs-addition {
+  color: #BE9D63;
+}
+.by-markdown-html .hljs-comment,
+.by-markdown-javascript .hljs-comment,
+.by-markdown-js .hljs-comment,
+.by-markdown-jsx .hljs-comment,
+.by-markdown-tsx .hljs-comment,
+.by-markdown-typescript .hljs-comment,
+.by-markdown-html .hljs-quote,
+.by-markdown-javascript .hljs-quote,
+.by-markdown-js .hljs-quote,
+.by-markdown-jsx .hljs-quote,
+.by-markdown-tsx .hljs-quote,
+.by-markdown-typescript .hljs-quote {
+  color: #999;
+}
+.by-markdown-html .hljs-number,
+.by-markdown-javascript .hljs-number,
+.by-markdown-js .hljs-number,
+.by-markdown-jsx .hljs-number,
+.by-markdown-tsx .hljs-number,
+.by-markdown-typescript .hljs-number,
+.by-markdown-html .hljs-regexp,
+.by-markdown-javascript .hljs-regexp,
+.by-markdown-js .hljs-regexp,
+.by-markdown-jsx .hljs-regexp,
+.by-markdown-tsx .hljs-regexp,
+.by-markdown-typescript .hljs-regexp,
+.by-markdown-html .hljs-literal,
+.by-markdown-javascript .hljs-literal,
+.by-markdown-js .hljs-literal,
+.by-markdown-jsx .hljs-literal,
+.by-markdown-tsx .hljs-literal,
+.by-markdown-typescript .hljs-literal,
+.by-markdown-html .hljs-bullet,
+.by-markdown-javascript .hljs-bullet,
+.by-markdown-js .hljs-bullet,
+.by-markdown-jsx .hljs-bullet,
+.by-markdown-tsx .hljs-bullet,
+.by-markdown-typescript .hljs-bullet,
+.by-markdown-html .hljs-link,
+.by-markdown-javascript .hljs-link,
+.by-markdown-js .hljs-link,
+.by-markdown-jsx .hljs-link,
+.by-markdown-tsx .hljs-link,
+.by-markdown-typescript .hljs-link {
+  color: #69905C;
+}
+.by-markdown-html .hljs-deletion,
+.by-markdown-javascript .hljs-deletion,
+.by-markdown-js .hljs-deletion,
+.by-markdown-jsx .hljs-deletion,
+.by-markdown-tsx .hljs-deletion,
+.by-markdown-typescript .hljs-deletion,
+.by-markdown-html .hljs-variable,
+.by-markdown-javascript .hljs-variable,
+.by-markdown-js .hljs-variable,
+.by-markdown-jsx .hljs-variable,
+.by-markdown-tsx .hljs-variable,
+.by-markdown-typescript .hljs-variable {
+  color: #88f;
+}
+.by-markdown-html .hljs-attr,
+.by-markdown-javascript .hljs-attr,
+.by-markdown-js .hljs-attr,
+.by-markdown-jsx .hljs-attr,
+.by-markdown-tsx .hljs-attr,
+.by-markdown-typescript .hljs-attr {
+  color: #69905C;
+}
+.by-markdown-html .hljs-keyword,
+.by-markdown-javascript .hljs-keyword,
+.by-markdown-js .hljs-keyword,
+.by-markdown-jsx .hljs-keyword,
+.by-markdown-tsx .hljs-keyword,
+.by-markdown-typescript .hljs-keyword,
+.by-markdown-html .hljs-selector-tag,
+.by-markdown-javascript .hljs-selector-tag,
+.by-markdown-js .hljs-selector-tag,
+.by-markdown-jsx .hljs-selector-tag,
+.by-markdown-tsx .hljs-selector-tag,
+.by-markdown-typescript .hljs-selector-tag,
+.by-markdown-html .hljs-title,
+.by-markdown-javascript .hljs-title,
+.by-markdown-js .hljs-title,
+.by-markdown-jsx .hljs-title,
+.by-markdown-tsx .hljs-title,
+.by-markdown-typescript .hljs-title,
+.by-markdown-html .hljs-section,
+.by-markdown-javascript .hljs-section,
+.by-markdown-js .hljs-section,
+.by-markdown-jsx .hljs-section,
+.by-markdown-tsx .hljs-section,
+.by-markdown-typescript .hljs-section,
+.by-markdown-html .hljs-built_in,
+.by-markdown-javascript .hljs-built_in,
+.by-markdown-js .hljs-built_in,
+.by-markdown-jsx .hljs-built_in,
+.by-markdown-tsx .hljs-built_in,
+.by-markdown-typescript .hljs-built_in,
+.by-markdown-html .hljs-doctag,
+.by-markdown-javascript .hljs-doctag,
+.by-markdown-js .hljs-doctag,
+.by-markdown-jsx .hljs-doctag,
+.by-markdown-tsx .hljs-doctag,
+.by-markdown-typescript .hljs-doctag,
+.by-markdown-html .hljs-type,
+.by-markdown-javascript .hljs-type,
+.by-markdown-js .hljs-type,
+.by-markdown-jsx .hljs-type,
+.by-markdown-tsx .hljs-type,
+.by-markdown-typescript .hljs-type,
+.by-markdown-html .hljs-name,
+.by-markdown-javascript .hljs-name,
+.by-markdown-js .hljs-name,
+.by-markdown-jsx .hljs-name,
+.by-markdown-tsx .hljs-name,
+.by-markdown-typescript .hljs-name,
+.by-markdown-html .hljs-selector-id,
+.by-markdown-javascript .hljs-selector-id,
+.by-markdown-js .hljs-selector-id,
+.by-markdown-jsx .hljs-selector-id,
+.by-markdown-tsx .hljs-selector-id,
+.by-markdown-typescript .hljs-selector-id,
+.by-markdown-html .hljs-selector-class,
+.by-markdown-javascript .hljs-selector-class,
+.by-markdown-js .hljs-selector-class,
+.by-markdown-jsx .hljs-selector-class,
+.by-markdown-tsx .hljs-selector-class,
+.by-markdown-typescript .hljs-selector-class,
+.by-markdown-html .hljs-strong,
+.by-markdown-javascript .hljs-strong,
+.by-markdown-js .hljs-strong,
+.by-markdown-jsx .hljs-strong,
+.by-markdown-tsx .hljs-strong,
+.by-markdown-typescript .hljs-strong {
+  color: #DC5D6C;
+}
+.by-markdown-html .hljs-emphasis,
+.by-markdown-javascript .hljs-emphasis,
+.by-markdown-js .hljs-emphasis,
+.by-markdown-jsx .hljs-emphasis,
+.by-markdown-tsx .hljs-emphasis,
+.by-markdown-typescript .hljs-emphasis {
+  font-style: italic;
+}
+.by-markdown-html .hljs-attribute,
+.by-markdown-javascript .hljs-attribute,
+.by-markdown-js .hljs-attribute,
+.by-markdown-jsx .hljs-attribute,
+.by-markdown-tsx .hljs-attribute,
+.by-markdown-typescript .hljs-attribute {
+  color: #e6550d;
+}

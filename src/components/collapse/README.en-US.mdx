@@ -1,0 +1,134 @@
+# Collapse
+
+### Install
+
+:::card
+
+```javascript
+import { Collapse, CollapseItem } from '@byted/by-design-m';
+
+Vue.use(Collapse).use(CollapseItem);
+```
+
+:::
+
+## Usage
+
+:::card
+
+```topic
+Basic Usage
+```
+
+```html
+<byted-collapse v-model="activeNames">
+  <byted-collapse-item title="title 1">content</byted-collapse-item>
+  <byted-collapse-item title="title 2" :is-link="false" clickable>content</byted-collapse-item>
+  <byted-collapse-item title="title 3" disabled>content</byted-collapse-item>
+</byted-collapse>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      activeNames: [],
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+Accordion Usage
+```
+
+```html
+<byted-collapse v-model="activeName" accordion>
+  <byted-collapse-item title="title 1" name="1">content</byted-collapse-item>
+  <byted-collapse-item title="title 2" name="2">content</byted-collapse-item>
+  <byted-collapse-item title="title 3" name="3">content</byted-collapse-item>
+</byted-collapse>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      activeName: '1',
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+Advanced Usage
+```
+
+```html
+<byted-collapse v-model="activeNames">
+  <byted-collapse-item>
+    <div slot="title">title slot</div>
+    <p>content slot</p>
+  </byted-collapse-item>
+</byted-collapse>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      activeNames: [0],
+    };
+  },
+};
+```
+
+:::
+
+## API
+
+### Collapse Props
+
+| Attribute | Description                    | Type      | Default  |
+| --------- | ------------------------------ | --------- | -------- | ------ | ------- | --- |
+| v-model   | Names of current active panels | `string[]` &#124; `number[]` &#124; `string` &#124; `number` | -   |
+| accordion | Whether to be accordion mode   | `boolean` | `false`  |
+| border    | Whether to show outer border   | `boolean` | `true`   |
+
+### Collapse Events
+
+| Event  | Description                 | Arguments            |
+| ------ | --------------------------- | -------------------- | ------ |
+| change | Triggered when switch panel | activeNames: `string | array` |
+
+### CollapseItem Props
+
+| Attribute | Description | Type | Default |
+| Arguments | Description | Type | Default |
+|------|------|------|------|------|------|
+| name | Name | `string` &#124; `number` | `index` |
+| size | Title size，can be set to `large` | `string` | - |
+| title | Title | `string` &#124; `number` | - |
+| value | Right text | `string` &#124; `number` | - |
+| label | Description below the title | `string` | - |
+| border | Whether to show inner border | `boolean` | `true` |
+| clickable | Whether to enable click feedback | `boolean` | `false` |
+| is-link | Whether to show link icon | `boolean` | `true` |
+| disabled | Whether to disabled collapse | `boolean` | `false` |
+
+### CollapseItem Slots
+
+| Name       | Description       |
+| ---------- | ----------------- |
+| default    | Content           |
+| value      | Custom value      |
+| title      | Custom title      |
+| right-icon | Custom right icon |

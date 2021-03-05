@@ -1,0 +1,234 @@
+
+@import '~@byte-design/color-palette/lib/palette.less';
+// Button base style
+.btn() {
+  position: relative;
+  display: inline-block;
+  font-size: @font-size-base;
+  font-weight: @font-weight-base;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  background-image: none;
+  border: 1px solid transparent;
+  .button-color(@btn-default-color; @btn-default-bg; @btn-default-border);
+  user-select: none;
+  min-width: @btn-min-width-base;
+  .button-size(@btn-padding-base-vertical; @btn-padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
+
+
+  &:hover{
+    outline: none;
+    text-decoration: none;
+    .button-color(@primary-color; @btn-default-bg; @primary-color);
+    z-index: @btn-hover-zindex;
+  }
+  &:focus,
+  &.focus {
+    outline: none;
+    text-decoration: none;
+    .button-color(@primary-color; @primary-color-5; @primary-color);
+    z-index: @btn-hover-zindex;
+  }
+  &:active,
+  &.active {
+    background-image: none;
+    outline: none;
+    z-index: @btn-active-zindex;
+    .button-color(@primary-color-1; @btn-default-bg; @primary-color-1);
+    &:focus,
+    &.focus {
+      outline: none;
+    }
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    .button-color(@btn-default-disabled-color; @btn-default-disabled-bg; @btn-default-disabled-border);
+    &:hover,
+    &:focus,
+    &.focus {
+      .button-color(@btn-default-disabled-color; @btn-default-disabled-bg; @btn-default-disabled-border);
+    }
+  }
+
+  a& {
+    &.disabled,
+    fieldset[disabled] & {
+      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    }
+  }
+  &-xs {
+    min-width: @btn-min-width-xs;
+    .button-size(@btn-padding-xs-vertical; @btn-padding-xs-horizontal; @font-size-sm; @line-height-sm; @border-radius-base);
+  }
+  &-sm {
+    min-width: @btn-min-width-sm;
+    .button-size(@btn-padding-sm-vertical; @btn-padding-sm-horizontal; @font-size-sm; @line-height-sm; @border-radius-base);
+  }
+  &-lg {
+    min-width: @btn-min-width-lg;
+    .button-size(@btn-padding-lg-vertical; @btn-padding-lg-horizontal; @font-size-base; @line-height-base; @border-radius-base);
+  }
+  &-xl {
+    min-width: @btn-min-width-xl;
+    .button-size(@btn-padding-xl-vertical; @btn-padding-xl-horizontal; @font-size-base; @line-height-base; @border-radius-base);
+  }
+  &-loading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    .bui-loading-icon {
+      margin-right: 4px;
+    }
+  }
+}
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+.button-variant(@color: @text-color-white; @type: @primary-color) {
+  .button-color(@color; @type; @type);
+
+  &:active,
+  &.active ,
+  .open > .dropdown-toggle& {
+    &,
+    &:hover,
+    &:focus,
+    &.focus {
+      .button-color(@color; ~`colorPalette('@{type}', 7)`; ~`colorPalette('@{type}', 7)`);
+    }
+  }
+  &:hover {
+    .button-color(@color; ~`colorPalette('@{type}', 5)`; ~`colorPalette('@{type}', 5)`);
+  }
+  &:focus,
+  &.focus{
+   .button-color(@color; ~`colorPalette('@{type}', 5)`; ~`colorPalette('@{type}', 5)`);
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    .button-varant-dsiabled(@color; @type;)
+  }
+  &.bui-btn-loading {
+    .button-varant-dsiabled(@color; @type;)
+  }
+
+  // .badge {
+  //   color: @background;
+  //   background-color: @color;
+  // }
+}
+.button-varant-dsiabled(@color: @text-color-white; @type: @primary-color) {
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &.focus {
+    & when (@theme = dark) {
+      opacity: 0.4;
+      .button-color(@color; @type; @type);
+    }
+    & when not (@theme = dark) {
+      .button-color( ~`colorPalette('@{type}', 1)`; ~`colorPalette('@{type}', 3)`; ~`colorPalette('@{type}', 3)`);
+    }
+    
+  }
+}
+
+// Button sizes
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+  padding: @padding-vertical @padding-horizontal;
+  font-size: @font-size;
+  line-height: @line-height;
+  border-radius: @border-radius;
+  .@{css-prefix}loading .bui-loading-icon {
+    height: @font-size;
+    width: @font-size;
+  }
+}
+// Button color
+.button-color(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+  .@{css-prefix}icon svg, .bui-icon svg {
+    fill: @color;
+  }
+  .@{css-prefix}icon {
+    .bui-loading-group {
+      stroke: @color;
+    }
+  }
+}
+
+
+.btn-plain-variant(@type: @primary-color; @background: transparent;) {
+  .button-color(@btn-default-color; @background; @btn-default-border);
+  &:focus,
+  &.focus,
+  &.active,
+  .open > .dropdown-toggle& {
+    &,
+    &:hover{
+      & when (@theme = dark) {
+        .button-color(~`colorPalette('@{type}', 6)`; ~`colorPalette('@{type}', 11)`; ~`colorPalette('@{type}', 6)`);
+      }
+      & when not (@theme = dark) {
+        .button-color(~`colorPalette('@{type}', 6)`; ~`colorPalette('@{type}', 1)`; ~`colorPalette('@{type}', 6)`);
+      }
+    }
+  }
+  &:hover {
+    .button-color(~`colorPalette('@{type}', 5)`; @background; ~`colorPalette('@{type}', 5)`);
+  }
+  &:active {
+  &,  
+  &:hover,
+    &:focus,
+    &.focus {
+      .button-color(~`colorPalette('@{type}', 7)`; @background; ~`colorPalette('@{type}', 7)`);
+    }
+  }
+  &.disabled,
+  &[disabled]{
+    .btn-plain-variant-disabled(@type; @background;);
+  }
+  &.bui-btn-loading {
+    .btn-plain-variant-disabled(@type; @background;);
+  }
+}
+.btn-plain-variant-disabled(@type: @primary-color; @background: transparent;) {
+  cursor: not-allowed;
+  &,
+  &:hover,
+  &:focus,
+  &:active,
+  &.focus {
+    .button-color(@btn-default-disabled-color; @btn-default-disabled-bg; @btn-default-disabled-border);
+  }
+  &.active {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.focus {
+      & when (@theme = dark) {
+        opacity: 0.4;
+        .button-color(~`colorPalette('@{type}', 6)`; ~`colorPalette('@{type}', 11)`; ~`colorPalette('@{type}', 6)`);
+      }
+      & when not (@theme = dark) {
+        .button-color(~`colorPalette('@{type}', 3)`; ~`colorPalette('@{type}', 1)`; ~`colorPalette('@{type}', 3)`);
+      }
+    }
+  }
+}

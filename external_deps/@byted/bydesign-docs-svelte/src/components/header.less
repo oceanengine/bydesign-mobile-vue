@@ -1,0 +1,27 @@
+
+@import '../style/var.less';
+
+.by-docs-header {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: @header-height;
+  box-sizing: border-box;
+  border-bottom: 1px solid #EBEBEB;
+  background-color: @docs-background-color;
+
+}
+
+.by-docs-logo {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translate(0, -50%);
+  
+  img {
+    height: 28px;
+    vertical-align: bottom;
+  }
+}

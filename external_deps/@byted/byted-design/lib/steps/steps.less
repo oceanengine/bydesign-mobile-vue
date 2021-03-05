@@ -1,0 +1,291 @@
+@import '../style/common.less';
+.@{css-prefix}steps {
+  display: flex;
+  justify-content: center;
+  .byted-icon {
+    vertical-align: middle;
+  }
+  .@{css-prefix}step-item {
+    flex: 1;
+    display: flex;
+    position: relative;
+    .byted-icon {
+      fill: @steps-waiting-text-color;
+    }
+    .bui-step-head {
+      position: relative;
+      display: flex;
+      .custom-icon {
+        text-align: center;
+        // background: @component-bg;
+      }
+      .bui-step-icon {
+        border-radius: 50%;
+        text-align: center;
+        &-inner {
+          display: inline-block;
+          font-weight: 600;
+        }
+      }
+      .bui-step-title {
+        // background: @component-bg;
+        padding-left: 8px;
+        display: inline-block;
+        max-width: 120px;
+      }
+    }
+    .bui-step-description {
+      font-size: @font-size-sm;
+      margin-left: 8px;
+      max-width: 120px;
+    }
+    .bui-split-panel {
+      position: absolute;
+      display: flex;
+      padding: 0 16px;
+      width: 100%;
+      /*min-width: 66px;*/
+      .split-line {
+        width: 100%;
+      }
+      .solid-line {
+        background: @steps-waiting-point-color;
+        height: 1px;
+      }
+      .dotted-line {
+        margin-top: -1px;
+        border-top: 4px dotted @steps-waiting-point-color;
+      }
+    }
+    &:last-child {
+      flex: none;
+    }
+  }
+  &-vertical {
+    display: block;
+    .byted-step-item {
+      .bui-split-panel {
+        width: 1px;
+        height: calc(100% - 30px);
+        padding: 16px 0;
+        top: 30px;
+        display: block;
+        .split-line {
+          width: 100%;
+          height: 100%;
+        }
+        .dotted-line {
+          margin-left: -1px;
+          border-right: 4px dotted @steps-waiting-point-color;
+        }
+      }
+      .bui-split-panel {
+        padding: 16px 0;
+      }
+    }
+  }
+  .bui-step-finished {
+    & when (@theme = dark) {
+      .byted-icon{
+        fill: @primary-color;
+      }
+    }
+    & when not (@theme = dark) {
+      .byted-icon{
+        fill: @steps-default-color;
+      }
+
+    }
+    .bui-step-icon {
+        color: @steps-default-color;
+        background: @steps-finished-bg-color;
+      }
+    .bui-split-panel {
+        .solid-line {
+        background: @steps-default-color;
+      }
+      .dotted-line {
+        border-top-color: @steps-default-color;
+        border-right-color: @steps-default-color;
+      }
+    }
+
+    .bui-step-title {
+      color: @steps-finished-text-color;
+    }
+    .bui-step-description {
+      color: @steps-waiting-text-color;
+    }
+  }
+  .bui-step-inprogress {
+    .byted-icon{
+      fill: @steps-default-color;
+    }
+    .bui-point {
+      background: @steps-waiting-point-color;
+    }
+    .bui-step-icon {
+      background: @steps-default-color;
+      color: @steps-inprogress-text-color;
+    }
+  }
+  .bui-step-current {
+    .bui-step-title {
+      color: @steps-default-color;
+      font-weight: bolder;
+    }
+    .bui-step-description {
+      color: @steps-default-color;
+    }
+  }
+  .bui-step-waiting {
+    .bui-point {
+      background: @steps-waiting-point-color;
+    }
+    .bui-step-icon {
+      background: @steps-waiting-bg-color;
+      color: @steps-waiting-text-color;
+    }
+    .bui-step-title {
+      color: @steps-waiting-text-color;
+      font-weight: bolder;
+    }
+    .bui-step-description {
+      color: @steps-waiting-text-color;
+    }
+  }
+
+  .bui-step-error {
+    & when (@theme = dark) {
+      .byted-icon{
+        fill: @steps-error-color;
+      }
+
+
+    }
+    & when not (@theme = dark) {
+      .byted-icon{
+        fill: @steps-error-color;
+      }
+
+    }
+    .bui-step-icon {
+      background: @steps-error-icon-bg-color;
+    }
+    .bui-point {
+      background: @steps-error-color;
+    }
+    .bui-step-title {
+      color: @steps-error-color;
+      font-weight: bolder;
+    }
+    .bui-step-description {
+      color: @steps-error-color;
+    }
+  }
+  &-sm {
+    font-size: @font-size-base;
+    .icon-panel {
+      width: @steps-line-height-sm;
+      height: @steps-line-height-sm;
+    }
+    .bui-step-icon {
+      &-inner {
+        height: @steps-line-height-sm;
+        width: @steps-line-height-sm;
+        font-size:  @font-size-lg;
+        .bui-step-num {
+          line-height: 26px;
+        }
+        .bui-message-icon-error {
+          fill: @danger-color;
+        }
+        .bui-message-icon-finished {
+          fill: @primary-color;
+        }
+      }
+    }
+    .bui-step-content {
+      margin-top: (@steps-line-height-sm - @steps-sm-line-height) / 2;
+    }
+    .bui-split-panel {
+      top: 12px;
+      left: 12px;
+    }
+  }
+  &-md {
+    font-size: @font-size-lg;
+    .icon-panel {
+      width: @steps-line-height-md;
+      height: @steps-line-height-md;
+    }
+    .bui-step-icon {
+      &-inner {
+        height: @steps-line-height-md;
+        width: @steps-line-height-md;
+        font-size:  @steps-lg-font-size;
+        .bui-step-num {
+          line-height: 30px;
+        }
+      }
+    }
+    .bui-step-content {
+      margin-top: (@steps-line-height-md - @steps-md-line-height) / 2;
+    }
+    .bui-split-panel {
+      top: 14px;
+      left: 14px;
+    }
+  }
+  &-lg {
+    font-size: @steps-lg-font-size;
+    .bui-step-head {
+      .bui-step-title {
+        max-width: 140px;
+      }
+    }
+    .icon-panel {
+      width: @steps-line-height-lg;
+      height: @steps-line-height-lg;
+    }
+    .bui-step-icon {
+      &-inner {
+        height: @steps-line-height-lg;
+        width: @steps-line-height-lg;
+        font-size:  20px;
+        .bui-step-num {
+          line-height: 34px;
+        }
+      }
+    }
+    .bui-step-content {
+      margin-top: (@steps-line-height-lg - @steps-lg-line-height) / 2;
+    }
+    .byted-step-item {
+      .bui-step-description {
+        font-size: @font-size-base;
+        max-width: 140px;
+      }
+      .bui-split-panel {
+        top: 16px;
+        left: 16px;
+      }
+    }
+  }
+  &-vertical.byted-steps-sm {
+    .byted-step-item {
+      .bui-split-panel {
+        top: 32px;
+        height: calc(100% - 32px);
+      }
+    }
+  }
+  &-vertical.byted-steps-lg {
+    .byted-step-item {
+      .bui-split-panel {
+        top: 40px;
+        height: calc(100% - 40px);
+      }
+    }
+  }
+}

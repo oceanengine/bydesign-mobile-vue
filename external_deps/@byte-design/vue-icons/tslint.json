@@ -1,0 +1,58 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+        "ordered-imports": false,
+        "arrow-parens": false,
+        "object-literal-sort-keys": false,
+        "no-unused-expression": [
+            true,
+            "allow-fast-null-checks"
+        ],
+        "quotemark": {
+            "options": [
+                "single",
+                "jsx-double",
+                "avoid-escape"
+            ]
+        },
+        "trailing-comma": {
+            "options": {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        },
+        "space-before-function-paren": {
+            "options": {
+                "anonymous": "always",
+                "asyncArrow": "always",
+                "constructor": "never",
+                "method": "never",
+                "named": "never"
+            }
+        },
+        "one-line": {
+            "options": [
+                "check-open-brace",
+                "check-whitespace"
+            ]
+        },
+        "no-conditional-assignment": false,
+        "no-console": false,
+        "max-classes-per-file": [
+            true,
+            1
+        ]
+    },
+    "rulesDirectory": [],
+    "variable-name": {
+        "options": [
+            "ban-keywords",
+            "check-format",
+            "allow-pascal-case",
+            "allow-leading-underscore"
+        ]
+    }
+}

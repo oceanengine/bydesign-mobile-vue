@@ -1,0 +1,146 @@
+# Cell
+
+### Install
+
+:::card
+
+```javascript
+import { Cell, CellGroup } from '@byted/by-design-m';
+
+Vue.use(Cell).use(CellGroup);
+```
+
+:::
+
+## Usage
+
+:::card
+
+```topic
+Basic Usage
+```
+
+```html
+<byted-cell-group>
+  <byted-cell title="Title" value="Content" clickable />
+  <byted-cell title="Title" value="Content" label="subTitle" clickable />
+  <byted-cell title="Title" value="Content" label="subTitle" clickable middle />
+</byted-cell-group>
+```
+
+:::
+
+:::card
+
+```topic
+Size Usage
+```
+
+```html
+<byted-cell title="Title" value="Content" />
+<byted-cell title="Title" value="Content" size="large" />
+```
+
+:::
+
+:::card
+
+```topic
+Arrow Direction
+```
+
+```html
+<byted-cell title="Title" is-link value="Content" />
+<byted-cell title="Title" is-link arrow-direction="down" value="Content" />
+```
+
+:::
+
+:::card
+
+```topic
+Value Only
+```
+
+```html
+<byted-cell value="Content" />
+```
+
+:::
+
+:::card
+
+```topic
+Group Title
+```
+
+```html
+<byted-cell-group title="Group 1">
+  <byted-cell title="Title" value="Content" />
+</byted-cell-group>
+<byted-cell-group title="Group 2">
+  <byted-cell title="Title" value="Content" size="large" />
+</byted-cell-group>
+```
+
+:::
+
+:::card
+
+```topic
+Advanced Usage
+```
+
+```html
+<byted-cell value="Content" is-link>
+  <template slot="title">
+    <span>Title</span>
+    <byted-icon name="radio" size="1rem" />
+  </template>
+</byted-cell>
+<byted-cell title="Title">
+  <template slot="right-icon">
+    <byted-icon name="check-one" size="1rem" />
+  </template>
+</byted-cell>
+```
+
+:::
+
+## API
+
+### CellGroup Props
+
+| Attribute | Description                         | Type      | Default |
+| --------- | ----------------------------------- | --------- | ------- |
+| title     | Group title                         | `string`  | `-`     |
+| border    | Whether to display the outer border | `boolean` | `true`  |
+
+### Cell Props
+
+| Attribute       | Description                                 | Type      | Default  |
+| --------------- | ------------------------------------------- | --------- | -------- | --- |
+| title           | Title                                       | `string` &#124; `number` | -   |
+| value           | Right text                                  | `string` &#124; `number` | -   |
+| label           | Description below the title                 | `string`  | -        |
+| size            | Size，can be set to `large` `small`         | `string`  | `normal` |
+| border          | Whether to show inner border                | `boolean` | `true`   |
+| clickable       | Whether to show click feedback when clicked | `boolean` | `false`  |
+| is-link         | Whether to show link icon                   | `boolean` | `false`  |
+| middle          | Whether to center content vertically        | `boolean` | `false`  |
+| arrow-direction | Can be set to `left` `up` `down`            | `string`  | -        |
+
+### Cell Events
+
+| Event | Description          | Arguments    |
+| ----- | -------------------- | ------------ |
+| click | Triggered when click | event: Event |
+
+### Cell Slots
+
+| name       | Description       |
+| ---------- | ----------------- |
+| default    | Default slot      |
+| title      | Custom title      |
+| label      | Custom label      |
+| right-icon | Custom right icon |

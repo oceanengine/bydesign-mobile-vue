@@ -1,0 +1,81 @@
+.byted-list-item {
+  margin-top: 4px;
+  background: @popper-body-bg;
+  box-shadow: @auto-complete-box-shadow;
+  border-radius: @border-radius-base;
+  max-height: @auto-complete-content-height;
+  overflow: auto;
+
+  &__item {
+    color: @text-color-1;
+    padding: 6px 12px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: @font-size-base;
+    &:hover, &:focus {
+      background: @list-hover-bg;
+      outline: none;
+    }
+
+    em {
+      color: @primary-color;
+      font-weight: bold;
+      font-style: normal;
+    }
+  }
+
+  &__empty {
+    height: @auto-complete-content-height;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .byted-icon {
+      font-size: 36px;
+      fill: @text-color-4;
+    }
+    .bui-list-item-content {
+      color: @text-color-3;
+      margin: 9px 0;
+      font-size: @font-size-sm;
+    }
+  }
+  &__loading {
+    height: @auto-complete-content-height;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      color: @primary-color;
+      margin: 9px 0;
+      font-size: @font-size-base;
+      display: flex;
+      align-items: center;
+      & > .bui-icon-loading {
+        font-size: @font-size-base;
+      }
+      & > span {
+        margin-left: 4px;
+      }
+    }
+  }
+  .bui-list-loadmore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: @list-loadmore-height;
+    font-size: 0;
+    color: @primary-color;
+    & .bui-icon-loading {
+      display: block;
+    }
+    span {
+      font-size: @font-size-sm;
+      margin-left: 4px;
+    }
+  }
+}

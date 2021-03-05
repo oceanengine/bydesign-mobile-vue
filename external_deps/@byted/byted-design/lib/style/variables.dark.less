@@ -1,0 +1,139 @@
+@import './variables.less';
+
+@theme: dark;
+@primary-color-1: ~`colorPalette('@{primary-color}', 7)`;
+@primary-color-2: ~`colorPalette('@{primary-color}', 6)`;
+@primary-color-3: ~`colorPalette('@{primary-color}', 5)`;
+@primary-color-4: ~`colorPalette('@{primary-color}', 9)`;
+@primary-color-5: ~`colorPalette('@{primary-color}', 11)`;
+
+@info-color-1: ~`colorPalette('@{info-color}', 7)`;
+@info-color-2: ~`colorPalette('@{info-color}', 6)`;
+@info-color-3: ~`colorPalette('@{info-color}', 5)`;
+@info-color-4: ~`colorPalette('@{info-color}', 9)`;
+@info-color-5: ~`colorPalette('@{info-color}', 11)`;
+
+@success-color-1: ~`colorPalette('@{success-color}', 7)`;
+@success-color-2: ~`colorPalette('@{success-color}', 6)`;;
+@success-color-3: ~`colorPalette('@{success-color}', 5)`;
+@success-color-4: ~`colorPalette('@{success-color}', 9)`;;
+@success-color-5: ~`colorPalette('@{success-color}', 11)`;;
+
+@danger-color-1: ~`colorPalette('@{danger-color}', 7)`;
+@danger-color-2: ~`colorPalette('@{danger-color}', 6)`;
+@danger-color-3: ~`colorPalette('@{danger-color}', 5)`;
+@danger-color-4: ~`colorPalette('@{danger-color}', 9)`;
+@danger-color-5: ~`colorPalette('@{danger-color}', 11)`;
+
+@warning-color-1: ~`colorPalette('@{warning-color}', 7)`;
+@warning-color-2: ~`colorPalette('@{warning-color}', 6)`;
+@warning-color-3: ~`colorPalette('@{warning-color}', 5)`;
+@warning-color-4: ~`colorPalette('@{warning-color}', 9)`;
+@warning-color-5: ~`colorPalette('@{warning-color}', 11)`;
+
+// text color
+@text-color-1: rgba(@gray-1, 0.8);
+@text-color-2: rgba(@gray-1, 0.6);
+@text-color-3: rgba(@gray-1, 0.4);
+@text-color-4: rgba(@gray-1, 0.24);
+@text-color-5: rgba(@gray-1, 0.24);
+@text-color-white: rgba(@gray-1, 0.8);
+
+// body background
+@body-bg:                             @dark-gray-11;
+// layout content（side、header、content） background
+@layout-bg:                           @dark-gray-9;
+// component basic background
+@component-bg:                        @dark-gray-4;
+@component-header-bg:                 @dark-gray-6;
+// drawer & modal background
+@modal-bg:                            @dark-gray-7;
+// component popper & panel background
+@popper-header-bg:                    @component-header-bg;
+@popper-body-bg:                      @component-bg;
+
+@disabled-bg:                         rgba(@gray-1, 0.12);
+
+@list-hover-bg:                       rgba(@gray-1, 0.08);
+
+// base border outline a component
+@border-color-base:                   @dark-gray-1; 
+@border-color-disabled:               @dark-gray-1;
+// // split border inside a component
+@border-color-split:                  rgba(@gray-1, 0.1);
+
+// button
+// disabled bg change opacity
+@btn-default-bg:                      @dark-gray-2;
+
+// switch
+// disable bg change opacity
+@switch-bg:                           rgba(@gray-1, 0.4);
+@switch-loading-icon-color:           @dark-gray-6; 
+
+// checkbox
+@checkbox-button-focus-bg: transparent;
+
+// select
+@select-nubmer-bg-color: rgba(@gray-1, 0.1);
+
+// tag
+@tag-default-bg:                      rgba(@gray-1, 0.1);
+@tag-plain-default-bg:                rgba(@gray-1, 0.1);
+
+// progress
+@progress-bg:                         rgba(@gray-1, 0.1);
+
+// steps
+@steps-waiting-bg-color:              rgba(@gray-1, 0.1);
+
+// avatar
+@avatar-bg:                           rgba(@gray-1, 0.24);
+
+// slider
+@slider-container-bg-color:           rgba(@gray-1, 0.1);
+@slider-button-bg-color:              @dark-gray-11;
+@slider-disable-bg-color:             @dark-gray-11;
+
+// select-panel
+@select-panel-selected-bg:            rgba(@gray-1, 0.08);
+
+// badge
+@badge-default-bg:                    rgba(@gray-1, 0.24);
+
+// alert
+@alert-banner-bg:                     transparent;
+
+// table
+
+@table-wrapper-bg:                    transparent;
+@table-tbody-bg:                      transparent;
+@table-fixed-thead-bg:                @dark-gray-5;
+@table-fixed-tbody-bg:                @dark-gray-7;
+
+// tabs
+@tabs-bg-color:                       @dark-gray-5;
+@tabs-nav-bg-color:                   @dark-gray-7;
+
+// rate
+@rate-icon-default:                   @dark-gray-2;;
+
+// progress
+@progress-innerText-color:            @text-color-1;
+
+// Menu
+@menu-light-bg-color:                 @dark-gray-9;
+@menu-dark-bg-color:                  @dark-gray-9;
+
+// scrollbar
+@scrollbar-bg: rgba(@gray-1, 0.24);
+@scrollbar-hover-bg: rgba(@gray-1, 0.24);
+
+// color-picker
+@color-picker-option-none-bg: rgba(@gray-1, 0.8);;
+@color-picker-label-bg: rgba(@gray-1, 0.08);
+@color-picker-icon-color: rgba(@gray-1, 0.8);
+
+// DatePicker
+@date-picker-date-in-range-bg: rgba(@gray-1, 0.08);
+@date-picker-date-in-range-hover-bg: @dark-gray-1;

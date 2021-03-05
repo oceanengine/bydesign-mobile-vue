@@ -1,0 +1,322 @@
+@import '../style/common.less';
+.@{css-prefix}pagination {
+  display: inline-block;
+  color: @text-color-1;
+  ul.bui-pagination-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    font-weight: 400;
+    li.bui-pagination-total-text {
+      display: inline-block;
+      margin-right: 16px;
+      vertical-align: top;
+      font-size: @font-size-base;
+    }
+    li.bui-pagination-ellipsis {
+      display: inline-block;
+      font-size: @font-size-base;
+      margin: 0 4px;
+    }
+    li.bui-pagination-prev,
+    li.bui-pagination-next,
+    li.bui-pagination-num {
+      cursor: pointer;
+      display: inline-block;
+      font-size: @font-size-sm;
+      text-align: center;
+      border-radius: @border-radius-base;
+      border: 1px solid;
+      border-color: @border-color-base;
+      >a {
+        display: block;
+        padding: 0 5px;
+      }
+      &:hover {
+        border: 1px solid;
+        border-color: @primary-color;
+        >a {
+          color: @primary-color;
+        }
+      }
+    }
+    li.bui-pagination-num {
+      margin: 0 4px;
+      &.active{
+        border: 1px solid;
+        border-color: @primary-color;
+        background-color: @primary-color-5;
+        >a {
+          color: @primary-color;
+        }
+        &:hover {
+          border: 1px solid;
+          border-color: @primary-color-1;
+          >a {
+            color: @primary-color-1;
+          }
+        }
+      }
+    }
+    .bui-pagination-icon {
+      vertical-align: top;
+      fill: @text-color-1;
+      font-size: @font-size-base;
+    }
+    li.bui-pagination-prev {
+      margin-right: 4px;
+    }
+    li.bui-pagination-next {
+      margin-left: 4px;
+    }
+    li.bui-pagination-prev,
+    li.bui-pagination-next{
+      &.disabled{
+        background: @disabled-bg;
+        border: 1px solid;
+        border-color: @border-color-disabled;
+        cursor: not-allowed;
+        > a {
+          color: @disabled-color;
+        }
+      }
+      &:hover,
+      &:focus,
+      &.focus {
+        .bui-pagination-icon {
+          fill: @primary-color-3;
+        }
+      }
+      &:active,
+      &.active {
+        .bui-pagination-icon {
+          fill: @primary-color-1;
+        }
+      }
+      &.disabled {
+        .bui-pagination-icon {
+          fill: @pagination-default-disabled-color;
+        }
+      }
+    }
+    li.bui-pagination-size-changer {
+      display: inline-block;
+      line-height: 0;
+      margin-left: 16px;
+      vertical-align: top;
+      width: 92px;
+      .bui-input {
+        padding-right: 24px;
+      }
+    }
+    li.bui-pagination-quick-jumper {
+      display: inline-block;
+      line-height: 0;
+      margin-left: 16px;
+      font-size: 0;
+      .byted-input {
+        display: inline-block;
+        width: 56px;
+      }
+      .bui-pagination-jumper-text {
+        display: inline-block;
+        margin-left: 8px;
+        vertical-align: top;
+        font-size: @font-size-base;
+        color: @primary-color;
+        cursor: pointer;
+        &:hover,
+        &:focus,
+        &.focus {
+          color: @primary-color-3;
+        }
+        &:active,
+        &.active {
+          color: @primary-color-1;
+        }
+      }
+    }
+    li.bui-pagination-quick-jumper,
+    li.bui-pagination-simple-content {
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+      }
+
+      input[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+      }
+    }
+  }
+
+
+  &.@{css-prefix}pagination-disabled {
+    ul.bui-pagination-list {
+      li.bui-pagination-ellipsis {
+        span {
+          color: @pagination-default-disabled-color;
+        }
+      }
+      li.bui-pagination-prev,
+      li.bui-pagination-next,
+      li.bui-pagination-num {
+        &, &:hover, &.active {
+          cursor: not-allowed;
+          border-color: @pagination-default-disabled-border;
+          background-color: @pagination-default-disabled-bg;
+          >a {
+            color: @pagination-default-disabled-color;
+            .bui-pagination-icon {
+              fill: @pagination-default-disabled-color;
+            }
+          }
+        }
+        &.active {
+          background-color: @primary-color-5;
+          border-color: @pagination-default-disabled-jumper-text-color;
+          & > a {
+            color: @pagination-default-disabled-jumper-text-color;
+          }
+        }
+      }
+      li.bui-pagination-size-changer, li.bui-pagination-simple-content {
+        color: @pagination-default-disabled-color;
+        border-color: @pagination-default-disabled-border;
+        background-color: @pagination-default-disabled-bg;
+      }
+      li.bui-pagination-quick-jumper {
+        .byted-input {
+          border-color: @pagination-default-disabled-border;
+          background-color: @pagination-default-disabled-bg;
+          cursor: not-allowed;
+        }
+        .bui-pagination-jumper-text {
+          color: @pagination-default-disabled-jumper-text-color;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  &.@{css-prefix}pagination-plain,
+  &.@{css-prefix}pagination-plain.@{css-prefix}pagination-disabled {
+    ul.bui-pagination-list {
+      li.bui-pagination-prev,
+      li.bui-pagination-next,
+      li.bui-pagination-num {
+        &,
+        &:hover {
+          background-color: transparent !important;
+          border-color: transparent !important;
+        }
+        
+      }
+    }
+  }
+  &.@{css-prefix}pagination-simple,
+  &.@{css-prefix}pagination-simple.@{css-prefix}pagination-disabled {
+    ul.bui-pagination-list {
+      li.bui-pagination-prev {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+        margin: 0;
+      }
+      li.bui-pagination-next {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+        margin: 0;
+      }
+      li.bui-pagination-simple-content {
+        display: inline-block;
+        font-size: @font-size-sm;
+        .bui-input {
+          width: 56px;
+          border-radius: 0;
+          text-align: center;
+        }
+        .byted-dropdown-menu {
+          height: 148px;
+        }
+        .bui-pagination-simple-content-input {
+          .byted-input {
+            display: inline-block; 
+            width: auto;
+            .bui-input {
+              border-radius: @border-radius-base;
+            }
+          }
+        }
+        .bui-pagination-simple-content-input {
+          padding: 0 12px 0 17px;
+        }
+        .bui-pagination-simple-content-total {
+          padding: 0 17px 0 8px;
+        }
+      }
+    }
+  }
+}
+
+@pagination-height-xs: 26px;
+@pagination-height-sm: 30px;
+
+
+.pagination-hover-style (@size) {
+  &.@{css-prefix}pagination-simple:not(.@{css-prefix}pagination-disabled) {
+    ul.bui-pagination-list {
+      li.bui-pagination-prev:not(.disabled):hover {
+        position: relative;
+        z-index: @pagination-border-zindex;
+        min-width: @size + 1px;
+        margin-right: -1px;
+        border-right: 1px solid @primary-color;
+      }
+      li.bui-pagination-next:not(.disabled):hover {
+        position: relative;
+        z-index: @pagination-border-zindex;
+        min-width: @size + 1px;
+        margin-left: -1px;
+        border-left: 1px solid;
+        border-left-color: @primary-color
+      }
+    }
+  }
+}
+
+.pagination-height(@size) {
+  .pagination-hover-style(@size);
+  ul.bui-pagination-list {
+    li.bui-pagination-total-text {
+      height: @size;
+      line-height: @size;
+    }
+    li.bui-pagination-prev,
+    li.bui-pagination-next,
+    li.bui-pagination-num {
+      line-height: @size - 2px;
+      height: @size;
+      min-width: @size;
+    }
+    li.bui-pagination-quick-jumper {
+      .bui-pagination-jumper-text {
+        height: @size;
+        line-height: @size;
+      }
+    }
+  }
+  .bui-pagination-icon {
+    margin-top: (@size - 16px) / 2;
+  }
+}
+
+.@{css-prefix}pagination-xs {
+  .pagination-height(@pagination-height-xs);
+}
+.@{css-prefix}pagination-sm {
+  .pagination-height(@pagination-height-sm);
+}

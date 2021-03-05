@@ -1,0 +1,88 @@
+@import '../style/common.less';
+.@{css-prefix}breadcrumb {
+  font-size: 0;
+  padding-inline-start: 0;
+  margin-bottom: 20px;
+  li {
+    display: inline-block;
+    line-height: @line-height-base;
+    .bui-breadcrumb-content {
+      position: relative;
+      display: inline-block;
+      font-size: @font-size-base;
+      vertical-align: middle;
+      color: @text-color-2;
+      text-decoration: none;
+      &.bui-breadcrumb-is-link,
+      &.bui-breadcrumb-ellipsis {
+        cursor: pointer;
+      }
+      .bui-breadcrumb-vertical-container {
+        position: absolute;
+        z-index: 100;
+        left: -36px;
+        top: 26px;
+        width: 106px;
+        max-height: 200px;
+        overflow-y: auto;
+        background: @component-bg;
+        box-shadow: @shadow-md;
+        border-radius: 4px;
+        color: @text-color-1;
+        font-size: @font-size-base;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        padding: 12px 0 12px 12px;
+        .byted-breadcrumb-item {
+          margin-bottom: 12px;
+          width: 100%;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        .bui-breadcrumb-separator {
+          display: none;
+        }
+      }
+      &:hover {
+        color: @primary-color;
+        >.byted-icon {
+          fill: @primary-color;
+        }
+      }
+      &:active, &:focus {
+        color: @primary-color-1;
+        >.byted-icon {
+          fill: @primary-color-1;
+        }
+      }
+    }
+    .bui-breadcrumb-separator {
+      margin: 0px 6.5px;
+      font-size: @font-size-base;
+      vertical-align: middle;
+      color: @text-color-2;
+      &.bui-breadcrumb-separator-icon {
+        margin: 0 3px;
+      }
+    }
+  }
+  >.@{css-prefix}breadcrumb-item:last-child {
+    .bui-breadcrumb-content {
+      color: @text-color-1;
+      font-weight: 600;
+      .byted-icon {
+        fill: @text-color-1;
+      }
+    }
+    .bui-breadcrumb-separator {
+      display: none;
+    }
+  }
+  .byted-icon {
+    height: 14px;
+    width: 14px;
+    fill: @text-color-2;
+    vertical-align: -2px; // hack 解决图标视觉不垂直居中问题
+  }
+}

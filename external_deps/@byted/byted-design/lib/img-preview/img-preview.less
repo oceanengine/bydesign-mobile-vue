@@ -1,0 +1,141 @@
+@import '../style/common.less';
+.@{css-prefix}img-preview {
+  display: block;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  align-items: center;
+  .modal-dialog{
+    position: relative;
+    width: 900px;
+    background-color: @modal-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @shadow-md;
+    margin: auto;
+  }
+  *{
+    user-select: none;
+  }
+}
+.bui-preview{
+  .modal-dialog{
+    position: relative;
+  }
+  &-content{
+    position: relative;
+    padding: 60px 40px;
+    background: @img-perview-bg-color;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  &-close-btn{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 50%;
+    background-color: @img-perview-btn-bg-color;
+    right: 32px;
+    top: 32px;
+    cursor: pointer;
+  }
+  &-prev-btn,&-next-btn{
+    position: absolute;
+    background: @img-perview-btn-bg-color;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s linear;
+    &:hover{
+      background: @img-perview-btn-hover-bg-color;
+    }
+  }
+  &-prev-btn{
+    left: 8px;
+    top: 50%;
+    transform: rotate(90deg) translateY(-50%);
+  }
+  &-next-btn{
+    right: 8px;
+    top: 50%;
+    transform: rotate(-90deg) translateY(-50%);
+  }
+  &-img-container{
+    .bui-preview-img{
+      height: 100%;
+      width: auto;
+      cursor: pointer;
+    }
+  }
+  &-tool-box{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding: 12px 35px;
+    background: @img-perview-btn-bg-color;
+    border-radius: 33px;
+    bottom: 25px;
+    margin: 0 auto;
+    overflow: hidden;
+    transition: background 0.2s linear;
+    &:hover {
+      background: @img-perview-btn-hover-bg-color;
+    }
+  }
+  &-tool{
+    width: 26px;
+    height: 26px;
+    margin-right: 30px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &-fullscreen{
+    .modal-dialog{
+      width: auto;
+      margin: 0;
+    }
+    .bui-preview-content{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0;
+      height: 100vh;
+    }
+    &-prev-btn{
+      left: 12px;
+      top: 280px;
+      transform: rotate(90deg)
+    }
+    &-next-btn{
+      right: 12px;
+      top: 280px;
+      transform: rotate(-90deg)
+    }
+  }
+}
+.bui-img-preview-backdrop.modal-backdrop.fade{
+  transition: opacity 0.2s linear;
+}
+.preview-fade-enter-active, .preview-fade-leave-active{
+  transition: opacity 0.1s linear;
+  opacity: 1 !important;
+  &.modal-fade-enter, &.modal-fade-leave-active{
+    opacity: 0 !important;
+  }
+}

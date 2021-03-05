@@ -1,0 +1,239 @@
+@title-color: #333333;
+
+.by-docs-markdown {
+  padding: 32px 20px 32px 40px;
+
+  pre {
+    margin: 0;
+  }
+
+  &>h1 {
+    margin: 0;
+    font-size: 36px;
+    line-height: 44px;
+    color: @title-color;
+  }
+  &>h2 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 36px;
+    color: @title-color;
+  }
+  &>h3 {
+    margin: 0;
+    font-size: 20px;
+    line-height: 28px;
+    color: @title-color;
+  }
+  &>ul {
+    list-style: none;
+    padding-left: 12px;
+    li {
+      position: relative;
+      height: 22px;
+      font-size: 14px;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 8px;
+        left: -12px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%; 
+        background: #000000;
+      }
+    }
+  }
+  &>table {
+    table-layout: fixed;
+    border-collapse: separate;
+    width: 100%;
+    border-top: 1px solid #DADFE3;
+    border-left: 1px solid #DADFE3;
+    code {
+      padding: 2px 4px;
+      margin: 0 2px;
+      border-radius: 4px;
+      background-color: #EAEAEA;
+    }
+
+    th, td {
+      box-sizing: border-box;
+      word-break: break-all;
+      vertical-align: middle;
+      position: relative;
+      font-size: 14px;
+      line-height: 20px;
+      padding: 11px 12px;
+      color: #333;
+      border: 1px solid #DADFE3;
+      border-left: none;
+      border-top: none;
+    }
+    th {
+      font-weight: 500;
+      background-color: #F8F9FA;
+    }
+    td {
+      background-color: #FFFFFF;
+    }
+  }
+}
+
+/**
+ * 模块
+ */
+.by-markdown {
+  &-card {
+    border: 1px solid #E4E9ED;
+    border-radius: 4px;
+    margin-bottom: 24px;
+
+    .by-markdown-desc {
+      &:nth-child(1) {
+        padding-top: 24px;
+      }
+    }
+
+    .by-markdown-html {
+      border-top: 1px dashed #E8E8E8;
+
+      & + .by-markdown-javascript, & + .by-markdown-js {
+        border: none;
+      }
+    }
+
+    .by-markdown-javascript, .by-markdown-js {
+      border-top: 1px dashed #E8E8E8;
+
+      &:nth-child(1) {
+        border: none;
+      }
+    }
+  }
+}
+
+/**
+ * 语言
+ */
+pre {
+  &.by-markdown {
+    &-topic, &-desc, &-html, &-javascript, &-js  {
+      margin: 0;
+    }
+  }
+}
+
+.by-markdown {
+  &-topic {
+    padding: 16px 24px;
+    font-size: 16px;
+    line-height: 22px;
+    color: @title-color;
+  }
+  &-desc {
+    padding: 0 24px 24px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #666666;
+    white-space: pre-wrap;
+  }
+  &-html {
+    padding: 16px;
+    color: #455a64;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  &-javascript, &-js {
+    padding: 16px;
+    color: #455a64;
+    border-radius: 4px;
+  }
+}
+
+/**
+ * 转换
+ */
+ .by-markdown {
+  &-mark {
+    padding: 2px 4px;
+    margin: 0 2px;
+    border-radius: 4px;
+    background-color: #EAEAEA;
+  }
+}
+
+/**
+ * 代码高亮
+ */
+ @doc-code-color: #333333;
+ @doc-orange: #BE9D63;
+ @doc-green: #69905C;
+ @doc-red: #DC5D6C;
+ 
+ .by-markdown-html, .by-markdown-javascript, .by-markdown-js {
+  .hljs {
+    display: block;
+    padding: 0.5em;
+    overflow-x: auto;
+    background: #fff;
+  }
+
+  .hljs-subst {
+    color: @doc-code-color;
+  }
+
+  .hljs-string,
+  .hljs-meta,
+  .hljs-symbol,
+  .hljs-template-tag,
+  .hljs-template-variable,
+  .hljs-addition {
+    color: @doc-orange;
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: #999;
+  }
+
+  .hljs-number,
+  .hljs-regexp,
+  .hljs-literal,
+  .hljs-bullet,
+  .hljs-link {
+    color: @doc-green;
+  }
+
+  .hljs-deletion,
+  .hljs-variable {
+    color: #88f;
+  }
+
+  .hljs-attr {
+    color: @doc-green;
+  }
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-title,
+  .hljs-section,
+  .hljs-built_in,
+  .hljs-doctag,
+  .hljs-type,
+  .hljs-name,
+  .hljs-selector-id,
+  .hljs-selector-class,
+  .hljs-strong {
+    color: @doc-red;
+  }
+
+  .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .hljs-attribute {
+    color: #e6550d;
+  }
+}
+ 

@@ -1,0 +1,175 @@
+@import '../style/common.less';
+.@{css-prefix}tag {
+  display: inline-block;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  padding: @tag-padding-base-vertical @tag-padding-base-horizontal;
+  border-radius: @border-radius-base;
+  border-width: 1px;
+  border-style: solid;
+  position: relative;
+  background-clip: padding-box;
+  &-default {
+    .tag-color(@tag-default-bg; @tag-default-bg; @text-color-1; @tag-default-close-fill);
+    &:hover {
+      .tag-color(@tag-default-bg; @tag-default-bg; @text-color-2; @tag-default-close-fill);
+    }
+  }
+  &-info {
+    .tag-color(@info-color; @info-color; @text-color-white; @text-color-white);
+    &:hover {
+      .tag-color(@info-color-3; @info-color-3; @text-color-white; @text-color-white);
+    }
+  }
+  &-primary {
+    .tag-color(@primary-color; @primary-color; @text-color-white; @text-color-white);
+    &:hover {
+      .tag-color(@primary-color-3; @primary-color-3; @text-color-white; @text-color-white);
+    }
+  }
+  &-success {
+    .tag-color(@success-color; @success-color; @text-color-white; @text-color-white);
+    &:hover {
+      .tag-color(@success-color-3; @success-color-3; @text-color-white; @text-color-white);
+    }
+  }
+   &-warning {
+    .tag-color(@warning-color; @warning-color; @text-color-white; @text-color-white);
+    &:hover {
+      .tag-color(@warning-color-3; @warning-color-3; @text-color-white; @text-color-white);
+    }
+  }
+   &-danger {
+    .tag-color(@danger-color; @danger-color; @text-color-white; @text-color-white);
+    &:hover {
+      .tag-color(@danger-color-3; @danger-color-3; @text-color-white; @text-color-white);
+    }
+
+  }
+  &-disabled {
+    cursor: not-allowed;
+    &.@{css-prefix}tag-default {
+      .tag-color(@tag-disabled-bg; @tag-disabled-bg; @tag-disabled-color; @tag-default-close-fill);
+    }
+    &.@{css-prefix}tag-info {
+      .tag-color(@info-color-4; @info-color-4; @text-color-white; @text-color-white);
+    }
+    &.@{css-prefix}tag-primary {
+      .tag-color(@primary-color-4; @primary-color-4; @text-color-white; @text-color-white);
+    }
+    &.@{css-prefix}tag-success {
+      .tag-color(@success-color-4; @success-color-4; @text-color-white; @text-color-white);
+    }
+    &.@{css-prefix}tag-warning {
+      .tag-color(@warning-color-4; @warning-color-4; @text-color-white; @text-color-white);
+    }
+    &.@{css-prefix}tag-danger {
+      .tag-color(@danger-color-4; @danger-color-4; @text-color-white; @text-color-white);
+    }
+    &.@{css-prefix}tag-closable {
+      .bui-tag-close {
+        cursor: not-allowed;
+      }
+    }
+  }
+  &-sm {
+    padding: @tag-padding-sm-vertical @tag-padding-sm-horizontal;
+    font-size: @font-size-sm;
+    line-height: @line-height-sm;
+  }
+  &-lg {
+    padding: @tag-padding-lg-vertical @tag-padding-lg-horizontal;
+  }
+  &-closable {
+    padding-right: @tag-closable-padding-right;
+    .bui-tag-close {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 8px;
+      cursor: pointer;
+    }
+    &.@{css-prefix}tag-sm {
+      .bui-tag-close {
+        .size(@font-size-base, @font-size-base);
+      }
+    }
+    &.@{css-prefix}tag-md, &.@{css-prefix}tag-lg {
+      .bui-tag-close {
+        .size(@font-size-lg, @font-size-lg);
+      }
+    }
+  }
+  &-plain {
+    &.@{css-prefix}tag-default {
+      .tag-color(@tag-plain-default-bg; @tag-plain-default-border; @text-color-1; @tag-default-close-fill);
+      &:hover {
+        .tag-color(@tag-plain-default-bg; @tag-plain-default-border; @text-color-2; @tag-default-close-fill);
+      }
+    }
+    &.@{css-prefix}tag-info {
+      .tag-color(@info-color-5; @info-color-4; @info-color; @info-color);
+      &:hover {
+        .tag-color(@info-color-5; @info-color-4; @info-color-3; @info-color-3);
+      }
+    }
+    &.@{css-prefix}tag-primary {
+      .tag-color(@primary-color-5; @primary-color-4; @primary-color; @primary-color);
+      &:hover {
+        .tag-color(@primary-color-5; @primary-color-4; @primary-color-3; @primary-color-3);
+      }
+    }
+    &.@{css-prefix}tag-success {
+      .tag-color(@success-color-5; @success-color-4; @success-color; @success-color);
+      &:hover {
+       .tag-color(@success-color-5; @success-color-4; @success-color-3; @success-color-3);
+      }
+    }
+    &.@{css-prefix}tag-warning {
+      .tag-color(@warning-color-5; @warning-color-4; @warning-color; @warning-color);
+      &:hover {
+       .tag-color(@warning-color-5; @warning-color-4; @warning-color-3; @warning-color-3);
+      }
+    }
+    &.@{css-prefix}tag-danger {
+      .tag-color(@danger-color-5; @danger-color-4; @danger-color; @danger-color);
+      &:hover {
+        .tag-color(@danger-color-5; @danger-color-4; @danger-color-3; @danger-color-3);
+      }
+    }
+    &.@{css-prefix}tag-disabled {
+      &.@{css-prefix}tag-default {
+        .tag-color(@tag-plain-default-disabled-bg; @tag-plain-default-disabled-border; @tag-plain-default-disabled-color; @tag-plain-default-disabled-color);
+      }
+      &.@{css-prefix}tag-info {
+        .tag-color(@info-color-5; @info-color-4; @info-color-4; @info-color-4);
+      }
+      &.@{css-prefix}tag-primary {
+        .tag-color(@primary-color-5; @primary-color-4; @primary-color-4; @primary-color-4);
+      }
+      &.@{css-prefix}tag-success {
+        .tag-color(@success-color-5; @success-color-4; @success-color-4; @success-color-4);
+      }
+      &.@{css-prefix}tag-warning {
+        .tag-color(@warning-color-5; @warning-color-4; @warning-color-4; @warning-color-4);
+      }
+      &.@{css-prefix}tag-danger {
+        .tag-color(@danger-color-5; @danger-color-4; @danger-color-4; @danger-color-4);
+      }
+      &.bui-tag-closable {
+        .bui-tag-close {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+.tag-color(@background; @border; @color; @close-fill) {
+  background-color: @background;
+  color: @color;
+  border-color: @border;
+  .bui-tag-close {
+    fill: @close-fill;
+  }
+
+}

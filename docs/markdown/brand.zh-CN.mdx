@@ -1,0 +1,99 @@
+# 定制品牌
+
+BUI 提供了默认的品牌名 <strong>byted-</strong>，用于 CSS 类名，组件注册名。为了定制需求(如防止样式前缀冲突)，BUI 提供了定制品牌名的能力。
+
+---
+
+## 定制方法
+
+### 步骤一 定义品牌名
+
+以 **vue-cli** 项目为例：
+
+:::card
+
+```topic
+main.js
+```
+
+```desc
+注意，ES module 不是动态解析，而是依赖模块优先执行。所以这里把设置 Vue 属性的代码单独抽成一个依赖。
+```
+
+```js
+import Vue from 'vue';
+import './brand';
+import bui from '@byted/by-design-m';
+import '@byted/by-design-m/es/index.less';
+
+Vue.use(bui);
+```
+
+:::
+
+:::card
+
+```topic
+brand.js
+```
+
+```js
+import brand from '@byted/by-design-m/es/brand';
+
+brand.setBrandName('brand-');
+```
+
+:::
+
+### 步骤二 修改样式变量
+
+:::card
+
+```topic
+vue-cli 配置，或 webpack 配置
+```
+
+```desc
+与主题定制类似，这里修改 Less 提供的 [modifyVars] 配置中的 prefix 变量即可。
+```
+
+```javascript
+module.exports = {
+  async chainWebpack(config) {
+    config.module
+      .rule('less')
+      .oneOf('normal')
+      .use('less-loader')
+      .loader('less-loader')
+      .options({
+        lessOptions: {
+          modifyVars: {
+            prefix: 'brand-',
+          },
+          javascriptEnabled: true,
+        },
+      });
+  },
+};
+```
+
+:::
+
+### 步骤三 增加 postcss-loader
+
+:::card
+
+```topic
+增加 postcss-loader，并引入对应 postcss.config.js
+```
+
+```desc
+通过 less 引用组件样式，会跳过组件库对样式的预处理。所以需要单独引入对应的预处理配置文件。
+下面仍然以 **vue-cli** 为例，vue-cli 自带的 webpack 配置会预先加入 postcss-loader，所以这里只需要提供 postcss.config.js 即可完成配置。
+```
+
+```javascript
+module.exports = require('@byted/by-design-m/postcss.config');
+```
+
+:::

@@ -1,0 +1,66 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}message {
+  padding: 6px;
+  text-align: center;
+  &:first-child {
+    margin-top: -6px;
+  }
+  .bui-message-content {
+    display: inline-block;
+    pointer-events: all;
+    background-color: @component-bg;
+    box-shadow: @shadow-md;
+    border-radius: @border-radius-base;
+    padding: @message-padding-base-vertical @message-padding-base-horizontal;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    color: @text-color-1;
+    .glyphicon-ok-circle {
+      color: @success-color;
+    }
+    .glyphicon-remove-circle {
+      color: @danger-color;
+    }
+  }
+  .bui-message-icon{
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+    &+.bui-message-text{
+      margin-left: @message-text-margin-left;
+    }
+  }
+  .bui-message-text{
+    display: inline-block;
+  }
+  &-info {
+    .bui-message-icon{
+      fill: @info-color;
+    }
+  }
+  &-success {
+    .bui-message-icon{
+      fill: @success-color;
+    }
+  }
+  &-warning {
+    .bui-message-icon{
+      fill: @warning-color;
+    }
+  }
+  &-error {
+    .bui-message-icon{
+      fill: @danger-color;
+    }
+  }
+}
+#bui_message_container{
+  position: fixed;
+  z-index: @message-z-index;
+  width: 100%;
+  top: 16px;
+  left: 0;
+  pointer-events: none;
+}

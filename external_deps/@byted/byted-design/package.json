@@ -1,0 +1,152 @@
+{
+  "name": "@byted/byted-design",
+  "version": "1.9.7",
+  "description": "The common used frontend library for ByteDance.",
+  "main": "./dist/bytedanceui.all.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "_unpkg": true,
+  "unpkgFiles": [
+    "dist"
+  ],
+  "typings": "./types/index.d.ts",
+  "scripts": {
+    "dev": "NODE_ENV=develop webpack-dev-server --disableHostCheck=true --config build --host 0.0.0.0 --progress --colors",
+    "build:lib": "rm -rf lib && npm run build:component && npm run build:css && npm run build:utils && npm run build:utils-vue",
+    "build:css": "node build/bin/gen-cssfile && cp -rf less.new/ lib/style/ && gulp build --gulpfile build/bin/gulpfile.js && node build/bin/build-style-entry.js && node build/bin/build-component-dark.js",
+    "build:utils": "BABEL_ENV=utils babel locale --out-dir lib/locale && BABEL_ENV=utils babel directives --out-dir lib/directives && BABEL_ENV=utils babel utils --out-dir lib/utils && BABEL_ENV=utils babel mixins --out-dir lib/mixins && BABEL_ENV=utils babel components/base.js --out-dir lib/",
+    "build:component": "NODE_ENV=component webpack --config build",
+    "build:utils-vue": "NODE_ENV=utilsVue webpack --config build",
+    "build-split": "NODE_ENV=production webpack --config build",
+    "build-all": "NODE_ENV=production-all webpack --config build",
+    "deploy-offline": "npm run doc-offline && zip -r index.zip docs && echo \"压缩成功！\"&& curl -H \"x-larkcloud-token:mrdwvor\" -H \"Content-Type: multipart/form-data\" -X POST -F file=@index.zip -F type=\"upload\" -F desc=\"NPM命令行上传\" https://cloudapi.bytedance.net/api/v1/baas/token/ttd3yo32vzqce7m3y5/deploy && rm index.zip",
+    "build-locale": "node ./build/build-locale.js",
+    "build": "npm run build-split && npm run build-all  && npm run build-locale && npm run build:component && npm run build:lib && npm run doc",
+    "doc": "NODE_ENV=doc webpack --config build --progress",
+    "doc-offline": "NODE_ENV=doc-offline webpack --config build --progress",
+    "doc-zip": "npm run doc-offline && zip -r index.zip docs && echo \"压缩成功！\""
+  },
+  "peerDependencies": {
+    "vue": ">2.2.0"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{js,vue}": [
+        "eslint --fix",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "./node_modules/**",
+      "./dist/**",
+      "./lib/**",
+      "./docs/dist/**"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "gitr:ad/bytedance-ui"
+  },
+  "publishConfig": {
+    "registry": "http://bnpm.byted.org/"
+  },
+  "author": "bytedanceui",
+  "license": "MIT",
+  "dependencies": {
+    "@byte-design/color-palette": "./external_deps/@byte-design/color-palette",
+    "async-validator": "^1.10.0",
+    "clipboard": "^2.0.4",
+    "cropperjs": "^1.5.1",
+    "dayjs": "^1.8.29",
+    "deepmerge": "^4.2.2",
+    "element-resize-detector": "^1.1.15",
+    "markdown-it-container": "^2.0.0",
+    "perfect-scrollbar": "^1.4.0",
+    "popper.js": "^1.16.1",
+    "resize-observer-polyfill": "^1.5.0",
+    "tinycolor2": "^1.4.1"
+  },
+  "devDependencies": {
+    "@ad/athena-survey": "^1.0.59",
+    "@byted/select-staff": "^0.4.0",
+    "autoprefixer": "^9.6.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-module-resolver": "^2.2.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cheerio": "^1.0.0-rc.3",
+    "clean-webpack-plugin": "^0.1.18",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^0.28.9",
+    "cssjson": "^2.1.3",
+    "csso": "^4.0.3",
+    "dependency-tree": "^7.2.1",
+    "element-resize-detector": "^1.1.15",
+    "eslint": "^5.15.3",
+    "eslint-config-google": "^0.11.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-vue": "^4.7.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "file-save": "^0.2.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "fs-extra": "^8.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-string-replace": "^1.1.2",
+    "hard-source-webpack-plugin": "^0.12.0",
+    "highlight.js": "^9.15.6",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^2.30.1",
+    "husky": "^1.2.0",
+    "less": "~3.9.0",
+    "less-loader": "^4.1.0",
+    "lint-staged": "^8.1.5",
+    "lodash.isequal": "^4.5.0",
+    "lodash.throttle": "^4.1.1",
+    "lz-string": "^1.4.4",
+    "markdown-it": "^8.4.1",
+    "postcss-loader": "^3.0.0",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "resize-observer-polyfill": "^1.5.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "vue": "^2.6.10",
+    "vue-loader": "^14.2.3",
+    "vue-markdown-loader": "^2.4.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^3.12.0",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^2.11.3",
+    "webpack-merge": "^4.1.4",
+    "webpack-monitor": "^1.0.13",
+    "webpack-node-externals": "^1.7.2",
+    "webpack-sources": "^1.4.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "browserslist": [
+    "> 0.5% in CN",
+    "last 2 versions",
+    "Chrome >= 57",
+    "Firefox >= 54",
+    "Safari >= 10",
+    "IE >= 11",
+    "Edge >= 17"
+  ]
+}

@@ -1,0 +1,64 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}layout {
+  display: flex;
+  flex-direction: column;
+  flex-basis: auto;
+  flex: 1;
+  &-has-sider {
+    flex-direction: row;
+    > .@{css-prefix}layout,
+    > .@{css-prefix}layout-content {
+      overflow-x: hidden;
+    }
+  }
+  &-header, &-footer {
+    flex: 0 0 auto;
+    background-color: @layout-bg;
+  }
+  &-header {
+    min-height: 64px;
+  }
+  &-sider {
+    position: relative;
+    overflow: auto;
+    flex-shrink: 0;
+    background-color: @layout-bg;
+  }
+  &-content {
+    position: relative;
+    flex: 1;
+    flex-basis: auto;
+    overflow: auto;
+  }
+  .layout-body {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    .layout-nav {
+      width: @layout-nav-width;
+      background-color: @layout-nav-bg;
+      overflow: auto;
+      height: calc(~"100vh - 60px");
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav-item {
+      }
+
+      .nav-sub-item {
+      }
+    }
+
+    .layout-content {
+      position: relative;
+      flex: 1;
+      overflow: auto;
+      height: calc(~"100vh - 60px");
+      background-color: @layout-content-bg;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+# 自定义头部
+
+### 安装
+
+:::card
+
+```javascript
+import { Header } from '@byted/by-design-m';
+
+Vue.use(Header);
+```
+
+:::
+
+## 代码演示
+
+:::card
+
+```topic
+基本用法
+```
+
+```html
+<byted-header title="Title" @click-left="onClickLeft" />
+```
+
+```javascript
+export default {
+  methods: {
+    onClickLeft() {
+      Toast('Back');
+    },
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+顶部固定
+```
+
+```html
+<byted-header title="Title" fixed @click-left="back" />
+```
+
+:::
+
+:::card
+
+```topic
+无返回按钮
+```
+
+```html
+<byted-header title="ByDesign" :left-arrow="false" />
+```
+
+:::
+
+:::card
+
+```topic
+自定义按钮
+```
+
+```html
+<byted-header title="ByDesign">
+  <byted-button slot="left" text="取消" type="text" />
+  <byted-button slot="right" text="确定" type="text" />
+</byted-header>
+```
+
+:::
+
+:::card
+
+```topic
+样式风格
+```
+
+```html
+<byted-header title="Title" type="primary" />
+```
+
+:::
+
+:::card
+
+```topic
+高级用法
+```
+
+```html
+<byted-header title="Title">
+  <byted-icon name="check-one" slot="left" />
+  <byted-icon name="radio-uncheck" slot="right" />
+</byted-header>
+<byted-header title="ByDesign" type="primary">
+  <byted-header-tabs v-model="type">
+    <byted-header-tab title="字节跳动" :name="0" />
+    <byted-header-tab name="1"> 巨量引擎 </byted-header-tab>
+  </byted-header-tabs>
+</byted-header>
+```
+
+:::
+
+## API
+
+### Props
+
+| Attribute  | Description                                      | Type      | Default   |
+| ---------- | ------------------------------------------------ | --------- | --------- |
+| type       | Can be set to `primary`                          | `string`  | `default` |
+| title      | Title                                            | `string`  | `''`      |
+| left-arrow | Whether to show left arrow                       | `boolean` | `false`   |
+| border     | when `type` === `default` Whether to show border | `boolean` | `true`    |
+| fixed      | Whether to fixed top                             | `boolean` | `false`   |
+
+### Slots
+
+| Name  | Description               |
+| ----- | ------------------------- |
+| title | Custom title              |
+| left  | Custom left side content  |
+| right | Custom right side content |
+
+### Events
+
+| Event       | Description                       | Arguments |
+| ----------- | --------------------------------- | --------- |
+| click-left  | Triggered when click left button  | -         |
+| click-right | Triggered when click right button | -         |

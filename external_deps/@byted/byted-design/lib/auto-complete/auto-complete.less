@@ -1,0 +1,15 @@
+@import '../style/common.less';
+@import './../style/components/list-item.less';
+.byted-auto-complete {
+  // 处理 size = 'xs' 时候搜索框与按钮不在同一水平的问题
+  font-size: 0;
+  .bui-btn {
+    min-width: 0;
+  }
+  .byted-input-append .byted-icon {
+    vertical-align: -2px;
+    + span {
+      margin-left: 4px;
+    }
+  }
+}

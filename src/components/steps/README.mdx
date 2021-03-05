@@ -1,0 +1,74 @@
+# 按钮
+
+### 安装
+
+:::card
+
+```javascript
+import { Steps } from '@byted/by-design-m';
+
+Vue.use(Steps);
+Vue.use(Step);
+```
+
+:::
+
+## 代码演示
+
+:::card
+
+```topic
+水平版
+```
+
+```html
+<byted-steps style="margin-bottom: 24px" :current="current" @change="handleClick">
+  <byted-step v-for="item in steps" :key="item.title" v-bind="item"></byted-step>
+</byted-steps>
+
+<byted-steps :current="current" @change="handleClick" labelDirection="vertical">
+  <byted-step v-for="item in steps" :key="item.title" v-bind="item"></byted-step>
+</byted-steps>
+```
+
+:::
+
+:::card
+
+```topic
+垂直版
+```
+
+```html
+<byted-steps
+  style="height: 300px; margin-right: 100px"
+  direction="vertical"
+  :current="current"
+  @change="handleClick"
+>
+  <byted-step v-for="item in steps" :key="item.title" v-bind="item"></byted-step>
+</byted-steps>
+
+<byted-steps
+  style="height: 300px"
+  direction="vertical"
+  labelDirection="vertical"
+  :current="current"
+  @change="handleClick"
+>
+  <byted-step v-for="item in steps" :key="item.title" v-bind="item"></byted-step>
+</byted-steps>
+```
+
+:::
+
+## API
+
+### Props
+
+| 参数      | 说明                                                        | 默认值       |
+| --------- | :---------------------------------------------------------- | :----------- |
+| current   | Number                                                      | 1            |
+| status    | String 枚举值：'error', 'finished', 'waiting', 'inprogress' | 'inprogress' |
+| direction | String 枚举值：'horizontal', 'vertical'                     | 'horizontal' |
+| onChange  | (index) => void, index 为被点击的 step index                | undefinded   |

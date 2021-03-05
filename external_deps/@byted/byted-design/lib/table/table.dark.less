@@ -1,0 +1,342 @@
+
+  @import '../style/common.less';
+  @import '../style/variables.dark.less';
+  .@{css-prefix}table {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-color: @border-color-split;
+  border-right: none;
+  border-bottom: none;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: @border-color-split;
+    z-index: 1;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    background: @border-color-split;
+    z-index: 1;
+  }
+  table {
+    table-layout: fixed;
+    border-collapse: separate;
+    width: 100%;
+    tr {
+      th, td {
+        box-sizing: border-box;
+        word-break: break-all;
+        position: relative;
+        font-size: @font-size-sm;
+        line-height: @line-height-sm;
+        color: @text-color-1;
+        border: 1px solid;
+        border-color: @border-color-split;
+        border-left: none;
+        border-top: none;
+        padding: 0;
+        &.bui-table-th-pointer {
+          cursor: pointer;
+        }
+        .bui-table-ceil {
+          text-align: left;
+          padding: 13px 16px;
+          justify-content: flex-start;
+          &-right {
+            text-align: right;
+          }
+          &-center {
+            text-align: center;
+          }
+          &-text {
+            width: 100%;
+          }
+          .bui-table-ceil-expand-icon {
+            cursor: pointer;
+            fill: @text-color-3;
+            width: 16px;
+            height: 16px;
+            // transform: rotate(90deg);
+            &-open{
+              cursor: pointer;
+              transform: rotate(90deg);
+              fill: @text-color-2;
+            }
+          }
+        }
+      }
+      th {
+        font-weight: @font-weight-xl;
+        background-color: @table-thead-bg;
+        &.bui-table-th-hidden {
+          visibility: hidden;
+        }
+        .bui-table-th-resize {
+          position: absolute;
+          top: 0;
+          bottom:0;
+          right: -1px;
+          width: 5px;
+          z-index: @table-th-resize-zindex;
+          cursor: col-resize;
+        }
+        &.bui-table-summary-ceil {
+          white-space: nowrap;
+        }
+      }
+      td{
+        background-color: @table-tbody-bg;
+        &.bui-table-td-expand {
+          padding: 0;
+        }
+      }
+      &.bui-table-tr-active {
+        td {
+          background-color: @table-tr-active-bg;
+        }
+      }
+      &.bui-table-tr-expand-hidden {
+        visibility: hidden;
+      }
+    }
+  }
+  .bui-table-resizeline {
+    position:absolute;
+    top: 0;
+    bottom:0;
+    border-left: 1px solid @primary-color;
+    z-index: @table-th-resize-zindex;
+  }
+  .bui-table-wrapper {
+    color: @text-color-1;
+    font-size: @font-size-sm;
+    background-color: @table-wrapper-bg;
+    box-sizing: border-box;
+    position: relative;
+    .bui-table-header {
+      overflow: hidden;
+      border-color: @border-color-split;
+      &-icon-wrapper {
+        display: inline-block;
+        margin-left: 4px;
+        vertical-align: bottom;
+        margin-bottom: 6px;
+        cursor: pointer;
+        position: relative;
+        line-height: 0;
+        .bui-table-sort-icon {
+          display: block;
+          width: 12px;
+          height: 12px;
+          margin-bottom: -5px;
+          fill: @text-color-3;
+          &-active {
+            fill: @primary-color;
+          }
+        }
+        .sort-icon-desc {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .bui-table-body{
+      position: relative;
+      overflow: auto;
+    }
+    .bui-table-fixed-left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      box-shadow: @table-fixed-left-shadow;
+      overflow: hidden;
+      z-index: @table-fixed-table-zIndex;      
+      &__ceiling {
+        .bui-table-fixed-header {
+          box-shadow: @table-fixed-left-shadow;
+        }
+      }
+    }
+    .bui-table-fixed-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      box-shadow: @table-fixed-right-shadow;
+      overflow: hidden;
+      box-sizing: border-box;
+      z-index: @table-fixed-table-zIndex;
+      &__ceiling {
+        .bui-table-fixed-header {
+          box-shadow: @table-fixed-right-shadow;
+        }
+      }
+    }
+    .bui-table-fixed-right-header {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: @table-thead-bg;
+      border: 1px solid;
+      border-color: @border-color-split;
+      border-left: none;
+      border-top: none;
+    }
+    .bui-table-fixed-header {
+      border-color: @border-color-split;
+      &,
+      table tr th {
+        background-color: @table-fixed-thead-bg;
+      }
+    }
+    .bui-table-fixed-body {
+      overflow: hidden;
+      background-color: @table-fixed-tbody-bg;
+    }
+    .bui-table-scrolling-left~.bui-table-fixed-left {
+      box-shadow: none;
+      &__ceiling {
+        .bui-table-fixed-header {
+          box-shadow: none;
+        }
+      }
+    }
+    .bui-table-scrolling-right~.bui-table-fixed-right {
+      box-shadow: none;
+      &__ceiling {
+        .bui-table-fixed-header {
+          box-shadow: none;
+        }
+      }
+    }
+    .bui-table-overflow-x {
+      overflow-x: scroll;
+    }
+    .bui-table-overflow-y {
+      overflow-y: scroll;
+    }
+    .bui-table-no-data .bui-table-no-data-text{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 13px 16px;
+    }
+    .bui-table-body, .bui-table-fixed-body {
+      
+      .bui-table-tr {
+        position: relative;
+        background-color: @table-tbody-bg;
+        // font-size: @font-size-sm;
+        // line-height: @line-height-sm;
+        font-size: 0;
+      }
+      .bui-table-tr-active {
+        background-color: @list-hover-bg;
+      }
+      .bui-table-column {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 13px 16px;
+        color: @text-color-1;
+        border: 1px solid ;
+        border-color: @border-color-split;
+        border-left: none;
+        border-top: none;
+        vertical-align: top;
+        overflow: hidden;
+        word-break: break-all;
+        font-size: @font-size-sm;
+        line-height: @line-height-sm;
+        &.bui-table-td-hidden {
+          visibility: hidden;
+        }
+        &.bui-table-td-expand {
+          padding: 0;
+          width: 100%;
+        }
+        .bui-table-th-pointer {
+          cursor: pointer;
+        }
+        .bui-table-ceil {
+          width: 100%;
+          text-align: left;
+          &-right {
+            text-align: right;
+          }
+          &-center {
+            text-align: center;
+          }
+          .bui-table-ceil-expand-icon {
+            cursor: pointer;
+            fill: @text-color-3;
+            width: 16px;
+            height: 16px;
+            // transform: rotate(90deg);
+            &-open{
+              cursor: pointer;
+              transform: rotate(90deg);
+              fill: @text-color-2;
+            }
+          }
+        }
+      }
+      
+    }
+  }
+  &-no-border {
+    border: none;
+    &:after {
+      display: none;
+    }
+    table tr {
+      th, td {
+        border-right: transparent!important;
+      }
+    }
+    .bui-table-column {
+      border-right: transparent !important;
+    }
+  }
+  &-cellspacing-border {
+    border-left: none;
+    &:after {
+      display: none;
+    }
+    .bui-table-header table tr,
+    .bui-table-body table tr,
+    .bui-table-fixed-right .bui-table-fixed-header table tr,
+    .bui-table-fixed-right .bui-table-fixed-body table tr{
+      th, td {
+        &:last-child {
+          border-right: transparent;
+        }
+      }
+      
+    }
+    .bui-table-header,
+    .bui-table-body,
+    .bui-table-fixed-right .bui-table-fixed-header,
+    .bui-table-fixed-right .bui-table-fixed-body{
+      .bui-table-column {
+        &:last-child {
+           border-right: transparent !important;
+        }
+      }
+    }
+  }
+}

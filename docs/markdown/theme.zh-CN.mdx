@@ -1,0 +1,132 @@
+# 定制主题
+
+BUI 提供了一套默认主题，CSS 命名采用 BEM 的风格，方便使用者覆盖样式。点击屏幕右下方，可自定义并预览主题。
+
+---
+
+## 定制方法
+
+- 详细 <strong>less</strong> 变量请参考此路径文件`'@byted/by-design-m/es/style/var.less'`。
+- 主题定制要求使用方引入组件库 <strong>less</strong> 源文件，并安装`less-loader`
+
+### 步骤一 引入样式源文件
+
+##### 手动引入样式
+
+:::card
+
+```javascript
+// 引入全部样式
+import '@byted/by-design-m/lib/index.less';
+
+// 引入单个组件样式
+import '@byted/by-design-m/lib/components/button/style/less';
+```
+
+:::
+
+##### 按需引入样式（推荐）
+
+:::card
+```desc
+`babel.config.js`配置插件`babel-plugin-import`，注意 Babel6 不支持按需引入样式，请手动引入样式
+```
+```html
+plugins: [
+  [
+    'import',
+    {
+      libraryName: '@byted/by-design-m',
+      libraryDirectory: 'es/components',
+    }
+  ]
+]
+```
+:::
+
+### 步骤二 修改样式变量
+
+:::card
+```desc
+使用 Less 提供的 [modifyVars] 即可对变量进行修改。webpack 配置：
+```
+```javascript
+module.exports = {
+  rules: [
+    {
+      test: /\.less$/,
+      use: [
+        {
+          loader: 'less-loader',
+          options: {
+            javascriptEnabled: true,
+            modifyVars: {
+              '@primary-color': '#000000',
+            },
+          },
+        },
+      ],
+    },
+  ],
+};
+```
+:::
+
+## 使用导出 var.json 配置主题
+
+:::card
+
+```desc
+点击屏幕右下角主题设置按钮， 可在线设置并预览主题，将导出的 var.json 传入 modifyVars 即可
+```
+
+```javascript
+const vars = require('./config/theme/var.json');
+
+module.exports = {
+  rules: [
+    {
+      test: /\.less$/,
+      use: [
+        {
+          loader: 'less-loader',
+          options: {
+            javascriptEnabled: true,
+            modifyVars: vars,
+          },
+        },
+      ],
+    },
+  ],
+};
+```
+:::
+
+## 抖音主题安装
+
+```javascript
+npm install @byted/byted-ui-m-theme
+```
+:::card
+
+```javascript
+const { aweme } = require('@byted/byted-ui-m-theme');
+
+module.exports = {
+  rules: [
+    {
+      test: /\.less$/,
+      use: [
+        {
+          loader: 'less-loader',
+          options: {
+            javascriptEnabled: true,
+            modifyVars: aweme,
+          },
+        },
+      ],
+    },
+  ],
+};
+```
+:::

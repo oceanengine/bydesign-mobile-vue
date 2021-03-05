@@ -1,0 +1,470 @@
+# Radio
+
+### Install
+
+:::card
+
+```javascript
+import { Radio, RadioGroup } from '@byted/by-design-m';
+
+Vue.use(Radio).use(RadioGroup);
+```
+
+:::
+
+## Usage
+
+:::card
+
+```topic
+Basic Usage
+```
+
+```html
+<byted-radio-group v-model="radio">
+  <byted-radio value="1">radio 1</byted-radio>
+  <byted-radio value="2">radio 2</byted-radio>
+  <byted-radio value="3">radio 3</byted-radio>
+</byted-radio-group>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      radio: '1',
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+Style Usage
+```
+
+```html
+<byted-radio-group v-model="radio" type="dot">
+  <byted-radio value="1">radio 1</byted-radio>
+  <byted-radio value="2">radio 2</byted-radio>
+  <byted-radio value="3">radio 3</byted-radio>
+</byted-radio-group>
+<byted-radio-group v-model="radio" type="hook">
+  <byted-radio value="1">radio 1</byted-radio>
+  <byted-radio value="2">radio 2</byted-radio>
+  <byted-radio value="3">radio 3</byted-radio>
+</byted-radio-group>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      radio: '2',
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+Size Usage
+```
+
+```html
+<byted-radio-group v-model="radio" type="dot">
+  <byted-radio value="1" size="small">radio 1</byted-radio>
+  <byted-radio value="2">radio 2</byted-radio>
+  <byted-radio value="3" size="large">radio 3</byted-radio>
+</byted-radio-group>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      radio: '1',
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+Disabled
+```
+
+```html
+<byted-radio-group v-model="radio" disabled>
+  <byted-radio value="1">radio 1</byted-radio>
+  <byted-radio value="2">radio 2</byted-radio>
+</byted-radio-group>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      radio: '1',
+    };
+  },
+};
+```
+
+:::
+
+:::card
+
+```topic
+Async Usage
+```
+
+```html
+<byted-radio-group :value="radio" @input="onInput" @click="onClick" @change="onChange">
+  <byted-radio value="1">radio 1</byted-radio>
+  <byted-radio value="2">radio 2</byted-radio>
+  <byted-radio value="3">radio 3</byted-radio>
+</byted-radio-group>
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      radio: '1',
+    };
+  },
+  methods: {
+    onInput(value) {
+      console.log('input');
+      this.$confirm(`Do you wang to chose ${value}？`)
+        .then(() => {
+          this.radio = value;
+        })
+        .catch(() => {
+          //
+        });
+    },
+    onClick() {
+      console.log('click');
+    },
+    onChange(value) {
+      console.log('change', value);
+    },
+  },
+};
+```
+
+:::
+
+## API
+
+### Radio Props
+
+| Attribute       | Description                    | Type      | Default  |
+| --------------- | ------------------------------ | --------- | -------- | --------- | ------- |
+| disabled        | Disabled                       | `boolean` | `false`  |
+| label-position  | Can be set to `left`           | `string`  | `right`  |
+| size            | Size                           | `string`  | `small`  | `normal`  | `large` |
+| type            | Type: `default`、`dot`、`hook` |           | `string` | `default` |
+| stopPropagation | stopPropagation                | `boolean` | `false`  |
+
+### RadioGroup Props
+
+| Attribute | Description                              | Type                 | Default  |
+| --------- | ---------------------------------------- | -------------------- | -------- | --------- | ------- |
+| value     | Name of checked radio                    | `string` or `number` | -        |
+| disabled  | Diable all radios                        | `boolean`            | `false`  |
+| size      | Size                                     | `string`             | `small`  | `normal`  | `large` |
+| type      | Type: `default`、`dot`、`hook`、`circle` |                      | `string` | `default` |
+
+## Events
+
+### RadioGroup Events
+
+| Event      | Description                  | Parameters    |
+| ---------- | ---------------------------- | ------------- |
+| change     | Triggered when value changed | current value |
+| input      | when you use async           | value         |
+| click      | click                        | event         |
+| touchstart | touchstart                   | event         |
+
+# checker
+
+### Install
+
+:::card
+
+```javascript
+import { Checker, CheckerItem } from '@byted/by-design-m';
+
+Vue.use(Checker).use(CheckerItem);
+```
+
+:::
+
+## Usage
+
+:::card
+
+```topic
+Type Radio
+```
+
+```desc
+inputType is 'radio'. value must be String or Number
+```
+
+```html
+<byted-checker v-model="checkerRadio" inputType="radio">
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+```javascript
+data() {
+  return {
+    checkerRadio: 0,
+  }
+}
+```
+
+:::
+
+:::card
+
+```topic
+Radio Async
+```
+
+```desc
+inputType is radio，@input + value
+```
+
+```html
+<byted-checker inputType="radio" :value="checkerAsync" @input="onInput">
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+```javascript
+data() {
+  return {
+    checkerAsync: 0,
+  }
+},
+methods: {
+  onInput(value) {
+    this.$confirm(`Do you want to chose ${value}？`).then(() => {
+      this.checkerAsync = value;
+    }).catch(() => {
+      //
+    });
+  }
+}
+```
+
+:::
+
+:::card
+
+```topic
+Basic Scope
+```
+
+```html
+<byted-checker v-model="checkerRadio" round>
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+:::
+
+:::card
+
+```topic
+Basic Style
+```
+
+```html
+<byted-checker v-model="checkerStyle" inputType="radio" type="primary">
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+```javascript
+data() {
+  return {
+    checkerStyle: 0
+  }
+}
+```
+
+:::
+
+:::card
+
+```topic
+Show Info
+```
+
+```html
+<byted-checker v-model="checkerInfo" input-type="radio" round>
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="Large" :value="0" info="ok" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="Small" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="Group" value="2" :info="3" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+:::
+
+:::card
+
+```topic
+Disabled
+```
+
+```html
+<byted-checker v-model="checkerInfo" input-type="radio" round>
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" disabled />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+:::
+
+:::card
+
+```topic
+Set Size
+```
+
+```html
+<byted-checker v-model="checkerSize" input-type="radio">
+  <byted-row gutter="10">
+    <byted-col span="8">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="8">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+
+<byted-checker v-model="checkerSizeSmall" input-type="radio" type="primary" round size="small">
+  <byted-row gutter="10">
+    <byted-col span="6">
+      <byted-checker-item label="0" :value="0" />
+    </byted-col>
+    <byted-col span="6">
+      <byted-checker-item label="1" value="1" />
+    </byted-col>
+    <byted-col span="6">
+      <byted-checker-item label="2" value="2" />
+    </byted-col>
+    <byted-col span="6">
+      <byted-checker-item label="3" value="3" />
+    </byted-col>
+  </byted-row>
+</byted-checker>
+```
+
+:::
+
+## API
+
+### Checker Props
+
+| Attribute | Description                             | Type     | Default    |
+| --------- | --------------------------------------- | -------- | ---------- |
+| inputType | Can be set to `radio`                   | `string` | `checkbox` |
+| value     | Can be set to `Array` `String` `Number` | `array`  | `[]`       |
+| type      | Can be set to `primary`                 | `string` | `default`  |
+| size      | Can be set to `small` `normal`          | `string` | `normal`   |
+
+### CheckerItem Props
+
+| Attribute | Description                 | Type                      | Default |
+| --------- | --------------------------- | ------------------------- | ------- |
+| value     | Type Array String or Number | `array` `string` `number` | `[]`    |
+| label     | label as content            | `string`                  | `''`    |
+| name      | name                        | `string`                  | `''`    |
+| info      | show info                   | `string`                  | `''`    |
+
+### Events
+
+| Event      | Description        | Arguments |
+| ---------- | ------------------ | --------- |
+| change     | when value changed | value     |
+| input      | when you use async | value     |
+| click      | click              | event     |
+| touchstart | touchstart         | event     |
