@@ -1,56 +1,27 @@
-#### 本地运行 node 8+
+<p align="center">
+  <img alt="logo" src="https://s2.pstatp.com/cdn/expire-1-d/byted-creative-app/static/ByDesign-logo.svg" />
+</p>
 
+<h1 align="center">ByDesign Mobile Vue</h1>
+
+<p align="center">ByDesign Mobile Vue 是基于 ByDesign 设计体系的移动端组件库。</p>
+
+## 本地运行 node 8+
+
+```javascript
+yarn
+yarn dev
 ```
-npm i
-npm run dev
-```
 
-这样项目就在
-http://0.0.0.0:8080/下运行了
-文档路径对应目录路径
-例如: components/button/demo 访问 http://0.0.0.0:8080/button
+## 特性
 
-#### 目录说明
+* 提供 35 个高质量组件，覆盖移动端各类场景
+* 组件单元测试覆盖率达 90%，为稳定性提供保障
+* 支持国际化，兼容 Vue-i18n，支持 16 种语言
+* 支持自定义品牌名称
+* 支持TypeScript
+* 支持主题定制
+* 支持按需引入
 
-> src: 项目文件
-
-- components/ -----组件目录
-- locale/ -----国际化语言设置
-- mixins/ -----公有 mixins
-- style/ -----less 全局变量入口
-- util/ -----工具库
-- index.less -----入口 css 文件, 自动生成(由 build/build-entry.js)
-- index.ts -----入口 js 文件, 自动生成(由 build/build-entry.js)
-
-> components: 组件名同目录名成
-
-- demo/ -----使用展示说明
-- index.less -----组件 less
-- index.(tsx|js) --组件入口
-- README.md -----组件说明文档
-
-  注意:demo 和 README.md 尽量补充其一说明组件使用规范
-
-> style: 公有 less 目录
-
-- mixin/ 为全局 less 函数
-- rem reset 已完成
-- var animation transition 等待开发中补充
-- root 不用处理
-
-#### 代码规范说明
-
-- eslint 校验 src/ext .js,.ts,.tsx,.vue
-- stylelint 校验 src/\*_/_.less
-
-检验规则配置 分别在 .eslintrc.js 和 .stylelintrc
-规则可以改变-开发者商议决定
-
-#### px 转 rem
-
-说明: 开发使用 px,编译会自动转 rem 比例配置 postcss.config.js 中 remUnit
-不需要转换的增加备注 /_ no _/
-
-#### 提交代码
-
-使用 npm run ct 提交代码，以统一 commit message 格式
+## 开源协议
+ByDesign Mobile Vue 基于MIT协议，可自由参与开源。
